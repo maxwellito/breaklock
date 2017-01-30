@@ -13,9 +13,17 @@
     <div class="intro">
       <h2>MasterLock</h2>
       <h3>Try to find the pattern to unlock.</h3>
+      <img src="lock.svg" alt="" width="100px">
     </div>
     <div class="game">
     </div>
 
+
+    <script src="scripts/pattern.js"></script>
+    <script>
+      var xx = new Pattern(4);
+      xx.fillRandomly()
+      document.body.appendChild(xx.generateSVG())
+    </script>
   </body>
 </html>

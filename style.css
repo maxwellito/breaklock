@@ -1,0 +1,10 @@
+html, body {
+  font-family: 'Andale Mono', monospace;
+  margin: 0;
+  padding: 0;
+  background: #21252B;
+  color: #fff;
+}
+a {
+  color: inherit;
+}
