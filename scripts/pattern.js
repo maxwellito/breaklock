@@ -1,5 +1,5 @@
 /**
- * Class Pattern
+ * Pattern class
  * a pattern is a object representation of a combinaison.
  * The amount of dot is specified in the constructor, it's
  * not linked to the class itself.
@@ -20,9 +20,8 @@ class Pattern {
    * Fill the current instance with random values
    */
   fillRandomly () {
-    this.count = 0
     while (!this.isComplete()) {
-      this.addPoint(Math.floor(Math.random() * 9))
+      this.addDot(Math.floor(Math.random() * 9))
 
     }
   }
@@ -32,17 +31,10 @@ class Pattern {
    * @param {int} dotIndex Dot index to add
    * @return boolean True if successfully added
    */
-  addPoint (dotIndex) {
-
-    console.log(dotIndex, this.suite)
-    this.count++
-    if (this.count > 20) {
-      debugger
-    }
-
-
+  addDot (dotIndex) {
+    // Test if the dot can be added
     if (this.isComplete() || ~this.suite.indexOf(dotIndex))
-      return false;
+      return [];
 
     // Test for potential median dot
     let lastDot = this.suite[this.suite.length - 1],
@@ -52,12 +44,16 @@ class Pattern {
         medianDot >> 0 === medianDot &&
         (lastDot%3) - (medianDot%3) === (medianDot%3) - (dotIndex%3) &&
         Math.floor(lastDot/3) - Math.floor(medianDot/3) === Math.floor(medianDot/3) - Math.floor(dotIndex/3)) {
-      this.addPoint(medianDot)
-      return !!(!this.isComplete() && this.suite.push(dotIndex))
+      let addedPoints = this.addDot(medianDot)
+      if (!this.isComplete()) {
+        this.suite.push(dotIndex)
+        addedPoints.push(dotIndex)
+      }
+      return addedPoints
     }
 
     this.suite.push(dotIndex)
-    return true
+    return [dotIndex]
   }
 
   /**
@@ -68,14 +64,29 @@ class Pattern {
     return this.suite.length >= this.dotLength
   }
 
+  /**
+   * Checks if a dot is already in the pattern
+   * @param  {int} dotIndex Index to check
+   * @return {boolean}
+   */
+  gotDot (dotIndex) {
+    return ~this.suite.indexOf(dotIndex)
+  }
 
+  /**
+   * Reset the pattern by removing all the dots
+   */
+  reset () {
+    this.suite = []
+  }
 
-
+  /**
+   * Generate the standard thumbnail for a pattern
+   * @return {SVGDOMelement}
+   */
   generateSVG () {
-
     let svgDom = document.createElementNS('http://www.w3.org/2000/svg','svg')
-    svgDom.setAttribute('viewBox', '0 0 100 100')
-
+    svgDom.setAttribute('viewBox', '0 0 ' + this.SVG_WIDTH + ' ' + this.SVG_WIDTH)
 
     // Add pattern
     let lineGroup = document.createElementNS('http://www.w3.org/2000/svg','g')
@@ -86,10 +97,10 @@ class Pattern {
 
     for (let i = 1; i < this.suite.length; i++) {
       let line = document.createElementNS('http://www.w3.org/2000/svg','line')
-      line.setAttribute('x1', (this.suite[i-1] % 3) * 40 + 10)
-      line.setAttribute('y1', Math.floor(this.suite[i-1] / 3) * 40 + 10)
-      line.setAttribute('x2', (this.suite[i] % 3) * 40 + 10)
-      line.setAttribute('y2', Math.floor(this.suite[i] / 3) * 40 + 10)
+      line.setAttribute('x1', (this.suite[i-1] % 3) * this.DOT_GAP + this.SVG_MARGIN)
+      line.setAttribute('y1', Math.floor(this.suite[i-1] / 3) * this.DOT_GAP + this.SVG_MARGIN)
+      line.setAttribute('x2', (this.suite[i] % 3) * this.DOT_GAP + this.SVG_MARGIN)
+      line.setAttribute('y2', Math.floor(this.suite[i] / 3) * this.DOT_GAP + this.SVG_MARGIN)
       lineGroup.appendChild(line)
     }
 
@@ -100,21 +111,22 @@ class Pattern {
 
     for (let i = 0; i < 9; i++) {
       let circle = document.createElementNS('http://www.w3.org/2000/svg','circle')
-      circle.setAttribute('cx', (i % 3) * 40 + 10)
-      circle.setAttribute('cy', Math.floor(i / 3) * 40 + 10)
+      circle.setAttribute('cx', (i % 3) * this.DOT_GAP + this.SVG_MARGIN)
+      circle.setAttribute('cy', Math.floor(i / 3) * this.DOT_GAP + this.SVG_MARGIN)
 
       if (i === this.suite[0]) {
         circle.setAttribute('fill', '#1af')
-        circle.setAttribute('r', 5)
+        circle.setAttribute('r', 4)
       }
       else
         circle.setAttribute('r', 3)
       dotGroup.appendChild(circle)
     }
-
-
-
     return svgDom
-
   }
 }
+
+Pattern.prototype.SVG_WIDTH  = 100
+Pattern.prototype.DOT_GAP    = 35
+Pattern.prototype.SVG_MARGIN = 15
+Pattern.prototype.DOT_MAGNET = 5

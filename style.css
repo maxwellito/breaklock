@@ -1,10 +1,17 @@
 html, body {
   font-family: 'Andale Mono', monospace;
   margin: 0;
-  padding: 0;
+  padding: 5%;
   background: #21252B;
   color: #fff;
+  text-align: center;
 }
 a {
   color: inherit;
+}
+
+svg {
+  width: 90%;
+  margin: 5%;
+  max-width: 320px;
 }
