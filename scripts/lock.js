@@ -9,13 +9,16 @@ class Lock {
     this.dotLength = dotLength
     this.currentLine = null
 
-    let myPattern = new Pattern(dotLength)
-    this.el = myPattern.generateSVG()
-    this.patternEl = document.createElementNS('http://www.w3.org/2000/svg','g')
-    this.patternEl.setAttribute('stroke-width', '1')
-    this.patternEl.setAttribute('stroke', '#fff')
-    this.patternEl.setAttribute('stroke-linecap', 'round')
-    this.el.appendChild(this.patternEl)
+    let myPatternSVG = new PatternSVG()
+    myPatternSVG.addDots()
+
+    this.el = myPatternSVG.getSVG()
+    this.bigDotsEl = myPatternSVG.addDots(6, {class: 'lock-bigdots'})
+    this.patternEl = myPatternSVG.addGroup({
+      'stroke-width': '1',
+      'stroke': '#fff',
+      'stroke-linecap': 'round'
+    })
   }
 
   init () {
@@ -28,14 +31,15 @@ class Lock {
   updateFinger (t) {
     t.preventDefault()
 
+
     let iX, iY,
         e = t.currentTarget.getBoundingClientRect(),
-        x = Math.max(0, Math.min(Pattern.prototype.SVG_WIDTH, Math.round(Pattern.prototype.SVG_WIDTH / e.width * (t.targetTouches[0].pageX - e.left)))),
-        y = Math.max(0, Math.min(Pattern.prototype.SVG_WIDTH, Math.round(Pattern.prototype.SVG_WIDTH / e.height * (t.targetTouches[0].pageY - e.top))))
+        x = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.width * (t.targetTouches[0].pageX - e.left)))),
+        y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.height * (t.targetTouches[0].pageY - e.top))))
 
     for (let i = 0; i < 3; i++) {
-      let rangeStart = Pattern.prototype.DOT_GAP * i + Pattern.prototype.SVG_MARGIN - Pattern.prototype.DOT_MAGNET,
-          rangeEnd   = Pattern.prototype.DOT_GAP * i + Pattern.prototype.SVG_MARGIN + Pattern.prototype.DOT_MAGNET
+      let rangeStart = PatternSVG.prototype.DOT_GAP * i + PatternSVG.prototype.SVG_MARGIN - PatternSVG.prototype.DOT_MAGNET,
+          rangeEnd   = PatternSVG.prototype.DOT_GAP * i + PatternSVG.prototype.SVG_MARGIN + PatternSVG.prototype.DOT_MAGNET
       iX = (rangeStart <= x && rangeEnd >= x) ? i : iX
       iY = (rangeStart <= y && rangeEnd >= y) ? i : iY
     }
@@ -49,6 +53,7 @@ class Lock {
   }
 
   updateLine (x, y) {
+
     if (!this.currentLine)
       return
 
@@ -57,19 +62,21 @@ class Lock {
   }
 
   addDot (dotIndex) {
+
     if (this.pattern.gotDot(dotIndex))
       return
 
     var newDots = this.pattern.addDot(dotIndex)
-    console.log(newDots)
     navigator.vibrate(20);
     newDots.forEach(dot => {
-      let dotX = Pattern.prototype.DOT_GAP * (dotIndex % 3) + Pattern.prototype.SVG_MARGIN,
-          dotY = Pattern.prototype.DOT_GAP * Math.floor(dotIndex / 3) + Pattern.prototype.SVG_MARGIN
+      let dotX = PatternSVG.prototype.DOT_GAP * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,
+          dotY = PatternSVG.prototype.DOT_GAP * Math.floor(dotIndex / 3) + PatternSVG.prototype.SVG_MARGIN
 
       // Close current line
       this.updateLine(dotX, dotY)
       this.currentLine = null
+
+      this.bigDotsEl.childNodes[dot].classList.add('active')
 
       // Check if finished
       if (this.pattern.isComplete())
@@ -90,6 +97,8 @@ class Lock {
   reset () {
     this.pattern.reset()
     this.currentLine = null
+    for (let i = 0; i < 9; i++)
+      this.bigDotsEl.childNodes[i].classList.remove('active')
     for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
       this.patternEl.childNodes[i].remove()
   }

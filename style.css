@@ -15,3 +15,12 @@ svg {
   margin: 5%;
   max-width: 320px;
 }
+.lock-bigdots circle {
+  visibility: hidden;;
+  opacity: 1;
+}
+.lock-bigdots circle.active {
+  visibility: visible;
+  opacity: 0;
+  transition: visibility 0s, opacity .3s;
+}
