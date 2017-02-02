@@ -10,7 +10,7 @@ class Lock {
     this.currentLine = null
 
     let myPatternSVG = new PatternSVG()
-    myPatternSVG.addDots()
+    myPatternSVG.addDots(2)
 
     this.el = myPatternSVG.getSVG()
     this.bigDotsEl = myPatternSVG.addDots(6, {class: 'lock-bigdots'})
