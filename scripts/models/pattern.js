@@ -73,6 +73,20 @@ class Pattern {
     return ~this.suite.indexOf(dotIndex)
   }
 
+  compare (pattern) {
+    var goodPos = 0,
+        wrongPos = 0
+    for (let i = 0; i < this.dotLength; i++) {
+      if (this.suite[i] === pattern.suite[i])
+        goodPos++
+      for (let j = 0; j < this.dotLength; j++) {
+        if (this.suite[j] === pattern.suite[i])
+          wrongPos++
+      }
+    }
+    return [goodPos, wrongPos - goodPos, this.dotLength - wrongPos]
+  }
+
   /**
    * Reset the pattern by removing all the dots
    */
