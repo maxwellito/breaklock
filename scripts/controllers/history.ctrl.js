@@ -19,17 +19,21 @@ class HistoryCtrl {
   setupTemplate () {
     this.el = document.createElement('div')
     this.el.setAttribute('class', 'history')
+
+    this.container = document.createElement('div')
+    this.container.setAttribute('class', 'history-container')
+    this.el.appendChild(this.container)
   }
 
   /**
    * Add a new pattern in the container
    * @param {SVGDOM} pattern The try to stack
    */
-  addPattern (pattern) {
+  stackPattern (pattern) {
     if (this.lastPattern)
-      this.el.insertBefore(pattern, this.lastPattern)
+      this.container.insertBefore(pattern, this.lastPattern)
     else
-      this.el.appendChild(pattern)
+      this.container.appendChild(pattern)
     this.lastPattern = pattern
   }
 }

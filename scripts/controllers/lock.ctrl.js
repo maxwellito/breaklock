@@ -5,9 +5,10 @@
  * and trigger the other instances when required.
  */
 class Lock {
-  constructor (dotLength) {
+  constructor (dotLength, callback) {
     this.dotLength = dotLength
     this.currentLine = null
+    this.onNewPattern = callback
 
     let myPatternSVG = new PatternSVG()
     myPatternSVG.addDots(2)
@@ -38,8 +39,8 @@ class Lock {
         y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.height * (t.targetTouches[0].pageY - e.top))))
 
     for (let i = 0; i < 3; i++) {
-      let rangeStart = PatternSVG.prototype.DOT_GAP * i + PatternSVG.prototype.SVG_MARGIN - PatternSVG.prototype.DOT_MAGNET,
-          rangeEnd   = PatternSVG.prototype.DOT_GAP * i + PatternSVG.prototype.SVG_MARGIN + PatternSVG.prototype.DOT_MAGNET
+      let rangeStart = PatternSVG.prototype.GRID_GUTTER * i + PatternSVG.prototype.SVG_MARGIN - PatternSVG.prototype.DOT_MAGNET,
+          rangeEnd   = PatternSVG.prototype.GRID_GUTTER * i + PatternSVG.prototype.SVG_MARGIN + PatternSVG.prototype.DOT_MAGNET
       iX = (rangeStart <= x && rangeEnd >= x) ? i : iX
       iY = (rangeStart <= y && rangeEnd >= y) ? i : iY
     }
@@ -69,8 +70,8 @@ class Lock {
     var newDots = this.pattern.addDot(dotIndex)
     navigator.vibrate(20);
     newDots.forEach(dot => {
-      let dotX = PatternSVG.prototype.DOT_GAP * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,
-          dotY = PatternSVG.prototype.DOT_GAP * Math.floor(dotIndex / 3) + PatternSVG.prototype.SVG_MARGIN
+      let dotX = PatternSVG.prototype.GRID_GUTTER * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,
+          dotY = PatternSVG.prototype.GRID_GUTTER * Math.floor(dotIndex / 3) + PatternSVG.prototype.SVG_MARGIN
 
       // Close current line
       this.updateLine(dotX, dotY)
@@ -104,6 +105,7 @@ class Lock {
   }
 
   checkPattern() {
+    this.onNewPattern(this.pattern)
     setTimeout(this.reset.bind(this), 1000)
   }
 

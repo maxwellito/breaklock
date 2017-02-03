@@ -24,3 +24,23 @@ svg {
   opacity: 0;
   transition: visibility 0s, opacity .3s;
 }
+
+
+
+.history {
+  overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.history-container {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.history svg {
+  width: 100px;
+  display: inline-block;
+  margin: 0 1em 0 0;
+}
