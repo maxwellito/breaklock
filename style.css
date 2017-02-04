@@ -1,5 +1,5 @@
 html, body {
-  font-family: 'Andale Mono', monospace;
+  font-family: Consolas, 'Roboto Mono', Menlo, 'Andale Mono', monospace;
   margin: 0;
   padding: 5%;
   background: #21252B;

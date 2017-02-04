@@ -73,19 +73,22 @@ class PatternSVG {
    */
   addCombinaison (goodDots, badPlacedDots, wrongDots) {
     let totalDots = goodDots + badPlacedDots + wrongDots,
-        xGap = this.DOT_WIDTH + this.DOT_MARGIN,
+        dot = Math.min(Math.floor(this.SVG_WIDTH / totalDots), this.SVG_COMB_EXP),
+        dotWidth = Math.floor(dot * .75),
+        dotGap = Math.floor(dot * .25),
+        xGap = dotWidth + dotGap,
         xStart = Math.floor((this.SVG_WIDTH - (totalDots - 1) * xGap) / 2),
-        yStart = this.SVG_WIDTH + Math.floor((this.SVG_WIDTH_EXP - this.SVG_WIDTH) / 2)
+        yStart = this.SVG_WIDTH + Math.floor(this.SVG_COMB_EXP / 2)
 
 
-    this.el.setAttribute('viewBox', '0 0 ' + this.SVG_WIDTH + ' ' + this.SVG_WIDTH_EXP)
+    this.el.setAttribute('viewBox', '0 0 ' + this.SVG_WIDTH + ' ' + (this.SVG_WIDTH + this.SVG_COMB_EXP))
     let dotGroup = this.addGroup({})
 
     for (let i = 0; i < totalDots; i++) {
       let circle = document.createElementNS(this.SVG_NAMESPACE, 'circle')
       circle.setAttribute('cx', xStart + i * xGap)
       circle.setAttribute('cy', yStart)
-      circle.setAttribute('r', (this.DOT_WIDTH - this.DOT_BORDER) / 2)
+      circle.setAttribute('r', (dotWidth - this.DOT_BORDER) / 2)
       circle.setAttribute('stroke-width', this.DOT_BORDER)
       circle.setAttribute('fill', i < goodDots ? '#fff' : '#333')
       circle.setAttribute('stroke', i < (goodDots + badPlacedDots) ? '#fff' : '#333')
@@ -105,10 +108,8 @@ class PatternSVG {
 
 PatternSVG.prototype.SVG_NAMESPACE = 'http://www.w3.org/2000/svg'
 PatternSVG.prototype.SVG_WIDTH     = 100
-PatternSVG.prototype.SVG_WIDTH_EXP = 120
+PatternSVG.prototype.SVG_COMB_EXP  = 20
 PatternSVG.prototype.SVG_MARGIN    = 15
 PatternSVG.prototype.GRID_GUTTER   = 35
-PatternSVG.prototype.DOT_WIDTH     = 9
 PatternSVG.prototype.DOT_BORDER    = 2
-PatternSVG.prototype.DOT_MARGIN    = 2
-PatternSVG.prototype.DOT_MAGNET    = 5
+PatternSVG.prototype.DOT_MAGNET    = 6

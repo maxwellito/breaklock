@@ -24,7 +24,10 @@ var stack = function (pattern) {
   xx.start()
 
 
-
-
+function resset() {
+  myPattern = new Pattern(4)
+  myPattern.fillRandomly()
+  yy.clear()
+}
 
 // stack(myPattern)

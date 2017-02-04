@@ -31,6 +31,7 @@ class Lock {
 
   updateFinger (t) {
     t.preventDefault()
+    t.stopPropagation();
 
 
     let iX, iY,
@@ -51,6 +52,7 @@ class Lock {
     }
 
     this.updateLine(x, y)
+    return true
   }
 
   updateLine (x, y) {

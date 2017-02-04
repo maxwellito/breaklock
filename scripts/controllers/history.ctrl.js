@@ -5,7 +5,7 @@
  * stacking all the SVGs
  * The class used is .history, for optimisation all
  * SVGs will use `will-change` or `transformZ` properties
- * to imporove performance.
+ * to improve performance.
  */
 class HistoryCtrl {
   constructor () {
@@ -35,5 +35,19 @@ class HistoryCtrl {
     else
       this.container.appendChild(pattern)
     this.lastPattern = pattern
+  }
+
+  /**
+   * Clean the history
+   *
+   */
+  clear () {
+    this.lastPattern = null
+
+    // Clean the container
+    this.container.remove()
+    this.container = document.createElement('div')
+    this.container.setAttribute('class', 'history-container')
+    this.el.appendChild(this.container)
   }
 }
