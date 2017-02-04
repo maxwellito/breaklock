@@ -21,7 +21,6 @@ var stack = function (pattern) {
   var xx = new Lock(4, stack);
   document.body.appendChild(xx.el)
   xx.init()
-  xx.start()
 
 
 function resset() {

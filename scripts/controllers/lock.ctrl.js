@@ -5,11 +5,24 @@
  * and trigger the other instances when required.
  */
 class Lock {
+  /**
+   * [constructor description]
+   * @param  {int}      dotLength Number of dots in the pattern
+   * @param  {Function} callback  Callback to call on new pattern
+   */
   constructor (dotLength, callback) {
     this.dotLength = dotLength
     this.currentLine = null
     this.onNewPattern = callback
 
+    this.setupTemplate()
+  }
+
+  /**
+   * Build template of the controller
+   * @return {SVGDOMElement}
+   */
+  setupTemplate () {
     let myPatternSVG = new PatternSVG()
     myPatternSVG.addDots(2)
 
@@ -20,19 +33,24 @@ class Lock {
       'stroke': '#fff',
       'stroke-linecap': 'round'
     })
+    return this.el
   }
 
+  /**
+   * Start listening to user input
+   */
   init () {
     // start listening for events (fingers)
     this.el.addEventListener("touchstart", this.updateFinger.bind(this))
-    this.el.addEventListener("touchmove", this.updateFinger.bind(this))
-    this.el.addEventListener("touchend", this.reset.bind(this))
+    this.el.addEventListener("touchmove",  this.updateFinger.bind(this))
+    this.el.addEventListener("touchend",   this.reset.bind(this))
+
+    this.pattern = new Pattern(this.dotLength)
   }
 
   updateFinger (t) {
     t.preventDefault()
     t.stopPropagation();
-
 
     let iX, iY,
         e = t.currentTarget.getBoundingClientRect(),
@@ -55,8 +73,12 @@ class Lock {
     return true
   }
 
+  /**
+   * Update the line of the current move
+   * @param  {int} x Position X on the finger on the SVG scale
+   * @param  {int} y Position Y on the finger on the SVG scale
+   */
   updateLine (x, y) {
-
     if (!this.currentLine)
       return
 
@@ -64,8 +86,12 @@ class Lock {
     this.currentLine.setAttribute('y2', y)
   }
 
+  /**
+   * Add a dot on the current pattern
+   * This will trigger the effect be
+   * @param {[type]} dotIndex [description]
+   */
   addDot (dotIndex) {
-
     if (this.pattern.gotDot(dotIndex))
       return
 
@@ -93,10 +119,9 @@ class Lock {
     })
   }
 
-  start () {
-    this.pattern = new Pattern(this.dotLength)
-  }
-
+  /**
+   * Reset the lock
+   */
   reset () {
     this.pattern.reset()
     this.currentLine = null
@@ -106,12 +131,11 @@ class Lock {
       this.patternEl.childNodes[i].remove()
   }
 
+  /**
+   * Procedure for new new patterns
+   */
   checkPattern() {
     this.onNewPattern(this.pattern)
     setTimeout(this.reset.bind(this), 1000)
-  }
-
-  onNewPoint () {
-
   }
 }

@@ -14,7 +14,8 @@ class HistoryCtrl {
   }
 
   /**
-   * Set up all the DOM
+   * Build template of the controller
+   * @return {SVGDOMElement}
    */
   setupTemplate () {
     this.el = document.createElement('div')
@@ -23,6 +24,8 @@ class HistoryCtrl {
     this.container = document.createElement('div')
     this.container.setAttribute('class', 'history-container')
     this.el.appendChild(this.container)
+
+    return this.el
   }
 
   /**
@@ -39,7 +42,6 @@ class HistoryCtrl {
 
   /**
    * Clean the history
-   *
    */
   clear () {
     this.lastPattern = null
