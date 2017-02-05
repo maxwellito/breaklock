@@ -4,7 +4,6 @@ html, body {
   padding: 5%;
   background: #21252B;
   color: #fff;
-  text-align: center;
 }
 a {
   color: inherit;
@@ -43,4 +42,35 @@ svg {
   width: 100px;
   display: inline-block;
   margin: 0 1em 0 0;
+}
+
+
+
+
+
+button {
+  background: none;
+  color: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  border: none;
+  padding: 0;
+}
+
+
+.status-bar {
+  height: 1.5rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px dotted #fff;
+  margin-bottom: .25rem;
+}
+
+.status-bar-cancel {
+  height: 100%;
+  font-size: 1rem;
+
+}
+
+.status-bar-counter {
+  float: right;
 }
