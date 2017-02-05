@@ -3,7 +3,7 @@
  * Component to build a one line selector
  * between different options
  * The class used for the parent element
- * is .selector, all childs are .selector-item
+ * is .option, all childs are .option-item
  */
 class OptionCtrl {
 
@@ -24,7 +24,7 @@ class OptionCtrl {
    */
   setupTemplate () {
     this.el = document.createElement('div')
-    this.el.setAttribute('class', 'selector')
+    this.el.setAttribute('class', 'option')
     return this.el
   }
 
@@ -43,7 +43,7 @@ class OptionCtrl {
     let listener = this.selectListener.bind(this)
     choiceList.forEach((choice, index) => {
       let option = document.createElement('span')
-      option.setAttribute('class', 'selector-item')
+      option.setAttribute('class', 'option-item')
       option.setAttribute('rel', choice.value)
       option.textContent = choice.label
       option.addEventListener('click', listener)
@@ -59,7 +59,6 @@ class OptionCtrl {
    * @param  {Event} event Event catched
    */
   selectListener (event) {
-    console.log(event)
     this.selectFromTag(event.currentTarget)
   }
 
@@ -82,7 +81,7 @@ class OptionCtrl {
 
   /**
    * Return the current choice selected
-   * @return {*}
+   * @return {int}
    */
   getValue () {
     return this.selectedValue

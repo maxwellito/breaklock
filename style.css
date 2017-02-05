@@ -80,13 +80,13 @@ button {
 
 
 
-.selector {
+.option {
   border: 1px solid green;
   border-radius: .25rem;
   padding: .25rem;
 }
 
-.selector-item {
+.option-item {
   width: 33%;
   padding: .25rem;
   text-align: center;
@@ -94,7 +94,7 @@ button {
   box-sizing: border-box;
 }
 
-.selector-item.selected {
+.option-item.selected {
   background: green;
   border-radius: .2rem;
 }
