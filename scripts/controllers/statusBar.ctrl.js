@@ -26,7 +26,7 @@ class StatusBarCtrl {
 
   /**
    * Build template of the controller
-   * @return {SVGDOMElement}
+   * @return {DOMElement}
    */
   setupTemplate () {
     this.el = document.createElement('div')
@@ -84,6 +84,7 @@ class StatusBarCtrl {
    */
   updateCounter () {
     this.counterEl.textContent = this.counterVal
+    return this.counterVal
   }
 
   /**
@@ -100,7 +101,7 @@ class StatusBarCtrl {
    * @return {int} The new value of the counter
    */
   incrementCounter () {
-    this.counterVal--
+    this.counterVal++
     return this.updateCounter()
   }
 
