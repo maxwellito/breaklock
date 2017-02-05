@@ -90,8 +90,10 @@ class PatternSVG {
       circle.setAttribute('cy', yStart)
       circle.setAttribute('r', (dotWidth - this.DOT_BORDER) / 2)
       circle.setAttribute('stroke-width', this.DOT_BORDER)
-      circle.setAttribute('fill', i < goodDots ? '#fff' : '#333')
-      circle.setAttribute('stroke', i < (goodDots + badPlacedDots) ? '#fff' : '#333')
+      circle.setAttribute('fill', i < goodDots ? '#fff' : '#000')
+      circle.setAttribute('stroke', i < (goodDots + badPlacedDots) ? '#fff' : '#000')
+      circle.setAttribute('fill-opacity', i < goodDots ? '1' : '.25')
+      circle.setAttribute('stroke-opacity', i < (goodDots + badPlacedDots) ? '1' : '.25')
       dotGroup.appendChild(circle)
     }
     return dotGroup

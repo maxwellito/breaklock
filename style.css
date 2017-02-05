@@ -1,8 +1,15 @@
+@font-face {
+  font-family: "Roboto Mono";
+  font-weight: 100;
+  src: url("/RobotoMono-Thin.ttf"); //# TO_DO: Remove dat font
+}
+
 html, body {
-  font-family: Consolas, 'Roboto Mono', Menlo, 'Andale Mono', monospace;
+  font-family: 'Roboto Mono', Menlo, Consolas, 'Andale Mono', monospace;
+  font-weight: 100;
   margin: 0;
   padding: 5%;
-  background: #21252B;
+  background: #14171b;
   color: #fff;
 }
 a {
@@ -49,6 +56,7 @@ svg {
 
 
 button {
+  font-weight: 100;
   background: none;
   color: inherit;
   line-height: inherit;
@@ -77,17 +85,21 @@ button {
 
 
 
-
+h1 {
+  font-weight: 100;
+  text-shadow: 0 0 8px rgba(255,255,255,.4);
+}
 
 
 .option, .selector {
-  border: 1px solid green;
+  border: 1px solid white;
   border-radius: .25rem;
   padding: .25rem;
+  margin-bottom: .5rem;
 }
 
-.option-item {
-  width: 33%;
+.option-item, .selector-left, .selector-right, .selector-label {
+  width: 33.33%;
   padding: .25rem;
   text-align: center;
   display: inline-block;
@@ -95,7 +107,8 @@ button {
 }
 
 .option-item.selected {
-  background: green;
+  background: white;
+  color: #14171b;
   border-radius: .2rem;
 }
 
@@ -105,6 +118,21 @@ button {
   display: inline-block;
   text-align: center;
   width: 2rem;
-  background: green;
+  color:#14171b;
+  background: white;
   border-radius: .2rem;
+}
+
+.selector-left {
+  float: left;
+}
+
+.selector-right {
+  float: right;
+}
+
+.selector-label {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }

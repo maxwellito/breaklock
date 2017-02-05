@@ -31,18 +31,17 @@ class SelectorCtrl {
     this.btnLeft = document.createElement('span')
     this.btnLeft.setAttribute('class', 'selector-left')
     this.btnLeft.textContent = '<'
+    this.el.appendChild(this.btnLeft)
     this.btnRight = document.createElement('span')
     this.btnRight.setAttribute('class', 'selector-right')
     this.btnRight.textContent = '>'
+    this.el.appendChild(this.btnRight)
 
     // Screen
     this.labelEl = document.createElement('span')
     this.labelEl.setAttribute('class', 'selector-label')
-
-    // Append childs in order
-    this.el.appendChild(this.btnLeft)
     this.el.appendChild(this.labelEl)
-    this.el.appendChild(this.btnRight)
+    
     return this.el
   }
 
@@ -78,9 +77,10 @@ class SelectorCtrl {
    */
   updateLabel () {
     this.selectionIndex = (this.selectionIndex + this.choices.length) % this.choices.length
-    console.log(this.selectionIndex)
     let choice = this.choices[this.selectionIndex]
     this.labelEl.textContent = choice.label
+    if (this.selectCallback)
+      this.selectCallback(this.getValue())
     return this.selectionIndex
   }
 
@@ -100,6 +100,16 @@ class SelectorCtrl {
   previous () {
     this.selectionIndex--
     return this.updateLabel()
+  }
+
+  /**
+   * Listener for when a new item is selected
+   * The listener will be called with only one
+   * parameter: the new selected value
+   * @param  {function} listener Select listener to set
+   */
+  onSelect (listener) {
+    this.selectCallback = listener
   }
 
   /**

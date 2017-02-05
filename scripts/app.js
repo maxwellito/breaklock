@@ -58,21 +58,6 @@ myGame.start()
 document.body.appendChild(myGame.el)
 
 
-var opt = new OptionCtrl([
-  { value: 4, label: 'Easy'},
-  { value: 5, label: 'Medium', default: true},
-  { value: 6, label: 'Hard'}
-])
-document.body.appendChild(opt.el)
-
-var selector = new SelectorCtrl([
-  { value: 4, label: 'Practice'},
-  { value: 5, label: 'Challenge', default: true},
-  { value: 6, label: 'Countdown'}
-])
-selector.init()
-document.body.appendChild(selector.el)
-
-function test () {
-  console.log('::', opt.getValue(), selector.getValue())
-}
+var myMenu = new MenuCtrl()
+myMenu.init()
+document.body.appendChild(myMenu.el)
