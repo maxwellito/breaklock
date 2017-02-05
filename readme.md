@@ -19,11 +19,12 @@ Silly HTML5 game, clone of mastermind with the classic Android lock screen.
 - Make the pattern class flexible to have a short release after attempts (for chrono mode)
 - Make the offline stuff
 - Think about iconography and shite
+- SMMOOOOOTHNESS EVERYWHEEEEEERE!!
 
 
 ## Fun stuff
 
-- Add triangle building while making a pattern
+- Add triangle building while making a pattern (with filters and colors)
 
 
 ## Com shite
