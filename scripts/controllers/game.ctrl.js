@@ -1,8 +1,8 @@
 class GameCtrl {
-  constructor () {
+  constructor (onEnd) {
     // Lets leave it empty for now
     // just init the shite to help V8
-    this.statusBar = new StatusBarCtrl(this.cancel.bind(this))
+    this.statusBar = new StatusBarCtrl(onEnd)
     this.history   = new HistoryCtrl()
     this.lock      = new Lock(4, this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
     this.pattern   = null
@@ -33,24 +33,16 @@ class GameCtrl {
 
   /* Controls **********************************/
 
-  start () {
-    this.cancel()
-  }
-
   /**
-   * Reset the game
-   * //# TO_DO: this is not correct at all, it's reset, not cancel
+   * Start a new game
    * @return {[type]} [description]
    */
-  cancel () {
+  start () {
     this.pattern = new Pattern(4)
     this.pattern.fillRandomly()
     this.history.clear()
-    this.statusBar.setCounter(12)
+    this.statusBar.setCounter(10)
   }
-
-
-
 
   newAttempt (pattern) {
     // Generate a SVG from the pattern provided

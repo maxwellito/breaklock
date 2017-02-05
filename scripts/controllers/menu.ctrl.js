@@ -9,7 +9,8 @@ class MenuCtrl {
   /**
    * ¯\_(ツ)_/¯
    */
-  constructor () {
+  constructor (onStart) {
+    this.onStart = onStart
     this.setupTemplate()
   }
 
@@ -69,6 +70,7 @@ class MenuCtrl {
 
   start () {
     console.log('::', this.typeSelector.getValue(), this.difficultyOption.getValue())
+    this.onStart(this.typeSelector.getValue(), this.difficultyOption.getValue())
   }
 
   /**
