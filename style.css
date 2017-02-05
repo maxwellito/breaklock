@@ -74,3 +74,27 @@ button {
 .status-bar-counter {
   float: right;
 }
+
+
+
+
+
+
+.selector {
+  border: 1px solid green;
+  border-radius: .25rem;
+  padding: .25rem;
+}
+
+.selector-item {
+  width: 33%;
+  padding: .25rem;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.selector-item.selected {
+  background: green;
+  border-radius: .2rem;
+}

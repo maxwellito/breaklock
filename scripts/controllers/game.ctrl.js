@@ -69,7 +69,7 @@ class GameCtrl {
       PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
       this.history.stackPattern(attemptSVG.getSVG())
       if (this.statusBar.decrementCounter() === 0) {
-        alert('ACCESS DENIED!')
+      //  alert('ACCESS DENIED!')
       }
       return false
     }
