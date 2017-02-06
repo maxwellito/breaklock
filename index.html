@@ -2,9 +2,22 @@
 <html>
   <head>
     <title>MasterLock</title>
-    <link rel="shortcut icon" href="assets/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+
+    <link rel="shortcut icon" href="assets/favicon.png">
     <meta name="theme-color" content="#14171b">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MasterLock">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#14171b">
 
     <link rel="stylesheet" href="style.css">
   </head>
@@ -28,5 +41,6 @@
     <script src="scripts/controllers/history.ctrl.js"></script>
     <script src="scripts/controllers/statusBar.ctrl.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/pwa/setup.js"></script>
   </body>
 </html>
