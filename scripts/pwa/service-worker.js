@@ -1,4 +1,4 @@
-var cacheName = 'masterlock-dev-002';
+var cacheName = 'masterlock-dev-005';
 var filesToCache = [
   '../../index.html',
   '../../style.css',
@@ -11,8 +11,8 @@ var filesToCache = [
   '../../scripts/controllers/lock.ctrl.js',
   '../../scripts/controllers/history.ctrl.js',
   '../../scripts/controllers/statusBar.ctrl.js',
-  '../../scripts/app.js',
-  '../../scripts/pwa/setup.js'
+  '../../scripts/controllers/countdown.ctrl.js',
+  '../../scripts/app.js'
 ];
 
 self.addEventListener('install', function(e) {

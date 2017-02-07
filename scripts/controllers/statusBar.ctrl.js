@@ -35,17 +35,18 @@ class StatusBarCtrl {
     // Cancel button
     this.cancelBtnEl = document.createElement('button')
     this.cancelBtnEl.setAttribute('class', 'status-bar-cancel')
-    this.cancelBtnEl.textContent = 'EXIT'
+    this.cancelBtnEl.textContent = 'ABORT'
     this.el.appendChild(this.cancelBtnEl)
 
     // Counter
     this.counterEl = document.createElement('span')
-    this.counterEl.setAttribute('class', 'status-bar-counter')
+    this.counterEl.setAttribute('class', 'status-bar-info')
     this.el.appendChild(this.counterEl)
 
     // Countdown
-    this.countdownEl = document.createElement('span')
-    this.countdownEl.setAttribute('class', 'status-bar-countdown')
+    this.countdown = new CountdownCtrl()
+    this.countdownEl = this.countdown.el
+    this.countdownEl.setAttribute('class', 'status-bar-info')
     this.el.appendChild(this.countdownEl)
 
     return this.el
@@ -74,8 +75,6 @@ class StatusBarCtrl {
     this.counterVal = count
     this.updateCounter()
   }
-
-
 
   /**
    * Update the counter DOM to the value
@@ -109,9 +108,22 @@ class StatusBarCtrl {
 
   /**
    * Set the countdown mode to the status bar
+   * @param {int} duration Duration in seconds
    */
-  setCountdown () {
+  setCountdown (duration) {
     this.counterEl.style.display = 'none'
     this.countdownEl.style.display = 'inherit'
+    this.countdown.setTimer(duration, () => {
+      this.cancelCallback(1)
+    })
+    this.countdown.start()
+  }
+
+  /**
+   * Stops the countdown
+   *
+   */
+  stopCountdown () {
+    this.countdown.stop()
   }
 }

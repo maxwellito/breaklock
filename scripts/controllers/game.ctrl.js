@@ -41,7 +41,8 @@ class GameCtrl {
     this.pattern = new Pattern(4)
     this.pattern.fillRandomly()
     this.history.clear()
-    this.statusBar.setCounter(10)
+    // this.statusBar.setCounter(10)
+    this.statusBar.setCountdown(60)
   }
 
   newAttempt (pattern) {

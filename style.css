@@ -4,9 +4,12 @@
   src: url("/RobotoMono-Thin.ttf"); //# TO_DO: Remove dat font
 }
 
-html, body {
+* {
   font-family: 'Roboto Mono', Menlo, Consolas, 'Andale Mono', monospace;
   font-weight: 100;
+}
+
+html, body {
   margin: 0;
   padding: 5%;
   background: #14171b;
@@ -57,8 +60,8 @@ svg {
 
 button {
   font-weight: 100;
-  background: none;
-  color: inherit;
+  background: #fff;
+  color: #14171b;
   line-height: inherit;
   font-size: inherit;
   border: none;
@@ -79,8 +82,24 @@ button {
 
 }
 
-.status-bar-counter {
+.status-bar-info {
   float: right;
+}
+
+
+.countdown-container {
+  float: right;
+  width: 200px;
+  height: 1rem;
+  border: 1px solid white;
+  border-radius: .25rem;
+}
+
+.countdown-content {
+  height: 100%;
+  width: 65%;
+  background-color: white;
+  display: block;
 }
 
 
