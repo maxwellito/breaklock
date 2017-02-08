@@ -20,7 +20,9 @@ Silly HTML5 game, clone of mastermind with the classic Android lock screen.
 [ ] Make the offline stuff
 [ ] Think about iconography and shite
 [ ] SMMOOOOOTHNESS EVERYWHEEEEEERE!!
-[ ] Setup webpack
+[X] Setup webpack
+[ ] Webpack uglify
+[ ] SASS
 [ ] Make it responsive
 [ ] Build end of game screen
 

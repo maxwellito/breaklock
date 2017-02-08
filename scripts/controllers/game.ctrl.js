@@ -4,8 +4,22 @@ import LockCtrl from './lock.ctrl'
 import Pattern from '../models/pattern'
 import PatternSVG from '../utils/patternSVG'
 
-
+/**
+ * Game Controller
+ * The playground, the arena
+ * It combines a status bar, a pattern history
+ * and a lock.
+ */
 class GameCtrl {
+
+  /**
+   * Setup the controller
+   * The callback provided will be called with
+   * different parameter depending on the type
+   * of end (abort, success, fail)
+   * @param  {function} onEnd Callback for end of game
+   * @return {[type]}       [description]
+   */
   constructor (onEnd) {
     // Lets leave it empty for now
     // just init the shite to help V8
