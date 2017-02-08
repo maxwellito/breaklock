@@ -41,7 +41,7 @@ class SelectorCtrl {
     this.labelEl = document.createElement('span')
     this.labelEl.setAttribute('class', 'selector-label')
     this.el.appendChild(this.labelEl)
-    
+
     return this.el
   }
 
@@ -80,7 +80,7 @@ class SelectorCtrl {
     let choice = this.choices[this.selectionIndex]
     this.labelEl.textContent = choice.label
     if (this.selectCallback)
-      this.selectCallback(this.getValue())
+      this.selectCallback(this.choices[this.selectionIndex])
     return this.selectionIndex
   }
 

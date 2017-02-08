@@ -66,6 +66,5 @@ class GameCtrl {
       }
       return false
     }
-
   }
 }

@@ -25,7 +25,7 @@ class MenuCtrl {
 
     // Intro
     let title = document.createElement('h1')
-    title.textContent = 'Break the code_'
+    title.textContent = 'BreakLock_'
     this.el.appendChild(title)
 
     let description = document.createElement('p')
@@ -42,9 +42,22 @@ class MenuCtrl {
     this.el.appendChild(this.difficultyOption.el)
 
     this.typeSelector = new SelectorCtrl([
-      { value: 4, label: 'Practice'},
-      { value: 5, label: 'Challenge', default: true},
-      { value: 6, label: 'Countdown'}
+      {
+        value: config.GAME.TYPE.PRACTICE,
+        label: 'Practice',
+        description: 'No pression, just discover and practice your game'
+      },
+      {
+        value: config.GAME.TYPE.CHALLENGE,
+        label: 'Challenge',
+        description: 'Challenge mode give you 10 attempts only to win',
+        default: true
+      },
+      {
+        value: config.GAME.TYPE.COUNTDOWN,
+        label: 'Countdown',
+        description: 'Solve the game in one minute, without limit of attempts'
+      }
     ])
     this.el.appendChild(this.typeSelector.el)
     this.typeHelpEl = document.createElement('p')
@@ -69,15 +82,14 @@ class MenuCtrl {
   }
 
   start () {
-    console.log('::', this.typeSelector.getValue(), this.difficultyOption.getValue())
     this.onStart(this.typeSelector.getValue(), this.difficultyOption.getValue())
   }
 
   /**
    * Selector for new type
-   * @param  {string} newType New selected type
+   * @param  {object} type New selected type
    */
-  typeChange (newType) {
-    this.typeHelpEl.textContent = newType
+  typeChange (type) {
+    this.typeHelpEl.textContent = type.description
   }
 }
