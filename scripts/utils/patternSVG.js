@@ -115,3 +115,5 @@ PatternSVG.prototype.SVG_MARGIN    = 15
 PatternSVG.prototype.GRID_GUTTER   = 35
 PatternSVG.prototype.DOT_BORDER    = 2
 PatternSVG.prototype.DOT_MAGNET    = 6
+
+export default PatternSVG

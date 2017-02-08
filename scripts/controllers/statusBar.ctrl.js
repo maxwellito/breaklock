@@ -1,3 +1,5 @@
+import CountdownCtrl from './countdown.ctrl'
+
 /**
  * Status Bar Controller
  * Status bar of the current game in progress.
@@ -127,3 +129,5 @@ class StatusBarCtrl {
     this.countdown.stop()
   }
 }
+
+export default StatusBarCtrl

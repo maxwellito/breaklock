@@ -95,3 +95,5 @@ class CountdownCtrl {
     }
   }
 }
+
+export default CountdownCtrl

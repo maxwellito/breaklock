@@ -94,3 +94,5 @@ class Pattern {
     this.suite = []
   }
 }
+
+export default Pattern

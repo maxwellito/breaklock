@@ -1,10 +1,13 @@
+import Pattern from '../models/pattern'
+import PatternSVG from '../utils/patternSVG'
+
 /**
  * Lock class
  * Component of the lock itself
  * It will listen for user input, update the view
  * and trigger the other instances when required.
  */
-class Lock {
+class LockCtrl {
   /**
    * [constructor description]
    * @param  {int}      dotLength Number of dots in the pattern
@@ -139,3 +142,5 @@ class Lock {
     setTimeout(this.reset.bind(this), 1000)
   }
 }
+
+export default LockCtrl

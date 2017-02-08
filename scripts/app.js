@@ -1,3 +1,6 @@
+import GameCtrl from './controllers/game.ctrl'
+import MenuCtrl from './controllers/menu.ctrl'
+
 
 var myGame = new GameCtrl(() => {
   myMenu.el.style.display = 'inherit'

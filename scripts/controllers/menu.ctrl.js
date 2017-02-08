@@ -1,3 +1,7 @@
+import OptionCtrl from './option.ctrl'
+import SelectorCtrl from './selector.ctrl'
+import config from '../config'
+
 /**
  * Menu Controller
  * Where all the magic starts!
@@ -93,3 +97,5 @@ class MenuCtrl {
     this.typeHelpEl.textContent = type.description
   }
 }
+
+export default MenuCtrl

@@ -1,10 +1,17 @@
+import StatusBarCtrl from './statusBar.ctrl'
+import HistoryCtrl from './history.ctrl'
+import LockCtrl from './lock.ctrl'
+import Pattern from '../models/pattern'
+import PatternSVG from '../utils/patternSVG'
+
+
 class GameCtrl {
   constructor (onEnd) {
     // Lets leave it empty for now
     // just init the shite to help V8
     this.statusBar = new StatusBarCtrl(onEnd)
     this.history   = new HistoryCtrl()
-    this.lock      = new Lock(4, this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
+    this.lock      = new LockCtrl(4, this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
     this.pattern   = null
 
     //# QUESTION: Does it really make sense?
@@ -68,3 +75,5 @@ class GameCtrl {
     }
   }
 }
+
+export default GameCtrl

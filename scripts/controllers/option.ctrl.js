@@ -87,3 +87,5 @@ class OptionCtrl {
     return this.selectedValue
   }
 }
+
+export default OptionCtrl

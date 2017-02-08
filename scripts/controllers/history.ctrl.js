@@ -53,3 +53,5 @@ class HistoryCtrl {
     this.el.appendChild(this.container)
   }
 }
+
+export default HistoryCtrl

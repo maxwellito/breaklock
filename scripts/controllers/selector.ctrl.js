@@ -121,3 +121,5 @@ class SelectorCtrl {
     return choice && choice.value
   }
 }
+
+export default SelectorCtrl
