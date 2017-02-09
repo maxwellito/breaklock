@@ -1,4 +1,4 @@
-import GameCtrl from './controllers/game.ctrl'
+import GameCtrl from './controllers/game/game.ctrl'
 import MenuCtrl from './controllers/menu.ctrl'
 
 require('./style.scss');

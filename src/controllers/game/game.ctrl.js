@@ -1,9 +1,11 @@
-import StatusBarCtrl from './statusBar/statusBar.ctrl'
-import HistoryCtrl from './history/history.ctrl'
-import LockCtrl from './lock/lock.ctrl'
-import Pattern from '../models/pattern'
-import PatternSVG from '../utils/patternSVG'
-import config from '../config'
+import StatusBarCtrl from '../statusBar/statusBar.ctrl'
+import HistoryCtrl   from '../history/history.ctrl'
+import LockCtrl      from '../lock/lock.ctrl'
+import Pattern       from '../../models/pattern'
+import PatternSVG    from '../../utils/patternSVG'
+import config        from '../../config'
+
+require('./game.scss');
 
 /**
  * Game Controller
