@@ -1,12 +1,17 @@
 @import "../../_variables.scss";
 
+$patternHeight: 5rem;
+$patternMargin: 1rem;
 
 .history {
+  height: $patternHeight + (2 * $patternMargin);
   border-bottom: 1px dotted $theme_bright;
   overflow-x: scroll;
-    white-space: nowrap;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  white-space: nowrap;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .history-container {
@@ -15,7 +20,8 @@
 }
 
 .history svg {
-  width: 100px;
+  width: auto;
+  height: $patternHeight;
   display: inline-block;
-  margin: 0 1em 0 0;
+  margin: $patternMargin $patternMargin $patternMargin 0;
 }
