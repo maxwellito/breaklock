@@ -10,11 +10,9 @@ import PatternSVG from '../utils/patternSVG'
 class LockCtrl {
   /**
    * [constructor description]
-   * @param  {int}      dotLength Number of dots in the pattern
    * @param  {Function} callback  Callback to call on new pattern
    */
-  constructor (dotLength, callback) {
-    this.dotLength = dotLength
+  constructor (callback) {
     this.currentLine = null
     this.onNewPattern = callback
 
@@ -47,7 +45,14 @@ class LockCtrl {
     this.el.addEventListener("touchstart", this.updateFinger.bind(this))
     this.el.addEventListener("touchmove",  this.updateFinger.bind(this))
     this.el.addEventListener("touchend",   this.reset.bind(this))
+  }
 
+  /**
+   * Set the pattern length
+   * @param {int} dotLength Number of dots in the pattern
+   */
+  setDotLength (dotLength) {
+    this.dotLength = dotLength
     this.pattern = new Pattern(this.dotLength)
   }
 

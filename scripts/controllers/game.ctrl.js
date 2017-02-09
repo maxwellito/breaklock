@@ -26,7 +26,7 @@ class GameCtrl {
     // just init the shite to help V8
     this.statusBar = new StatusBarCtrl(onEnd)
     this.history   = new HistoryCtrl()
-    this.lock      = new LockCtrl(4, this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
+    this.lock      = new LockCtrl(this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
     this.pattern   = null
     this.type      = null
 
@@ -63,6 +63,7 @@ class GameCtrl {
    */
   start (type, difficulty) {
     this.type = type
+    this.lock.setDotLength(difficulty)
     this.pattern = new Pattern(difficulty)
     this.pattern.fillRandomly()
     this.history.clear()
