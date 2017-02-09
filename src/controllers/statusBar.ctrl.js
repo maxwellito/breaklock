@@ -1,4 +1,4 @@
-import CountdownCtrl from './countdown.ctrl'
+import CountdownCtrl from './countdown/countdown.ctrl'
 
 /**
  * Status Bar Controller

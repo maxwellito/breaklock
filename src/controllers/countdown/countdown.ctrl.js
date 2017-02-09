@@ -1,3 +1,5 @@
+require('./countdown.scss');
+
 /**
  * Countdown Controller
  * Basic component representing a small countdown
@@ -85,7 +87,7 @@ class CountdownCtrl {
   render () {
     this.remaining = this.remaining > 0 ? this.remaining : 0
 
-    this.el.classList[this.remaining > 10 ? 'remove' : 'add']('alert')
+    this.el.classList[this.remaining > 50 ? 'remove' : 'add']('alert')
     this.counterEl.textContent = this.remaining
     this.barEl.style.width = (this.remaining / this.duration * 100) + '%'
 

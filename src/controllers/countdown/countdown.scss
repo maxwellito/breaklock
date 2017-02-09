@@ -1,0 +1,31 @@
+@import "../../_variables.scss";
+
+.countdown-container {
+  float: right;
+  width: 10rem;
+  height: 1rem;
+  color: inherit;
+  border: 1px solid currentColor;
+  margin-left: .25rem;
+  border-radius: .25rem;
+}
+
+.alert {
+  color: red;
+  animation: countdown-alert 1s infinite;
+}
+
+.countdown-content {
+  display: block;
+  height: 100%;
+  width: 0;
+  color: inherit;
+  background-color: currentColor;
+}
+
+@keyframes countdown-alert {
+    0%     {visibility: visible;}
+    50%    {visibility: visible;}
+    50.01% {visibility: hidden;}
+    100%   {visibility: hidden;}
+}
