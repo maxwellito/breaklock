@@ -1,4 +1,6 @@
-import CountdownCtrl from './countdown/countdown.ctrl'
+import CountdownCtrl from '../countdown/countdown.ctrl'
+
+require('./statusBar.scss');
 
 /**
  * Status Bar Controller

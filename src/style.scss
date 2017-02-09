@@ -1,3 +1,6 @@
+@import "./_variables.scss";
+
+
 @font-face {
   font-family: "Roboto Mono";
   font-weight: 100;
@@ -43,8 +46,8 @@ svg {
 
 button {
   font-weight: 100;
-  background: #fff;
-  color: #14171b;
+  background: none;
+  color: $theme_bright;
   line-height: inherit;
   font-size: inherit;
   border: none;
@@ -52,22 +55,7 @@ button {
 }
 
 
-.status-bar {
-  height: 1.5rem;
-  padding-bottom: .25rem;
-  border-bottom: 1px dotted #fff;
-  margin-bottom: .25rem;
-}
 
-.status-bar-cancel {
-  height: 100%;
-  font-size: 1rem;
-
-}
-
-.status-bar-info {
-  float: right;
-}
 
 
 

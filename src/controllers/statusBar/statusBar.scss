@@ -1,0 +1,22 @@
+@import "../../_variables.scss";
+
+.status-bar {
+  height: 1.5rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px dotted $theme_bright;
+  margin-bottom: .25rem;
+
+  &:after {
+    content: '';
+    clear: both;
+  }
+
+  &-cancel {
+    height: 100%;
+    font-size: 1rem;
+  }
+
+  &-info {
+    float: right;
+  }
+}

@@ -4,10 +4,11 @@
   float: right;
   width: 10rem;
   height: 1rem;
-  color: inherit;
+  margin: .25rem 0 .25rem .5rem;
   border: 1px solid currentColor;
-  margin-left: .25rem;
   border-radius: .25rem;
+  box-sizing: border-box;
+  color: inherit;
 }
 
 .alert {

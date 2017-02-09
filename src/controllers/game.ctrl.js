@@ -1,4 +1,4 @@
-import StatusBarCtrl from './statusBar.ctrl'
+import StatusBarCtrl from './statusBar/statusBar.ctrl'
 import HistoryCtrl from './history/history.ctrl'
 import LockCtrl from './lock.ctrl'
 import Pattern from '../models/pattern'
