@@ -1,5 +1,7 @@
-import Pattern from '../models/pattern'
-import PatternSVG from '../utils/patternSVG'
+import Pattern from '../../models/pattern'
+import PatternSVG from '../../utils/patternSVG'
+
+require('./lock.scss');
 
 /**
  * Lock class
@@ -8,8 +10,9 @@ import PatternSVG from '../utils/patternSVG'
  * and trigger the other instances when required.
  */
 class LockCtrl {
+
   /**
-   * [constructor description]
+   * Make it ready
    * @param  {Function} callback  Callback to call on new pattern
    */
   constructor (callback) {
@@ -28,7 +31,8 @@ class LockCtrl {
     myPatternSVG.addDots(2)
 
     this.el = myPatternSVG.getSVG()
-    this.bigDotsEl = myPatternSVG.addDots(6, {class: 'lock-bigdots'})
+    this.el.setAttribute('class', 'lock')
+    this.bigDotsEl = myPatternSVG.addDots(6, {class: 'lock-flashdots'})
     this.patternEl = myPatternSVG.addGroup({
       'stroke-width': '1',
       'stroke': '#fff',
