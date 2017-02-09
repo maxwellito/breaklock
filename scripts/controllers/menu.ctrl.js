@@ -49,7 +49,7 @@ class MenuCtrl {
       {
         value: config.GAME.TYPE.PRACTICE,
         label: 'Practice',
-        description: 'No pression, just discover and practice your game'
+        description: 'No pressure, just discover and practice your game'
       },
       {
         value: config.GAME.TYPE.CHALLENGE,

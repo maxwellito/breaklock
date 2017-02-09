@@ -3,6 +3,7 @@ import HistoryCtrl from './history.ctrl'
 import LockCtrl from './lock.ctrl'
 import Pattern from '../models/pattern'
 import PatternSVG from '../utils/patternSVG'
+import config from '../config'
 
 /**
  * Game Controller
@@ -27,6 +28,7 @@ class GameCtrl {
     this.history   = new HistoryCtrl()
     this.lock      = new LockCtrl(4, this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
     this.pattern   = null
+    this.type      = null
 
     //# QUESTION: Does it really make sense?
     this.statusBar.init()
@@ -56,14 +58,23 @@ class GameCtrl {
 
   /**
    * Start a new game
-   * @return {[type]} [description]
+   * @param  {int} type       Type ID
+   * @param  {int} difficulty Number of dots
    */
-  start () {
-    this.pattern = new Pattern(4)
+  start (type, difficulty) {
+    this.type = type
+    this.pattern = new Pattern(difficulty)
     this.pattern.fillRandomly()
     this.history.clear()
-    // this.statusBar.setCounter(10)
-    this.statusBar.setCountdown(60)
+
+    switch (type) {
+      case config.GAME.TYPE.PRACTICE:
+        return this.statusBar.setCounter(0)
+      case config.GAME.TYPE.CHALLENGE:
+        return this.statusBar.setCounter(10)
+      case config.GAME.TYPE.COUNTDOWN:
+        return this.statusBar.setCountdown(60)
+    }
   }
 
   newAttempt (pattern) {
@@ -73,6 +84,8 @@ class GameCtrl {
     attemptSVG.addPattern(pattern, 14, ['#999','#ccc','#fff']) //# TO_DO: Need consts
 
     let match = this.pattern.compare(pattern)
+    PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
+
     if (match[0] === this.pattern.dotLength) {
       // Success case
       alert('UNLOCKED! ;)')
@@ -80,10 +93,15 @@ class GameCtrl {
     }
     else {
       // Fail case
-      PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
       this.history.stackPattern(attemptSVG.getSVG())
-      if (this.statusBar.decrementCounter() === 0) {
-      //  alert('ACCESS DENIED!')
+      switch (this.type) {
+        case config.GAME.TYPE.PRACTICE:
+          return this.statusBar.incrementCounter()
+        case config.GAME.TYPE.CHALLENGE:
+          if (this.statusBar.decrementCounter() === 0) {
+            alert('ACCESS DENIED!')
+          }
+          break;
       }
       return false
     }
