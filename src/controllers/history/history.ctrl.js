@@ -1,3 +1,5 @@
+require('./history.scss');
+
 /**
  * History Controller
  * Simple controller stacking the previous pattern

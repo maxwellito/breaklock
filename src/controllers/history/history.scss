@@ -1,0 +1,21 @@
+@import "../../_variables.scss";
+
+
+.history {
+  border-bottom: 1px dotted $theme_bright;
+  overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.history-container {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.history svg {
+  width: 100px;
+  display: inline-block;
+  margin: 0 1em 0 0;
+}

@@ -1,5 +1,5 @@
 import StatusBarCtrl from './statusBar.ctrl'
-import HistoryCtrl from './history.ctrl'
+import HistoryCtrl from './history/history.ctrl'
 import LockCtrl from './lock.ctrl'
 import Pattern from '../models/pattern'
 import PatternSVG from '../utils/patternSVG'
