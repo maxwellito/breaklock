@@ -1,6 +1,8 @@
-import OptionCtrl from './option.ctrl'
-import SelectorCtrl from './selector.ctrl'
-import config from '../config'
+import OptionCtrl from '../option/option.ctrl'
+import SelectorCtrl from '../selector/selector.ctrl'
+import config from '../../config'
+
+require('./menu.scss');
 
 /**
  * Menu Controller

@@ -1,3 +1,5 @@
+require('./option.scss');
+
 /**
  * Option Controller
  * Component to build a one line selector
@@ -24,7 +26,7 @@ class OptionCtrl {
    */
   setupTemplate () {
     this.el = document.createElement('div')
-    this.el.setAttribute('class', 'option')
+    this.el.setAttribute('class', 'selectbox')
     return this.el
   }
 
@@ -43,7 +45,7 @@ class OptionCtrl {
     let listener = this.selectListener.bind(this)
     choiceList.forEach((choice, index) => {
       let option = document.createElement('span')
-      option.setAttribute('class', 'option-item')
+      option.setAttribute('class', 'selectbox-item')
       option.setAttribute('rel', choice.value)
       option.textContent = choice.label
       option.addEventListener('click', listener)
@@ -52,6 +54,7 @@ class OptionCtrl {
       if (choice.default)
         this.selectFromTag(option)
     })
+    this.el.classList.add('selectbox-' + choiceList.length)
   }
 
   /**
@@ -72,10 +75,10 @@ class OptionCtrl {
    */
   selectFromTag (tag) {
     if (this.selectedTag)
-      this.selectedTag.classList.remove('selected')
+      this.selectedTag.classList.remove('active')
 
     this.selectedTag = tag
-    this.selectedTag.classList.add('selected')
+    this.selectedTag.classList.add('active')
     this.selectedValue = window.parseInt(tag.getAttribute('rel'), 10)
   }
 

@@ -1,3 +1,5 @@
+require('./selector.scss');
+
 /**
  * Selector Controller
  * Component to build a one line selector
@@ -25,21 +27,21 @@ class SelectorCtrl {
    */
   setupTemplate () {
     this.el = document.createElement('div')
-    this.el.setAttribute('class', 'selector')
+    this.el.setAttribute('class', 'selector selectbox')
 
     // Arrow buttons
     this.btnLeft = document.createElement('span')
-    this.btnLeft.setAttribute('class', 'selector-left')
+    this.btnLeft.setAttribute('class', 'selectbox-item active selector-left')
     this.btnLeft.textContent = '<'
     this.el.appendChild(this.btnLeft)
     this.btnRight = document.createElement('span')
-    this.btnRight.setAttribute('class', 'selector-right')
+    this.btnRight.setAttribute('class', 'selectbox-item active selector-right')
     this.btnRight.textContent = '>'
     this.el.appendChild(this.btnRight)
 
     // Screen
     this.labelEl = document.createElement('span')
-    this.labelEl.setAttribute('class', 'selector-label')
+    this.labelEl.setAttribute('class', 'selectbox-item selector-label')
     this.el.appendChild(this.labelEl)
 
     return this.el

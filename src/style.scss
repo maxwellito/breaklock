@@ -1,6 +1,5 @@
 @import "./_variables.scss";
 
-
 @font-face {
   font-family: "Roboto Mono";
   font-weight: 100;
@@ -18,18 +17,10 @@ html, body {
   background: #14171b;
   color: #fff;
 }
+
 a {
   color: inherit;
 }
-
-
-
-
-
-
-
-
-
 
 button {
   font-weight: 100;
@@ -41,61 +32,7 @@ button {
   padding: 0;
 }
 
-
-
-
-
-
-
-
 h1 {
   font-weight: 100;
   text-shadow: 0 0 8px rgba(255,255,255,.4);
-}
-
-
-.option, .selector {
-  border: 1px solid white;
-  border-radius: .25rem;
-  padding: .25rem;
-  margin-bottom: .5rem;
-}
-
-.option-item, .selector-left, .selector-right, .selector-label {
-  width: 33.33%;
-  padding: .25rem;
-  text-align: center;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.option-item.selected {
-  background: white;
-  color: #14171b;
-  border-radius: .2rem;
-}
-
-
-
-.selector-left, .selector-right {
-  display: inline-block;
-  text-align: center;
-  width: 2rem;
-  color:#14171b;
-  background: white;
-  border-radius: .2rem;
-}
-
-.selector-left {
-  float: left;
-}
-
-.selector-right {
-  float: right;
-}
-
-.selector-label {
-  text-align: center;
-  margin: 0 auto;
-  display: block;
 }

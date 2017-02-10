@@ -1,0 +1,18 @@
+@import "../../_variables.scss";
+
+.selector-left, .selector-right {
+  width: 2rem;
+}
+
+.selector-left {
+  float: left;
+}
+
+.selector-right {
+  float: right;
+}
+
+.selector-label {
+  margin: 0 auto;
+  display: block;
+}
