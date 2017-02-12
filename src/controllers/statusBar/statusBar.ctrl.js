@@ -1,4 +1,5 @@
 import CountdownCtrl from '../countdown/countdown.ctrl'
+import leftPadNum from '../../utils/leftPadNum'
 
 require('./statusBar.scss');
 
@@ -86,7 +87,7 @@ class StatusBarCtrl {
    * @return {int} The new value of the counter
    */
   updateCounter () {
-    this.counterEl.textContent = this.counterVal
+    this.counterEl.textContent = leftPadNum(this.counterVal, 3)
     return this.counterVal
   }
 

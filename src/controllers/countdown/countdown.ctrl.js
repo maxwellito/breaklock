@@ -1,3 +1,5 @@
+import leftPadNum from '../../utils/leftPadNum'
+
 require('./countdown.scss');
 
 /**
@@ -88,7 +90,7 @@ class CountdownCtrl {
     this.remaining = this.remaining > 0 ? this.remaining : 0
 
     this.el.classList[this.remaining > 10 ? 'remove' : 'add']('alert')
-    this.counterEl.textContent = this.remaining
+    this.counterEl.textContent = leftPadNum(this.remaining, 3)
     this.barEl.style.width = (this.remaining / this.duration * 100) + '%'
 
     if (this.remaining == 0) {
