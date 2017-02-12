@@ -1,6 +1,7 @@
 import StatusBarCtrl from '../statusBar/statusBar.ctrl'
 import HistoryCtrl   from '../history/history.ctrl'
 import LockCtrl      from '../lock/lock.ctrl'
+import SummaryCtrl   from '../summary/summary.ctrl'
 import Pattern       from '../../models/pattern'
 import PatternSVG    from '../../utils/patternSVG'
 import config        from '../../config'
@@ -26,11 +27,13 @@ class GameCtrl {
   constructor (onEnd) {
     // Lets leave it empty for now
     // just init the shite to help V8
-    this.statusBar = new StatusBarCtrl(onEnd)
+    this.statusBar = new StatusBarCtrl(this.abort.bind(this))
     this.history   = new HistoryCtrl()
     this.lock      = new LockCtrl(this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
+    this.summary   = new SummaryCtrl()
     this.pattern   = null
     this.type      = null
+    this.onEnd     = onEnd
 
     //# QUESTION: Does it really make sense?
     this.statusBar.init()
@@ -51,6 +54,9 @@ class GameCtrl {
     this.el.appendChild(this.statusBar.el)
     this.el.appendChild(this.history.el)
     this.el.appendChild(this.lock.el)
+    this.el.appendChild(this.summary.el)
+
+    this.summary.hide()
 
     return this.el
   }
@@ -69,6 +75,7 @@ class GameCtrl {
     this.pattern = new Pattern(difficulty)
     this.pattern.fillRandomly()
     this.history.clear()
+    this.count = 0
 
     switch (type) {
       case config.GAME.TYPE.PRACTICE:
@@ -89,9 +96,12 @@ class GameCtrl {
     let match = this.pattern.compare(pattern)
     PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
 
+    this.count++
+
     if (match[0] === this.pattern.dotLength) {
       // Success case
-      alert('UNLOCKED! ;)')
+      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', [1,2])
+
       return true
     }
     else {
@@ -102,12 +112,16 @@ class GameCtrl {
           return this.statusBar.incrementCounter()
         case config.GAME.TYPE.CHALLENGE:
           if (this.statusBar.decrementCounter() === 0) {
-            alert('ACCESS DENIED!')
+            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', [2])
           }
           break;
       }
       return false
     }
+  }
+
+  abort () {
+
   }
 }
 

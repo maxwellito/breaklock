@@ -9,6 +9,8 @@
 * {
   font-family: 'Roboto Mono', Menlo, Consolas, 'Andale Mono', monospace;
   font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html, body {

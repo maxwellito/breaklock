@@ -68,7 +68,10 @@ class SelectorCtrl {
    */
   setChoices (choiceList) {
     this.choices = choiceList
-    this.selectionIndex = this.choices.findIndex(item => item.default) || 0
+    for (let i = this.choices.length - 1; i >= 0; i--) {
+      this.selectionIndex = this.choices[i].default ? i : this.selectionIndex
+    }
+    this.selectionIndex = this.selectionIndex || 0
     this.updateLabel()
   }
 
