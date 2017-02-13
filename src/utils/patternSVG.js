@@ -1,7 +1,16 @@
+import dom from './dom'
+
+/**
+ * Class to generate SVG from Pattern objects
+ */
 class PatternSVG {
+
+  /**
+   * Setup the SVG base node
+   *
+   */
   constructor () {
-    this.el = document.createElementNS(this.SVG_NAMESPACE, 'svg')
-    this.el.setAttribute('viewBox', '0 0 ' + this.SVG_WIDTH + ' ' + this.SVG_WIDTH)
+    this.el = dom.create('svg', {'viewBox': '0 0 ' + this.SVG_WIDTH + ' ' + this.SVG_WIDTH})
   }
 
   /**
@@ -12,22 +21,23 @@ class PatternSVG {
    * @return PatternSVG
    */
   addPattern (pattern, size = 14, color = '#fff') {
-    let lineGroup = document.createElementNS(this.SVG_NAMESPACE, 'g')
+    let lines = []
     color = color instanceof Array ? color : [color]
-    lineGroup.setAttribute('stroke-width', size)
-    lineGroup.setAttribute('stroke-linecap', 'round')
-    this.el.appendChild(lineGroup)
 
     for (let i = 1; i < pattern.suite.length; i++) {
-      let line = document.createElementNS(this.SVG_NAMESPACE, 'line')
-      line.setAttribute('x1', (pattern.suite[i-1] % 3) * this.GRID_GUTTER + this.SVG_MARGIN)
-      line.setAttribute('y1', Math.floor(pattern.suite[i-1] / 3) * this.GRID_GUTTER + this.SVG_MARGIN)
-      line.setAttribute('x2', (pattern.suite[i] % 3) * this.GRID_GUTTER + this.SVG_MARGIN)
-      line.setAttribute('y2', Math.floor(pattern.suite[i] / 3) * this.GRID_GUTTER + this.SVG_MARGIN)
-      line.setAttribute('stroke', color[Math.min(color.length, i) - 1])
-      lineGroup.appendChild(line)
+      lines.push(dom.create('line', {
+        'x1':           (pattern.suite[i-1] % 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+        'y1': Math.floor(pattern.suite[i-1] / 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+        'x2':             (pattern.suite[i] % 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+        'y2':   Math.floor(pattern.suite[i] / 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+        'stroke': color[Math.min(color.length, i) - 1]
+      }))
     }
-    return lineGroup
+
+    return this.addGroup({
+      'stroke-width': size,
+      'stroke-linecap': 'round'
+    }, lines)
   }
 
   /**
@@ -37,30 +47,28 @@ class PatternSVG {
    * @return PatternSVG
    */
   addDots (size = 3, attr = {}) {
+    let dots = []
     attr.fill = attr.fill || '#fff'
-    let dotGroup = this.addGroup(attr)
 
     for (let i = 0; i < 9; i++) {
-      let circle = document.createElementNS(this.SVG_NAMESPACE, 'circle')
-      circle.setAttribute('cx', (i % 3) * this.GRID_GUTTER + this.SVG_MARGIN)
-      circle.setAttribute('cy', Math.floor(i / 3) * this.GRID_GUTTER + this.SVG_MARGIN)
-      circle.setAttribute('rel', i)
-      circle.setAttribute('r', size)
-      dotGroup.appendChild(circle)
+      dots.push(dom.create('circle', {
+        cx:    (i % 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+        cy:    Math.floor(i / 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+        rel:   i,
+        r:     size
+      }))
     }
-    return dotGroup
+    return this.addGroup(attr, dots)
   }
 
   /**
    * Add group to the instance
-   * @param {object} attr List of attributes to set to the group
-   * @return PatternSVG
+   * @param {object} attr    List of attributes to set to the group
+   * @param {*}      content Items as content
+   * @return SVGDOMElement
    */
-  addGroup (attr) {
-    let group = document.createElementNS(this.SVG_NAMESPACE, 'g')
-    for (var key in attr) {
-      group.setAttribute(key, attr[key])
-    }
+  addGroup (attr, content) {
+    let group = dom.create('g', attr, content)
     this.el.appendChild(group)
     return group
   }
@@ -82,21 +90,21 @@ class PatternSVG {
 
 
     this.el.setAttribute('viewBox', '0 0 ' + this.SVG_WIDTH + ' ' + (this.SVG_WIDTH + this.SVG_COMB_EXP))
-    let dotGroup = this.addGroup({})
+    let dots = []
 
     for (let i = 0; i < totalDots; i++) {
-      let circle = document.createElementNS(this.SVG_NAMESPACE, 'circle')
-      circle.setAttribute('cx', xStart + i * xGap)
-      circle.setAttribute('cy', yStart)
-      circle.setAttribute('r', (dotWidth - this.DOT_BORDER) / 2)
-      circle.setAttribute('stroke-width', this.DOT_BORDER)
-      circle.setAttribute('fill', i < goodDots ? '#fff' : '#000')
-      circle.setAttribute('stroke', i < (goodDots + badPlacedDots) ? '#fff' : '#000')
-      circle.setAttribute('fill-opacity', i < goodDots ? '1' : '.25')
-      circle.setAttribute('stroke-opacity', i < (goodDots + badPlacedDots) ? '1' : '.25')
-      dotGroup.appendChild(circle)
+      dots.push(dom.create('circle', {
+        'cx': xStart + i * xGap,
+        'cy': yStart,
+        'r': (dotWidth - this.DOT_BORDER) / 2,
+        'stroke-width': this.DOT_BORDER,
+        'fill': i < goodDots ? '#fff' : '#000',
+        'stroke': i < (goodDots + badPlacedDots) ? '#fff' : '#000',
+        'fill-opacity': i < goodDots ? '1' : '.25',
+        'stroke-opacity': i < (goodDots + badPlacedDots) ? '1' : '.25'
+      }))
     }
-    return dotGroup
+    return this.addGroup({}, dots)
   }
 
   /**

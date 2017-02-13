@@ -1,3 +1,5 @@
+import dom from '../../utils/dom'
+
 require('./selector.scss');
 
 /**
@@ -26,24 +28,15 @@ class SelectorCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'selector selectbox')
+    this.btnLeft  = dom.create('span', {class: 'selectbox-item active selector-left'},  '<')
+    this.btnRight = dom.create('span', {class: 'selectbox-item active selector-right'}, '>')
+    this.labelEl  = dom.quickNode('span', 'selectbox-item selector-label')
 
-    // Arrow buttons
-    this.btnLeft = document.createElement('span')
-    this.btnLeft.setAttribute('class', 'selectbox-item active selector-left')
-    this.btnLeft.textContent = '<'
-    this.el.appendChild(this.btnLeft)
-    this.btnRight = document.createElement('span')
-    this.btnRight.setAttribute('class', 'selectbox-item active selector-right')
-    this.btnRight.textContent = '>'
-    this.el.appendChild(this.btnRight)
-
-    // Screen
-    this.labelEl = document.createElement('span')
-    this.labelEl.setAttribute('class', 'selectbox-item selector-label')
-    this.el.appendChild(this.labelEl)
-
+    this.el = dom.create('div', {class: 'selector selectbox'}, [
+      this.btnLeft,
+      this.btnRight,
+      this.labelEl
+    ])
     return this.el
   }
 

@@ -1,5 +1,6 @@
 import Pattern from '../../models/pattern'
 import PatternSVG from '../../utils/patternSVG'
+import dom from '../../utils/dom'
 
 require('./lock.scss');
 
@@ -124,9 +125,10 @@ class LockCtrl {
         return this.checkPattern()
 
       // Start new one
-      this.currentLine = document.createElementNS('http://www.w3.org/2000/svg','line')
-      this.currentLine.setAttribute('x1', dotX)
-      this.currentLine.setAttribute('y1', dotY)
+      this.currentLine = dom.create('line', {
+        x1: dotX,
+        y1: dotY
+      })
       this.patternEl.appendChild(this.currentLine)
     })
   }

@@ -8,12 +8,11 @@ var dom = {
    * Most advanced method (of this object) to
    * create a DOM element
    * @param  {string} nodeName   Node type to create
-   * @param  {string} content    Text content to include
    * @param  {object} attributes Key/value of attributes to set
-   * @param  {array}  childrens  List of childrem to appendChild
+   * @param  {*}      content    Text content if string or childnodes if array to include
    * @return {DOMElement} Node generated
    */
-  create: (nodeName, content = null, attributes = {}, childrens = []) => {
+  create: (nodeName, attributes = {}, content = null) => {
     var node
     if (dom.SVG_ELEMENTS.indexOf(nodeName) === -1) {
       node = document.createElement(nodeName)
@@ -22,16 +21,17 @@ var dom = {
       node = document.createElementNS(dom.SVG_NAMESPACE, nodeName)
     }
 
-    if (content) {
-      node.textContent = content
-    }
-
-    for (let attrName in attributes.length) {
+    for (let attrName in attributes) {
       node.setAttribute(attrName, attributes[attrName])
     }
 
-    for (let i = 0; i < childrens.length; i++) {
-      node.appendChild(childrens[i])
+    if (content instanceof Array) {
+      for (let i = 0; i < content.length; i++) {
+        node.appendChild(content[i])
+      }
+    }
+    else {
+      node.textContent = content
     }
 
     return node
@@ -44,7 +44,7 @@ var dom = {
    * @return {DOMElement} Node generated
    */
   quickNode: (nodeName, className) => {
-    return dom.create(nodeName, null, {class: className})
+    return dom.create(nodeName, {class: className})
   },
 
   SVG_NAMESPACE: 'http://www.w3.org/2000/svg',

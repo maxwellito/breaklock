@@ -1,3 +1,5 @@
+import dom from '../../utils/dom'
+
 require('./option.scss');
 
 /**
@@ -25,8 +27,7 @@ class OptionCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'selectbox')
+    this.el = dom.quickNode('div', 'selectbox')
     return this.el
   }
 
@@ -44,15 +45,17 @@ class OptionCtrl {
   setChoices (choiceList) {
     let listener = this.selectListener.bind(this)
     choiceList.forEach((choice, index) => {
-      let option = document.createElement('span')
-      option.setAttribute('class', 'selectbox-item')
-      option.setAttribute('rel', choice.value)
-      option.textContent = choice.label
+      let option = dom.create('span', {
+        class: 'selectbox-item',
+        rel: choice.value
+      }, choice.label)
       option.addEventListener('click', listener)
       this.el.appendChild(option)
 
       if (choice.default)
         this.selectFromTag(option)
+
+      return option
     })
     this.el.classList.add('selectbox-' + choiceList.length)
   }

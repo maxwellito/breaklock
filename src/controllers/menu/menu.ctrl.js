@@ -1,6 +1,7 @@
 import OptionCtrl from '../option/option.ctrl'
 import SelectorCtrl from '../selector/selector.ctrl'
 import config from '../../config'
+import dom from '../../utils/dom'
 
 require('./menu.scss');
 
@@ -25,18 +26,10 @@ class MenuCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    // Container
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'menu')
-
-    // Intro
-    let title = document.createElement('h1')
-    title.textContent = 'BreakLock_'
-    this.el.appendChild(title)
-
-    let description = document.createElement('p')
-    description.textContent = 'Link the dots to find the pattern lock hidden. It\'s a modern version of mastermind combined with the Android lock. After every attempts the game will provide you indications. A plain circle is for correct dot in right order in the pattern. An empty bordered one is for correct dot in the wrong order. Good luck!'
-    this.el.appendChild(description)
+    let title       = dom.create('h1', {}, 'BreakLock_'),
+        description = dom.create('p', {}, 'Link the dots to find the pattern lock hidden. It\'s a modern version of mastermind combined with the Android lock. After every attempts the game will provide you indications. A plain circle is for correct dot in right order in the pattern. An empty bordered one is for correct dot in the wrong order. Good luck!')
+    this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
+    this.btnStarlEl = dom.create('button', {}, 'GO_')
 
     // Options
     //# TO_DO: Move the option to config
@@ -45,7 +38,6 @@ class MenuCtrl {
       { value: 5, label: 'Medium', default: true},
       { value: 6, label: 'Hard'}
     ])
-    this.el.appendChild(this.difficultyOption.el)
 
     this.typeSelector = new SelectorCtrl([
       {
@@ -65,16 +57,15 @@ class MenuCtrl {
         description: 'Solve the game in one minute, without limit of attempts'
       }
     ])
-    this.el.appendChild(this.typeSelector.el)
-    this.typeHelpEl = document.createElement('p')
-    this.typeHelpEl.textContent = 'Future info about the challenge'
-    this.el.appendChild(this.typeHelpEl)
 
-    // Go button
-    this.btnStarlEl = document.createElement('button')
-    this.btnStarlEl.textContent = 'GO_'
-    this.el.appendChild(this.btnStarlEl)
-
+    this.el = dom.create('div', {class: 'menu'} , [
+      title,
+      description,
+      this.difficultyOption.el,
+      this.typeSelector.el,
+      this.typeHelpEl,
+      this.btnStarlEl
+    ])
     return this.el
   }
 

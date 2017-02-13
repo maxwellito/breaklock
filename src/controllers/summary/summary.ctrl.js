@@ -25,7 +25,7 @@ class SummaryCtrl {
     // Action buttons
     this.actionButtons = {}
     for (let action in config.GAME.ACTIONS) {
-      let btn = dom.create('button', action, {rel: config.GAME.ACTIONS[action]})
+      let btn = dom.create('button', {rel: config.GAME.ACTIONS[action]}, action)
       this.actionsEl.appendChild(btn)
       this.actionButtons[action] = btn
     }
@@ -33,12 +33,12 @@ class SummaryCtrl {
     // Social links
     this.socialButtons = {}
     for (let platform in config.SOCIAL.PLATFORMS) {
-      let btn = dom.create('button', platform, {rel: config.SOCIAL.PLATFORMS[platform]})
+      let btn = dom.create('button', {rel: config.SOCIAL.PLATFORMS[platform]}, platform)
       this.socialEl.appendChild(btn)
       this.socialButtons[platform] = btn
     }
 
-    this.el = dom.create('div', null, {class: 'summary'}, [
+    this.el = dom.create('div', {class: 'summary'}, [
       this.titleEl,
       this.detailsEl,
       this.actionsEl,

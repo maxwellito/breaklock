@@ -1,3 +1,5 @@
+import dom from '../../utils/dom'
+
 require('./history.scss');
 
 /**
@@ -20,13 +22,8 @@ class HistoryCtrl {
    * @return {SVGDOMElement}
    */
   setupTemplate () {
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'history')
-
-    this.container = document.createElement('div')
-    this.container.setAttribute('class', 'history-container')
-    this.el.appendChild(this.container)
-
+    this.containerEl = dom.quickNode('div', 'history-container')
+    this.el = dom.create('div', {class: 'history'} , [this.containerEl])
     return this.el
   }
 
@@ -36,9 +33,9 @@ class HistoryCtrl {
    */
   stackPattern (pattern) {
     if (this.lastPattern)
-      this.container.insertBefore(pattern, this.lastPattern)
+      this.containerEl.insertBefore(pattern, this.lastPattern)
     else
-      this.container.appendChild(pattern)
+      this.containerEl.appendChild(pattern)
     this.lastPattern = pattern
   }
 
@@ -49,10 +46,9 @@ class HistoryCtrl {
     this.lastPattern = null
 
     // Clean the container
-    this.container.remove()
-    this.container = document.createElement('div')
-    this.container.setAttribute('class', 'history-container')
-    this.el.appendChild(this.container)
+    this.containerEl.remove()
+    this.containerEl = dom.quickNode('div', 'history-container')
+    this.el.appendChild(this.containerEl)
   }
 }
 

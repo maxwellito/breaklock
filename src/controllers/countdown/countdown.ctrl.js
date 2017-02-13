@@ -1,4 +1,5 @@
 import leftPadNum from '../../utils/leftPadNum'
+import dom from '../../utils/dom'
 
 require('./countdown.scss');
 
@@ -21,23 +22,17 @@ class CountdownCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'countdown')
+    this.counterEl = dom.quickNode('span', 'countdown-counter')
+    this.barEl     = dom.quickNode('span', 'countdown-content')
 
-    // Counter
-    this.counterEl = document.createElement('span')
-    this.counterEl.setAttribute('class', 'countdown-counter')
-    this.el.appendChild(this.counterEl)
+    let container = dom.create('span', {class: 'countdown-container'}, [
+      this.barEl
+    ])
 
-    // Countdown
-    let container = document.createElement('span')
-    container.setAttribute('class', 'countdown-container')
-    this.el.appendChild(container)
-
-    this.barEl = document.createElement('span')
-    this.barEl.setAttribute('class', 'countdown-content')
-    container.appendChild(this.barEl)
-
+    this.el = dom.create('div', {class: 'countdown'}, [
+      this.counterEl,
+      container
+    ])
     return this.el
   }
 

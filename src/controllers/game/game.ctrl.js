@@ -5,6 +5,7 @@ import SummaryCtrl   from '../summary/summary.ctrl'
 import Pattern       from '../../models/pattern'
 import PatternSVG    from '../../utils/patternSVG'
 import config        from '../../config'
+import dom           from '../../utils/dom'
 
 require('./game.scss');
 
@@ -47,17 +48,14 @@ class GameCtrl {
    * @return {SVGDOMElement}
    */
   setupTemplate () {
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'game-layout')
-
-    // Add components
-    this.el.appendChild(this.statusBar.el)
-    this.el.appendChild(this.history.el)
-    this.el.appendChild(this.lock.el)
-    this.el.appendChild(this.summary.el)
-
     this.summary.hide()
 
+    this.el = dom.create('div', {class: 'game-layout'}, [
+      this.statusBar.el,
+      this.history.el,
+      this.lock.el,
+      this.summary.el
+    ])
     return this.el
   }
 

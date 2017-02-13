@@ -1,5 +1,6 @@
 import CountdownCtrl from '../countdown/countdown.ctrl'
 import leftPadNum from '../../utils/leftPadNum'
+import dom from '../../utils/dom'
 
 require('./statusBar.scss');
 
@@ -34,26 +35,18 @@ class StatusBarCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.el = document.createElement('div')
-    this.el.setAttribute('class', 'status-bar')
+    this.cancelBtnEl = dom.create('button', {class: 'status-bar-cancel'}, 'ABORT')
+    this.counterEl = dom.quickNode('span', 'status-bar-info')
 
-    // Cancel button
-    this.cancelBtnEl = document.createElement('button')
-    this.cancelBtnEl.setAttribute('class', 'status-bar-cancel')
-    this.cancelBtnEl.textContent = 'ABORT'
-    this.el.appendChild(this.cancelBtnEl)
-
-    // Counter
-    this.counterEl = document.createElement('span')
-    this.counterEl.setAttribute('class', 'status-bar-info')
-    this.el.appendChild(this.counterEl)
-
-    // Countdown
     this.countdown = new CountdownCtrl()
     this.countdownEl = this.countdown.el
     this.countdownEl.setAttribute('class', 'status-bar-info')
-    this.el.appendChild(this.countdownEl)
 
+    this.el = dom.create('div', {class: 'status-bar'}, [
+      this.cancelBtnEl,
+      this.counterEl,
+      this.countdownEl
+    ])
     return this.el
   }
 
