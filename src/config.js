@@ -19,13 +19,18 @@ const config = {
   SOCIAL: {
     PLATFORMS: {
       FB: {
-        URL: (url) => `https://www.facebook.com/sharer/sharer.php?u=${url_encode(url)}`
+        NAME: 'Facebook',
+        URL: (url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(url)}`
       },
       TWITTER: {
-        URL: (url, msg, tags) => `http://twitter.com/share?text=${url_encode(msg)}&url=${url_encode(url)}&hashtags=${url_encode(tags.join(','))}`
+        NAME: 'Twitter',
+        URL: (url, msg, tags) => `http://twitter.com/share?text=${encodeURI(msg)}&url=${encodeURI(url)}&hashtags=${encodeURI(tags.join(','))}`
       }
-    }
-  }
+    },
+    MESSAGE: 'I wasted my time on BreakLock, it\'s pointless, don\'t try it.',
+    TAGS: ['breaklock']
+  },
+  URL: 'https://maxwellito.github.io/breaklock'
 }
 
 export default config

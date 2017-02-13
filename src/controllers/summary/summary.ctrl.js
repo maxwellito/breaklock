@@ -7,7 +7,8 @@ require('./summary.scss');
 
 class SummaryCtrl {
 
-  constructor () {
+  constructor (onAction) {
+    this.onAction = onAction
     this.setupTemplate()
     this.init()
   }
@@ -17,26 +18,30 @@ class SummaryCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.titleEl   = dom.quickNode('h1',  'summary-title')
-    this.detailsEl = dom.quickNode('p',   'summary-details')
-    this.actionsEl = dom.quickNode('div', 'summary-actions')
-    this.socialEl  = dom.quickNode('div', 'summary-share')
+
 
     // Action buttons
     this.actionButtons = {}
     for (let action in config.GAME.ACTIONS) {
       let btn = dom.create('button', {rel: config.GAME.ACTIONS[action]}, action)
-      this.actionsEl.appendChild(btn)
       this.actionButtons[action] = btn
     }
 
     // Social links
-    this.socialButtons = {}
+    this.socialButtons = []
     for (let platform in config.SOCIAL.PLATFORMS) {
-      let btn = dom.create('button', {rel: config.SOCIAL.PLATFORMS[platform]}, platform)
-      this.socialEl.appendChild(btn)
-      this.socialButtons[platform] = btn
+      let btn = dom.create('a', {
+        rel: 'noopener noreferrer',
+        target: '_blank',
+        platform
+      }, config.SOCIAL.PLATFORMS[platform].NAME)
+      this.socialButtons.push(btn)
     }
+
+    this.titleEl   = dom.quickNode('h1', 'summary-title')
+    this.detailsEl = dom.quickNode('p',  'summary-details')
+    this.actionsEl = dom.create('div', {class: 'summary-actions'}, Object.values(this.actionButtons))
+    this.socialEl  = dom.create('div', {class: 'summary-share'},   this.socialButtons)
 
     this.el = dom.create('div', {class: 'summary'}, [
       this.titleEl,
@@ -51,9 +56,6 @@ class SummaryCtrl {
   init () {
     for (let i in this.actionButtons) {
       this.actionButtons[i].addEventListener('click', this.triggerAction.bind(this))
-    }
-    for (let i in this.socialButtons) {
-      this.socialButtons[i].addEventListener('click', this.triggerSocial.bind(this))
     }
   }
 
@@ -70,24 +72,33 @@ class SummaryCtrl {
     this.detailsEl.textContent = msg
 
 
+    this.updateSocialLinks()
 
     for (let i in allowedActions) {
       // Display actions
     }
 
-    this.el.style.display = 'inherit'
+    this.toggle(true)
   }
 
-  hide () {
-    this.el.style.display = 'none'
+  toggle (force) {
+    force = (force != undefined) ? force : this.el.style.display === 'none'
+    this.el.style.display = force ? 'inherit' : 'none'
   }
 
   triggerAction (event) {
     let actionId = parseInt(event.currentTarget.getAttribute('rel') || 0, 10)
+    this.onAction(actionId)
   }
 
-  triggerSocial (event) {
-    let actionId = parseInt(event.currentTarget.getAttribute('rel') || 0, 10)
+  updateSocialLinks () {
+    //# provide a custom message
+    this.socialButtons.forEach(item => {
+      let socialId = item.getAttribute('platform'),
+          socialObj = config.SOCIAL.PLATFORMS[socialId]
+
+      item.setAttribute('href', socialObj.URL(config.URL, config.SOCIAL.MESSAGE, config.SOCIAL.TAGS))
+    })
   }
 }
 

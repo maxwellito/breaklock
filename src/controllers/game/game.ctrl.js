@@ -31,7 +31,7 @@ class GameCtrl {
     this.statusBar = new StatusBarCtrl(this.abort.bind(this))
     this.history   = new HistoryCtrl()
     this.lock      = new LockCtrl(this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
-    this.summary   = new SummaryCtrl()
+    this.summary   = new SummaryCtrl(this.action.bind(this))
     this.pattern   = null
     this.type      = null
     this.onEnd     = onEnd
@@ -48,7 +48,7 @@ class GameCtrl {
    * @return {SVGDOMElement}
    */
   setupTemplate () {
-    this.summary.hide()
+    this.summary.toggle()
 
     this.el = dom.create('div', {class: 'game-layout'}, [
       this.statusBar.el,
@@ -69,6 +69,7 @@ class GameCtrl {
    */
   start (type, difficulty) {
     this.type = type
+    this.difficulty = difficulty
     this.lock.setDotLength(difficulty)
     this.pattern = new Pattern(difficulty)
     this.pattern.fillRandomly()
@@ -118,8 +119,29 @@ class GameCtrl {
     }
   }
 
-  abort () {
+  abort (exitCode) {
+    if (exitCode) {
+      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', [2])
+    }
+    else {
+      this.onEnd()
+    }
 
+  }
+
+  action (actionId) {
+    switch (actionId) {
+    case config.GAME.ACTIONS.TRY_AGAIN:
+      this.start(this.type, this.difficulty)
+      break;
+    case config.GAME.ACTIONS.BACK_HOME:
+      this.abort()
+      break;
+    case config.GAME.ACTIONS.CONTINUE:
+      // Nothing for now
+      break;
+    }
+    this.summary.toggle()
   }
 }
 

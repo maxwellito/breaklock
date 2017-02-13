@@ -55,7 +55,7 @@ class StatusBarCtrl {
    */
   init () {
     this.cancelBtnEl.addEventListener('click', () => {
-      this.cancelCallback()
+      this.cancelCallback(0)
     })
   }
 

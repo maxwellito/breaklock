@@ -5,12 +5,12 @@
  * @return {string}     Leftpadded string
  */
 var leftPadNum = (num, len) => {
-
-  let str = num + ''
+  let str = Math.abs(num) + '',
+      isNegative = num < 0
   for (let i = (len - str.length); i > 0; i--) {
     str = '0' + str
   }
-  return str
+  return (isNegative ? '-' : '') + str
 }
 
 export default leftPadNum
