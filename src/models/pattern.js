@@ -11,6 +11,12 @@
  *
  */
 class Pattern {
+
+  /**
+   * Set up a pattern with only
+   * the length of dots to link
+   * @param  {Number} dotLength Length of the pattern
+   */
   constructor (dotLength) {
     this.dotLength = dotLength
     this.suite = []
@@ -22,7 +28,6 @@ class Pattern {
   fillRandomly () {
     while (!this.isComplete()) {
       this.addDot(Math.floor(Math.random() * 9))
-
     }
   }
 
@@ -73,6 +78,15 @@ class Pattern {
     return ~this.suite.indexOf(dotIndex)
   }
 
+  /**
+   * Compare a pattern with the current instance.
+   * The output will be an array of three values:
+   * [0]: Number of dots in the right place in the pattern
+   * [1]: Number of correct dots badly placed in the pattern
+   * [2]: Number of wrong dots
+   * @param  {Pattern} pattern Pattern to compare
+   * @return {Array}
+   */
   compare (pattern) {
     var goodPos = 0,
         wrongPos = 0

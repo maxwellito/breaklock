@@ -78,6 +78,10 @@ class MenuCtrl {
     this.btnStarlEl.addEventListener('click', this.start.bind(this))
   }
 
+  /**
+   * Start a new game by calling the callback
+   * provided in the controller.
+   */
   start () {
     this.onStart(this.typeSelector.getValue(), this.difficultyOption.getValue())
   }

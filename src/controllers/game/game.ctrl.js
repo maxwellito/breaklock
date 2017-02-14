@@ -86,6 +86,12 @@ class GameCtrl {
     }
   }
 
+  /**
+   * Listener for new pattern drawn by the user
+   * and provided via the the Lock controller.
+   * @param  {Pattern} pattern Pattern to test
+   * @return {Boolean}         True if the pattern is correct
+   */
   newAttempt (pattern) {
     // Generate a SVG from the pattern provided
     let attemptSVG = new PatternSVG()
@@ -119,6 +125,10 @@ class GameCtrl {
     }
   }
 
+  /**
+   * Cancel listener for the status bar
+   * @param  {Number} exitCode Exit code from the status bar
+   */
   abort (exitCode) {
     if (exitCode) {
       this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', [2])
@@ -126,9 +136,14 @@ class GameCtrl {
     else {
       this.onEnd()
     }
-
   }
 
+  /**
+   * Action listener for the action of the summary
+   * controller. To continue, try again or go back
+   * to the home menu.
+   * @param  {Number} actionId Action code to apply
+   */
   action (actionId) {
     switch (actionId) {
     case config.GAME.ACTIONS.TRY_AGAIN:

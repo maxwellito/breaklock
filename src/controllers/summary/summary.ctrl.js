@@ -5,8 +5,21 @@ import dom from '../../utils/dom'
 
 require('./summary.scss');
 
+/**
+ * Summary Controller
+ * End of game screen. The one that tell
+ * if the game was a success or not.
+ * It provide different actions and social
+ * button to promote the game.
+ */
 class SummaryCtrl {
 
+  /**
+   * Set up the template and init event.
+   * The constructor take one parameter, the callback
+   * for the following step.
+   * @param  {function} onAction Action callback
+   */
   constructor (onAction) {
     this.onAction = onAction
     this.setupTemplate()
@@ -18,7 +31,6 @@ class SummaryCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-
 
     // Action buttons
     this.actionButtons = {}
@@ -53,12 +65,24 @@ class SummaryCtrl {
     return this.el
   }
 
+  /**
+   * Set up listeners
+   */
   init () {
     for (let i in this.actionButtons) {
       this.actionButtons[i].addEventListener('click', this.triggerAction.bind(this))
     }
   }
 
+  /**
+   * Set new content.
+   * This is independent from the constructor,
+   * because an instance must be reused.
+   * @param {Boolean} isSuccess      Was the game a success?
+   * @param {String}  msg            Message to display
+   * @param {Array}   allowedActions List of IDs of allowed action (: try again, ) //# BUILD: Can continue?
+   * @param {Pattern} pattern        Winning pattern
+   */
   setContent (isSuccess, msg, allowedActions, pattern) {
     if (isSuccess) {
       this.titleEl.textContent = 'Success!'
@@ -81,16 +105,27 @@ class SummaryCtrl {
     this.toggle(true)
   }
 
+  /**
+   * Show/hide the controller
+   * @param  {Boolean} force Force to show or hide if provided
+   */
   toggle (force) {
     force = (force != undefined) ? force : this.el.style.display === 'none'
     this.el.style.display = force ? 'inherit' : 'none'
   }
 
+  /**
+   * Click listener for action buttons
+   * @param  {Event} event Click event from action button
+   */
   triggerAction (event) {
     let actionId = parseInt(event.currentTarget.getAttribute('rel') || 0, 10)
     this.onAction(actionId)
   }
 
+  /**
+   * Update social links from the current content set
+   */
   updateSocialLinks () {
     //# provide a custom message
     this.socialButtons.forEach(item => {
@@ -101,6 +136,5 @@ class SummaryCtrl {
     })
   }
 }
-
 
 export default SummaryCtrl

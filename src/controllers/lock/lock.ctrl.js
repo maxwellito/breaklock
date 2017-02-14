@@ -47,9 +47,9 @@ class LockCtrl {
    */
   init () {
     // start listening for events (fingers)
-    this.el.addEventListener("touchstart", this.updateFinger.bind(this))
-    this.el.addEventListener("touchmove",  this.updateFinger.bind(this))
-    this.el.addEventListener("touchend",   this.reset.bind(this))
+    this.el.addEventListener('touchstart', this.updateFinger.bind(this))
+    this.el.addEventListener('touchmove',  this.updateFinger.bind(this))
+    this.el.addEventListener('touchend',   this.reset.bind(this))
   }
 
   /**
@@ -61,6 +61,13 @@ class LockCtrl {
     this.pattern = new Pattern(this.dotLength)
   }
 
+  /**
+   * Listener for touch events
+   * The method will calculate the position of the finger
+   * on the lock to update the line and add dots to the
+   * current pattern.
+   * @param  {Event} t Touch event
+   */
   updateFinger (t) {
     t.preventDefault()
     t.stopPropagation();
@@ -77,12 +84,14 @@ class LockCtrl {
       iY = (rangeStart <= y && rangeEnd >= y) ? i : iY
     }
 
+    let isEndOfPattern
     if (iX !== undefined && iY != undefined) {
       let dotIndex = iY * 3 + iX
-      this.addDot(dotIndex)
+      isEndOfPattern = this.addDot(dotIndex)
     }
+    if (!isEndOfPattern)
+      this.updateLine(x, y)
 
-    this.updateLine(x, y)
     return true
   }
 
@@ -102,7 +111,7 @@ class LockCtrl {
   /**
    * Add a dot on the current pattern
    * This will trigger the effect be
-   * @param {[type]} dotIndex [description]
+   * @param {number} dotIndex [description]
    */
   addDot (dotIndex) {
     if (this.pattern.gotDot(dotIndex))
@@ -110,8 +119,9 @@ class LockCtrl {
 
     var newDots = this.pattern.addDot(dotIndex)
     navigator.vibrate(20);
-    newDots.forEach(dot => {
-      let dotX = PatternSVG.prototype.GRID_GUTTER * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,
+    for (let i = 0; i < newDots.length; i++) {
+      let dot  = newDots[i],
+          dotX = PatternSVG.prototype.GRID_GUTTER * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,
           dotY = PatternSVG.prototype.GRID_GUTTER * Math.floor(dotIndex / 3) + PatternSVG.prototype.SVG_MARGIN
 
       // Close current line
@@ -122,7 +132,7 @@ class LockCtrl {
 
       // Check if finished
       if (this.pattern.isComplete())
-        return this.checkPattern()
+        return this.checkPattern() && true
 
       // Start new one
       this.currentLine = dom.create('line', {
@@ -130,7 +140,7 @@ class LockCtrl {
         y1: dotY
       })
       this.patternEl.appendChild(this.currentLine)
-    })
+    }
   }
 
   /**
