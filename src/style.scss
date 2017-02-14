@@ -38,3 +38,7 @@ h1 {
   font-weight: 100;
   text-shadow: 0 0 8px rgba(255,255,255,.4);
 }
+
+svg * {
+  fill: currentColor;
+}

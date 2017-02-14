@@ -47,8 +47,21 @@ var dom = {
     return dom.create(nodeName, {class: className})
   },
 
+  /**
+   * Generate SVG icon dom, using 'use' tags
+   * and the definitions in the index.html
+   * @param  {String} name Icon name (cf. definitions in index.html)
+   * @return {SVGDOMElement}
+   */
+  icon: (name) => {
+    let use = dom.quickNode('use')
+    use.setAttributeNS(dom.XLINK_NAMESPACE, 'href', '#icon-' + name)
+    return dom.create('svg', {}, [use])
+  },
+
   SVG_NAMESPACE: 'http://www.w3.org/2000/svg',
-  SVG_ELEMENTS: ['svg', 'g', 'circle', 'line', 'path']
+  XLINK_NAMESPACE: 'http://www.w3.org/1999/xlink',
+  SVG_ELEMENTS: ['svg', 'g', 'circle', 'line', 'path', 'use']
 }
 
 export default dom

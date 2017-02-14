@@ -12,7 +12,8 @@ Silly HTML5 game, clone of mastermind with the classic Android lock screen.
 ## TO_DO list
 
 [ ] Fix finger drop
-[ ] Uniform comments
+[X] Uniform comments
+[X] Icons: try again, home, continue, fb, twitter
 [ ] Uniform 'init' call
 [ ] Setup airport text
 [ ] Start to listen to mouse events
