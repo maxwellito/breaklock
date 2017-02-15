@@ -56,7 +56,7 @@ var dom = {
   icon: (name) => {
     let use = dom.quickNode('use')
     use.setAttributeNS(dom.XLINK_NAMESPACE, 'href', '#icon-' + name)
-    return dom.create('svg', {}, [use])
+    return dom.create('svg', {class: 'icon'}, [use])
   },
 
   SVG_NAMESPACE: 'http://www.w3.org/2000/svg',

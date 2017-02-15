@@ -10,3 +10,27 @@
   padding: 1rem;
 
 }
+
+
+summary-title
+summary-details
+.summary-actions {
+
+}
+.summary-action-button > * {
+    vertical-align: middle;
+    margin-right: .5em;
+}
+.summary-action-button {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.summary-share {
+  font-size: 2rem;
+
+  &-link {
+    display: inline-block;
+    margin-right: .125em;
+  }
+}

@@ -37,6 +37,20 @@ class HistoryCtrl {
     else
       this.containerEl.appendChild(pattern)
     this.lastPattern = pattern
+    this.scrollToStart()
+  }
+
+  /**
+   * Loop animation to scroll smoothly
+   * the history to the start.
+   */
+  scrollToStart () {
+    let pos = this.el.scrollLeft
+    this.el.scrollTo(pos - Math.max(pos / 4, 4), 0)
+
+    if (this.el.scrollLeft > 0) {
+      window.requestAnimationFrame(this.scrollToStart.bind(this))
+    }
   }
 
   /**

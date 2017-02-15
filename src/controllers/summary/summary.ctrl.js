@@ -35,7 +35,13 @@ class SummaryCtrl {
     // Action buttons
     this.actionButtons = {}
     for (let action in config.GAME.ACTIONS) {
-      let btn = dom.create('button', {rel: config.GAME.ACTIONS[action]}, action)
+      let btn = dom.create('button', {
+        class: 'summary-action-button',
+        rel: config.GAME.ACTIONS[action]
+      }, [
+        dom.icon(action.toLowerCase()),
+        dom.create('span', {}, action)
+      ])
       this.actionButtons[action] = btn
     }
 
@@ -43,17 +49,18 @@ class SummaryCtrl {
     this.socialButtons = []
     for (let platform in config.SOCIAL.PLATFORMS) {
       let btn = dom.create('a', {
+        class: 'summary-share-link',
         rel: 'noopener noreferrer',
         target: '_blank',
         platform
-      }, config.SOCIAL.PLATFORMS[platform].NAME)
+      }, [dom.icon(config.SOCIAL.PLATFORMS[platform].ICON)])
       this.socialButtons.push(btn)
     }
 
     this.titleEl   = dom.quickNode('h1', 'summary-title')
     this.detailsEl = dom.quickNode('p',  'summary-details')
-    this.actionsEl = dom.create('div', {class: 'summary-actions'}, Object.values(this.actionButtons))
-    this.socialEl  = dom.create('div', {class: 'summary-share'},   this.socialButtons)
+    this.actionsEl = dom.create('div', {class: 'summary-actions bloc'}, Object.values(this.actionButtons))
+    this.socialEl  = dom.create('div', {class: 'summary-share bloc'},   this.socialButtons)
 
     this.el = dom.create('div', {class: 'summary'}, [
       this.titleEl,

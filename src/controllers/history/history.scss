@@ -24,4 +24,11 @@ $patternMargin: 1rem;
   height: $patternHeight;
   display: inline-block;
   margin: $patternMargin $patternMargin $patternMargin 0;
+  transform: translateZ(0);
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
 }

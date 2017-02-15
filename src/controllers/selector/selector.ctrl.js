@@ -108,6 +108,7 @@ class SelectorCtrl {
    */
   onSelect (listener) {
     this.selectCallback = listener
+    this.updateLabel()
   }
 
   /**

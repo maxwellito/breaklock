@@ -39,6 +39,17 @@ h1 {
   text-shadow: 0 0 8px rgba(255,255,255,.4);
 }
 
-svg * {
-  fill: currentColor;
+.icon {
+  width: 1em;
+  height: 1em;
+
+  * {
+    fill: currentColor;
+  }
+}
+
+
+.bloc {
+  border-top: 1px dotted currentColor;
+  padding: .5rem 0;
 }
