@@ -1,3 +1,12 @@
 @import "../../_variables.scss";
 
 // Not much here... for now.
+.menu {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-title {
+  margin: 0;
+  text-shadow: 0 0 6px $theme_bright, 0 0 16px $theme_bright;
+}

@@ -36,7 +36,6 @@ button {
 
 h1 {
   font-weight: 100;
-  text-shadow: 0 0 8px rgba(255,255,255,.4);
 }
 
 .icon {
@@ -52,4 +51,22 @@ h1 {
 .bloc {
   border-top: 1px dotted currentColor;
   padding: .5rem 0;
+}
+
+
+
+/* Layout *********/
+
+.view  {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $gutter;
+}
+
+.expandable {
+  flex-grow: 1;
 }

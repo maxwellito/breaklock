@@ -1,3 +1,4 @@
+import ExtenderCtrl from '../extender/extender.ctrl'
 import OptionCtrl from '../option/option.ctrl'
 import SelectorCtrl from '../selector/selector.ctrl'
 import config from '../../config'
@@ -26,10 +27,14 @@ class MenuCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    let title       = dom.create('h1', {}, 'BreakLock_'),
-        description = dom.create('p', {}, 'Link the dots to find the pattern lock hidden. It\'s a modern version of mastermind combined with the Android lock. After every attempts the game will provide you indications. A plain circle is for correct dot in right order in the pattern. An empty bordered one is for correct dot in the wrong order. Good luck!')
+    let title = dom.create('h1', {class: 'menu-title'}, 'BreakLock_'),
+        intro = dom.create('p',  {class: 'menu-intro'}, 'A merge between Mastermind and the Android pattern lock. A game you gonna hate.')
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
     this.btnStarlEl = dom.create('button', {}, 'GO_')
+
+    let instructions = new ExtenderCtrl('INSTRUCTIONS', document.getElementById('instructions-template'))
+    instructions.el.classList.add('expandable')
+    instructions.init()
 
     // Options
     //# TO_DO: Move the option to config
@@ -58,9 +63,10 @@ class MenuCtrl {
       }
     ])
 
-    this.el = dom.create('div', {class: 'menu'} , [
+    this.el = dom.create('div', {class: 'menu view'} , [
       title,
-      description,
+      intro,
+      instructions.el,
       this.difficultyOption.el,
       this.typeSelector.el,
       this.typeHelpEl,

@@ -1,0 +1,34 @@
+@import "../../_variables.scss";
+
+// Not much for now...
+.extender {
+
+}
+
+.extender-button {
+  display: block;
+  width: 100%;
+  padding: .25em;
+  text-align: center;
+  background: rgba(255,255,255,.125);
+  border-bottom: $border;
+
+  &:after {
+    // ▲▼▾▴△▽
+    content: '▽';
+    margin-left: .5em;
+  }
+
+  .extender.active &:after {
+    // ▲▼▾▴△▽
+    content: '△';
+  }
+}
+
+.extender-content {
+  display: none;
+
+  .extender.active & {
+    display: inherit;
+  }
+}
