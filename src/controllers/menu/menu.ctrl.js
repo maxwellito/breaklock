@@ -33,7 +33,6 @@ class MenuCtrl {
     this.btnStarlEl = dom.create('button', {}, 'GO_')
 
     let instructions = new ExtenderCtrl('INSTRUCTIONS', document.getElementById('instructions-template'))
-    instructions.el.classList.add('expandable')
     instructions.init()
 
     // Options
@@ -64,13 +63,17 @@ class MenuCtrl {
     ])
 
     this.el = dom.create('div', {class: 'menu view'} , [
-      title,
-      intro,
-      instructions.el,
-      this.difficultyOption.el,
-      this.typeSelector.el,
-      this.typeHelpEl,
-      this.btnStarlEl
+      dom.create('div', {class: 'view-bloc'} , [
+        title,
+        intro,
+        instructions.el
+      ]),
+      dom.create('div', {class: 'view-bloc'} , [
+        this.difficultyOption.el,
+        this.typeSelector.el,
+        this.typeHelpEl,
+        this.btnStarlEl
+      ])
     ])
     return this.el
   }

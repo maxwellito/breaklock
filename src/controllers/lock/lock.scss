@@ -1,8 +1,10 @@
 @import "../../_variables.scss";
 
 .lock {
-  width: 90%;
-  margin: 5%;
+  display: block;
+  width: 320px;
+  max-width: 90%;
+  margin: auto;
 
   &-flashdots circle {
     visibility: hidden;

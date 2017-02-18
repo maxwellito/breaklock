@@ -20,10 +20,12 @@ const config = {
     PLATFORMS: {
       FB: {
         NAME: 'Facebook',
+        ICON: 'facebook',
         URL: (url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(url)}`
       },
       TWITTER: {
         NAME: 'Twitter',
+        ICON: 'twitter',
         URL: (url, msg, tags) => `http://twitter.com/share?text=${encodeURI(msg)}&url=${encodeURI(url)}&hashtags=${encodeURI(tags.join(','))}`
       }
     },

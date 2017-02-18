@@ -62,11 +62,9 @@ class SummaryCtrl {
     this.actionsEl = dom.create('div', {class: 'summary-actions bloc'}, Object.values(this.actionButtons))
     this.socialEl  = dom.create('div', {class: 'summary-share bloc'},   this.socialButtons)
 
-    this.el = dom.create('div', {class: 'summary'}, [
-      this.titleEl,
-      this.detailsEl,
-      this.actionsEl,
-      this.socialEl
+    this.el = dom.create('div', {class: 'summary view'}, [
+      dom.create('div', {class: 'view-bloc'}, [this.titleEl, this.detailsEl]),
+      dom.create('div', {class: 'view-bloc'}, [this.actionsEl, this.socialEl])
     ])
 
     return this.el

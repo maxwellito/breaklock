@@ -32,3 +32,28 @@ $patternMargin: 1rem;
     0%   {opacity: 0;}
     100% {opacity: 1;}
 }
+
+@media (orientation: landscape), (min-width: $mq-xlarge-min) {
+  .history {
+    height: auto;
+    border-bottom: none;
+  }
+
+  .history-container {
+    //display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+  }
+
+  .history svg {
+    // float: right;
+    // margin: $patternMargin/2;
+
+    flex-basis: 100px;
+    margin: 0;
+    height: auto;
+    // flex-grow: 1;
+  }
+}

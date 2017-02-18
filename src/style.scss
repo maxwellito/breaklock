@@ -59,6 +59,8 @@ h1 {
 
 .view  {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -67,6 +69,30 @@ h1 {
   padding: $gutter;
 }
 
-.expandable {
+.view-bloc {
   flex-grow: 1;
+}
+
+
+@media (orientation: landscape), (min-width: $mq-xlarge-min) {
+  .view {
+    flex-direction: row;
+  }
+  .view-bloc {
+    flex-basis: 50%;
+    & + & {
+      margin-left: $gutter/2;
+    }
+  }
+}
+
+@media (min-width: $mq-large-min) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (min-width: $mq-xlarge-min) {
+  html {
+    font-size: 22px;
+  }
 }
