@@ -12,6 +12,10 @@ require('./history.scss');
  * to improve performance.
  */
 class HistoryCtrl {
+
+  /**
+   * Set up instance
+   */
   constructor () {
     this.lastPattern = null
     this.setupTemplate()

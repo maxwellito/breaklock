@@ -2,7 +2,22 @@ import dom from '../../utils/dom'
 
 require('./extender.scss');
 
+/**
+ * Extender class
+ * Simple controller to show/hide long content
+ * with a button.
+ */
 class ExtenderCtrl {
+
+  /**
+   * Every instance require a title which is the dropdown
+   * button text, the content that can be a string or
+   * a DOM element to display, and the initial state
+   * of the extender.
+   * @param  {String}  title      Button title
+   * @param  {String}  content    Content text of DOM element to display
+   * @param  {Boolean} isExpanded Initial state of the controller
+   */
   constructor (title, content, isExpanded) {
     this.title      = title
     this.content    = content
