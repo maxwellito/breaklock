@@ -1,12 +1,9 @@
 @import "../../_variables.scss";
 
-// Not much for now...
-.history-wrap {
-  border-bottom: $border;
-}
-
 @media (max-width: $mq-large-max) {
   .history-wrap {
+    border-bottom: $border;
+
     .history {
       margin: 0 #{-$gutter};
     }
