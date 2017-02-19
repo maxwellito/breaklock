@@ -51,7 +51,10 @@ class GameCtrl {
     this.summary.toggle()
 
     this.el = dom.create('div', {class: 'game-layout view'}, [
-      dom.create('div', {class: 'view-bloc'}, [this.statusBar.el, this.history.el]),
+      dom.create('div', {class: 'view-bloc'}, [
+        this.statusBar.el,
+        dom.create('div', {class: 'history-wrap'}, [this.history.el])
+      ]),
       dom.create('div', {class: 'view-bloc'}, [this.lock.el]),
       this.summary.el
     ])

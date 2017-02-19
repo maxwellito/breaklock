@@ -1,3 +1,17 @@
 @import "../../_variables.scss";
 
 // Not much for now...
+.history-wrap {
+  border-bottom: $border;
+}
+
+@media (max-width: $mq-large-max) {
+  .history-wrap {
+    .history {
+      margin: 0 #{-$gutter};
+    }
+    .history-container {
+      padding: 0 #{$gutter};
+    }
+  }
+}

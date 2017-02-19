@@ -5,7 +5,6 @@ $patternMargin: 1rem;
 
 .history {
   height: $patternHeight + (2 * $patternMargin);
-  border-bottom: 1px dotted $theme_bright;
   overflow-x: scroll;
   font-size: 0;
   line-height: 0;
@@ -23,9 +22,13 @@ $patternMargin: 1rem;
   width: auto;
   height: $patternHeight;
   display: inline-block;
-  margin: $patternMargin $patternMargin $patternMargin 0;
+  margin: $patternMargin 0;
   transform: translateZ(0);
   animation: fadein .5s;
+
+  & + svg {
+    margin-left: $patternMargin;
+  }
 }
 
 @keyframes fadein {
