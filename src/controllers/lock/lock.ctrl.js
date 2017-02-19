@@ -50,6 +50,9 @@ class LockCtrl {
     this.el.addEventListener('touchstart', this.updateFinger.bind(this))
     this.el.addEventListener('touchmove',  this.updateFinger.bind(this))
     this.el.addEventListener('touchend',   this.reset.bind(this))
+
+    // start listening for mouse
+    this.el.addEventListener('mousedown', this.startMouseTrack.bind(this))
   }
 
   /**
@@ -62,6 +65,54 @@ class LockCtrl {
   }
 
   /**
+   * Listeners
+   */
+
+  /* Mouse listeners *************************************/
+
+  /**
+   * Listener for mouse down on the lock.
+   * It will start listening to mouse move and stop.
+   * @param  {MouseEvent} t Mouse down event
+   */
+  startMouseTrack (t) {
+    this.mouseMoveListener = this.updateCursor.bind(this)
+    this.mouseUpListener   = this.stopMouseTrack.bind(this)
+    this.el.addEventListener('mousemove', this.mouseMoveListener)
+    window.addEventListener('mouseleave',  this.mouseUpListener)
+    window.addEventListener('mouseup',   this.mouseUpListener)
+    this.updateCursor(t)
+  }
+
+  /**
+   * Listener for mouse move while drowing a pattern
+   * with the mouse.
+   * @param  {MouseEvent} t Mouse move event
+   */
+  updateCursor (t) {
+    t.preventDefault()
+    t.stopPropagation()
+
+    let e = t.currentTarget.getBoundingClientRect(),
+        x = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(t.offsetX * PatternSVG.prototype.SVG_WIDTH / e.width ))),
+        y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(t.offsetY * PatternSVG.prototype.SVG_WIDTH / e.height)))
+    this.updatePoint(x, y)
+  }
+
+  /**
+   * Method to end drawing with mouse.
+   * It will remove useless listeners and reset
+   * the current pattern.
+   * @param  {MouseEvent} t Mouse event
+   */
+  stopMouseTrack (t) {
+    this.el.removeEventListener('mousemove', this.mouseMoveListener)
+    window.removeEventListener('mouseout',  this.mouseUpListener)
+    window.removeEventListener('mouseup',   this.mouseUpListener)
+    this.reset()
+  }
+
+  /**
    * Listener for touch events
    * The method will calculate the position of the finger
    * on the lock to update the line and add dots to the
@@ -70,13 +121,23 @@ class LockCtrl {
    */
   updateFinger (t) {
     t.preventDefault()
-    t.stopPropagation();
+    t.stopPropagation()
 
-    let iX, iY,
-        e = t.currentTarget.getBoundingClientRect(),
+    let e = t.currentTarget.getBoundingClientRect(),
         x = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.width * (t.targetTouches[0].pageX - e.left)))),
         y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.height * (t.targetTouches[0].pageY - e.top))))
+    this.updatePoint(x, y)
+  }
 
+  /**
+   * Update the current pattern by providing
+   * the position of the new cursor/finger
+   * in ordinates scaled to SVG size.
+   * @param  {Number} x Position X of pointer/finger
+   * @param  {Number} y Position X of pointer/finger
+   */
+  updatePoint (x, y) {
+    let iX, iY
     for (let i = 0; i < 3; i++) {
       let rangeStart = PatternSVG.prototype.GRID_GUTTER * i + PatternSVG.prototype.SVG_MARGIN - PatternSVG.prototype.DOT_MAGNET,
           rangeEnd   = PatternSVG.prototype.GRID_GUTTER * i + PatternSVG.prototype.SVG_MARGIN + PatternSVG.prototype.DOT_MAGNET
