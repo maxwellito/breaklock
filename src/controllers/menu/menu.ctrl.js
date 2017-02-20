@@ -27,8 +27,8 @@ class MenuCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    let title = dom.create('h1', {class: 'menu-title'}, 'BreakLock_'),
-        intro = dom.create('p',  {class: 'menu-intro'}, 'A merge between Mastermind and the Android pattern lock. A game you gonna hate.')
+    let title = dom.create('h1', 'menu-title', 'BreakLock_'),
+        intro = dom.create('p',  'menu-intro', 'A merge between Mastermind and the Android pattern lock. A game you gonna hate.')
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
     this.btnStarlEl = dom.create('button', {}, 'GO_')
 
@@ -62,13 +62,13 @@ class MenuCtrl {
       }
     ])
 
-    this.el = dom.create('div', {class: 'menu view'} , [
-      dom.create('div', {class: 'view-bloc'} , [
+    this.el = dom.create('div', 'menu view', [
+      dom.create('div', 'view-bloc', [
         title,
         intro,
         instructions.el
       ]),
-      dom.create('div', {class: 'view-bloc'} , [
+      dom.create('div', 'view-bloc', [
         this.difficultyOption.el,
         this.typeSelector.el,
         this.typeHelpEl,

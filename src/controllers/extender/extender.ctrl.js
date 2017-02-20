@@ -32,10 +32,10 @@ class ExtenderCtrl {
    */
   setupTemplate () {
     let content = this.content instanceof String ? this.content : [this.content]
-    this.buttonEl  = dom.create('button', {class: 'extender-button'},  this.title)
-    this.contentEl = dom.create('div',    {class: 'extender-content'}, content)
+    this.buttonEl  = dom.create('button', 'extender-button',  this.title)
+    this.contentEl = dom.create('div',    'extender-content', content)
 
-    this.el = dom.create('div', {class: 'extender'}, [
+    this.el = dom.create('div', 'extender', [
       this.buttonEl,
       this.contentEl
     ])

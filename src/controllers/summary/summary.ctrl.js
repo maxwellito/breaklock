@@ -57,14 +57,14 @@ class SummaryCtrl {
       this.socialButtons.push(btn)
     }
 
-    this.titleEl   = dom.quickNode('h1', 'summary-title')
-    this.detailsEl = dom.quickNode('p',  'summary-details')
-    this.actionsEl = dom.create('div', {class: 'summary-actions bloc'}, Object.values(this.actionButtons))
-    this.socialEl  = dom.create('div', {class: 'summary-share bloc'},   this.socialButtons)
+    this.titleEl   = dom.create('h1',  'summary-title')
+    this.detailsEl = dom.create('p',   'summary-details')
+    this.actionsEl = dom.create('div', 'summary-actions bloc', Object.values(this.actionButtons))
+    this.socialEl  = dom.create('div', 'summary-share bloc',   this.socialButtons)
 
-    this.el = dom.create('div', {class: 'summary view'}, [
-      dom.create('div', {class: 'view-bloc'}, [this.titleEl, this.detailsEl]),
-      dom.create('div', {class: 'view-bloc'}, [this.actionsEl, this.socialEl])
+    this.el = dom.create('div', 'summary view', [
+      dom.create('div', 'view-bloc', [this.titleEl, this.detailsEl]),
+      dom.create('div', 'view-bloc', [this.actionsEl, this.socialEl])
     ])
 
     return this.el

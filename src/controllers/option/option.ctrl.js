@@ -27,7 +27,7 @@ class OptionCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.el = dom.quickNode('div', 'selectbox')
+    this.el = dom.create('div', 'selectbox')
     return this.el
   }
 

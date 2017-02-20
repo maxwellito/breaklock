@@ -28,11 +28,11 @@ class SelectorCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.btnLeft  = dom.create('span', {class: 'selectbox-item active selector-left'},  '<')
-    this.btnRight = dom.create('span', {class: 'selectbox-item active selector-right'}, '>')
-    this.labelEl  = dom.quickNode('span', 'selectbox-item selector-label')
+    this.btnLeft  = dom.create('span', 'selectbox-item active selector-left',  '<')
+    this.btnRight = dom.create('span', 'selectbox-item active selector-right', '>')
+    this.labelEl  = dom.create('span', 'selectbox-item selector-label')
 
-    this.el = dom.create('div', {class: 'selector selectbox'}, [
+    this.el = dom.create('div', 'selector selectbox', [
       this.btnLeft,
       this.btnRight,
       this.labelEl

@@ -26,8 +26,8 @@ class HistoryCtrl {
    * @return {SVGDOMElement}
    */
   setupTemplate () {
-    this.containerEl = dom.quickNode('div', 'history-container')
-    this.el = dom.create('div', {class: 'history'} , [this.containerEl])
+    this.containerEl = dom.create('div', 'history-container')
+    this.el = dom.create('div', 'history', [this.containerEl])
     return this.el
   }
 
@@ -65,7 +65,7 @@ class HistoryCtrl {
 
     // Clean the container
     this.containerEl.remove()
-    this.containerEl = dom.quickNode('div', 'history-container')
+    this.containerEl = dom.create('div', 'history-container')
     this.el.appendChild(this.containerEl)
   }
 }

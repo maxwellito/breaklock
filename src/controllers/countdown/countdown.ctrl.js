@@ -22,14 +22,14 @@ class CountdownCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.counterEl = dom.quickNode('span', 'countdown-counter')
-    this.barEl     = dom.quickNode('span', 'countdown-content')
+    this.counterEl = dom.create('span', 'countdown-counter')
+    this.barEl     = dom.create('span', 'countdown-content')
 
-    let container = dom.create('span', {class: 'countdown-container'}, [
+    let container = dom.create('span', 'countdown-container', [
       this.barEl
     ])
 
-    this.el = dom.create('div', {class: 'countdown'}, [
+    this.el = dom.create('div', 'countdown', [
       this.counterEl,
       container
     ])

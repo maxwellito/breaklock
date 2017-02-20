@@ -50,12 +50,12 @@ class GameCtrl {
   setupTemplate () {
     this.summary.toggle()
 
-    this.el = dom.create('div', {class: 'game-layout view'}, [
-      dom.create('div', {class: 'view-bloc'}, [
+    this.el = dom.create('div', 'game-layout view', [
+      dom.create('div', 'view-bloc', [ //# CLEAN thats dirty
         this.statusBar.el,
-        dom.create('div', {class: 'history-wrap'}, [this.history.el])
+        dom.create('div', 'history-wrap', [this.history.el])
       ]),
-      dom.create('div', {class: 'view-bloc'}, [this.lock.el]),
+      dom.create('div', 'view-bloc', [this.lock.el]),
       this.summary.el
     ])
     return this.el

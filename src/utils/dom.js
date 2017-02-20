@@ -7,44 +7,36 @@ var dom = {
   /**
    * Most advanced method (of this object) to
    * create a DOM element
-   * @param  {string} nodeName   Node type to create
-   * @param  {object} attributes Key/value of attributes to set
-   * @param  {*}      content    Text content if string or childnodes if array to include
-   * @return {DOMElement} Node generated
+   * @param  {String}        nodeName Node type to create
+   * @param  {Object|String} props    Key/value of attributes to set
+   * @param  {Array|String}  content  Text content if string or childnodes if array to include
+   * @return {DOMElement}             Node generated
    */
-  create: (nodeName, attributes = {}, content = null) => {
+  create: (nodeName, props = {}, content = null) => {
     var node
-    if (dom.SVG_ELEMENTS.indexOf(nodeName) === -1) {
+
+    // Create the node
+    if (dom.SVG_ELEMENTS.indexOf(nodeName) === -1)
       node = document.createElement(nodeName)
-    }
-    else {
+    else
       node = document.createElementNS(dom.SVG_NAMESPACE, nodeName)
-    }
 
-    for (let attrName in attributes) {
-      node.setAttribute(attrName, attributes[attrName])
-    }
+    // Set class or attributes
+    if (props.constructor === String)
+      node.setAttribute('class', props)
+    else
+      for (let propName in props)
+        node.setAttribute(propName, props[propName])
 
-    if (content instanceof Array) {
+    // Set content or child
+    if (content instanceof Array)
       for (let i = 0; i < content.length; i++) {
         node.appendChild(content[i])
       }
-    }
-    else {
+    else
       node.textContent = content
-    }
 
     return node
-  },
-
-  /**
-   * Stripped down method to make DOM Elements
-   * @param  {string} nodeName  Node type to create
-   * @param  {string} className Class to set
-   * @return {DOMElement} Node generated
-   */
-  quickNode: (nodeName, className) => {
-    return dom.create(nodeName, {class: className})
   },
 
   /**
@@ -54,7 +46,7 @@ var dom = {
    * @return {SVGDOMElement}
    */
   icon: (name) => {
-    let use = dom.quickNode('use')
+    let use = dom.create('use')
     use.setAttributeNS(dom.XLINK_NAMESPACE, 'href', '#icon-' + name)
     return dom.create('svg', {class: 'icon'}, [use])
   },

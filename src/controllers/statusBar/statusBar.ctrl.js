@@ -35,14 +35,14 @@ class StatusBarCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.cancelBtnEl = dom.create('button', {class: 'status-bar-cancel'}, 'ABORT')
-    this.counterEl = dom.quickNode('span', 'status-bar-info')
+    this.cancelBtnEl = dom.create('button', 'status-bar-cancel', 'ABORT')
+    this.counterEl = dom.create('span', 'status-bar-info')
 
     this.countdown = new CountdownCtrl()
     this.countdownEl = this.countdown.el
     this.countdownEl.setAttribute('class', 'status-bar-info')
 
-    this.el = dom.create('div', {class: 'status-bar'}, [
+    this.el = dom.create('div', 'status-bar', [
       this.cancelBtnEl,
       this.counterEl,
       this.countdownEl
