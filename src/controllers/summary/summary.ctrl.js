@@ -85,10 +85,10 @@ class SummaryCtrl {
    * because an instance must be reused.
    * @param {Boolean} isSuccess      Was the game a success?
    * @param {String}  msg            Message to display
-   * @param {Array}   allowedActions List of IDs of allowed action (: try again, ) //# BUILD: Can continue?
+   * @param {Boolean} canContinue    Check if the player can continue to play
    * @param {Pattern} pattern        Winning pattern
    */
-  setContent (isSuccess, msg, allowedActions, pattern) {
+  setContent (isSuccess, msg, canContinue, pattern) {
     if (isSuccess) {
       this.titleEl.textContent = 'Success!'
       this.titleEl.classList.add('success')
@@ -99,14 +99,9 @@ class SummaryCtrl {
     }
 
     this.detailsEl.textContent = msg
-
+    this.actionButtons.CONTINUE.style.display = canContinue ? 'inherit' : 'none';
 
     this.updateSocialLinks()
-
-    for (let i in allowedActions) {
-      // Display actions
-    }
-
     this.toggle(true)
   }
 

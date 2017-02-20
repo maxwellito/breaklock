@@ -107,7 +107,7 @@ class GameCtrl {
 
     if (match[0] === this.pattern.dotLength) {
       // Success case
-      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', [1,2])
+      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', false)
 
       return true
     }
@@ -119,7 +119,7 @@ class GameCtrl {
           return this.statusBar.incrementCounter()
         case config.GAME.TYPE.CHALLENGE:
           if (this.statusBar.decrementCounter() === 0) {
-            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', [2])
+            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', true)
           }
           break;
       }
@@ -133,9 +133,11 @@ class GameCtrl {
    */
   abort (exitCode) {
     if (exitCode) {
-      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', [2])
+      // Exit from countdown
+      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', true)
     }
     else {
+      // Abort from the user
       this.onEnd()
     }
   }
