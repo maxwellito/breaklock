@@ -2,6 +2,9 @@
 
 $patternHeight: 5rem;
 $patternMargin: 1rem;
+$patternRatio:  100/120;
+// I really wanted to use width: auto.
+// But not all browsers are ok with it
 
 .history {
   height: $patternHeight + (2 * $patternMargin);
@@ -19,12 +22,14 @@ $patternMargin: 1rem;
 }
 
 .history svg {
-  width: auto;
+  width: $patternHeight * $patternRatio;
   height: $patternHeight;
   display: inline-block;
   margin: $patternMargin 0;
   transform: translateZ(0);
   animation: fadein .5s;
+  -webkit-transform: translateZ(0);
+  -webkit-animation: fadein .5s;
 
   & + svg {
     margin-left: $patternMargin;
@@ -32,6 +37,11 @@ $patternMargin: 1rem;
 }
 
 @keyframes fadein {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadein {
     0%   {opacity: 0;}
     100% {opacity: 1;}
 }

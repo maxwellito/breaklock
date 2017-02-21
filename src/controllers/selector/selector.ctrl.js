@@ -45,7 +45,9 @@ class SelectorCtrl {
    */
   init () {
     this.btnLeft.addEventListener('click', this.previous.bind(this))
+    this.btnLeft.addEventListener('touchstart', this.previous.bind(this))
     this.btnRight.addEventListener('click', this.next.bind(this))
+    this.btnRight.addEventListener('touchstart', this.next.bind(this))
   }
 
   /**
@@ -86,7 +88,9 @@ class SelectorCtrl {
    * Decrement the counter
    * @return {int} The new value of the counter
    */
-  next () {
+  next (e) {
+    e.preventDefault()
+    e.stopPropagation()
     this.selectionIndex++
     return this.updateLabel()
   }
@@ -95,7 +99,9 @@ class SelectorCtrl {
    * Increment the counter
    * @return {int} The new value of the counter
    */
-  previous () {
+  previous (e) {
+    e.preventDefault()
+    e.stopPropagation()
     this.selectionIndex--
     return this.updateLabel()
   }

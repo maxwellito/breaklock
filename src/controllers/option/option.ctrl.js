@@ -50,6 +50,7 @@ class OptionCtrl {
         rel: choice.value
       }, choice.label)
       option.addEventListener('click', listener)
+      option.addEventListener('touchstart', listener)
       this.el.appendChild(option)
 
       if (choice.default)
@@ -64,8 +65,10 @@ class OptionCtrl {
    * Listener for click on items
    * @param  {Event} event Event catched
    */
-  selectListener (event) {
-    this.selectFromTag(event.currentTarget)
+  selectListener (e) {
+    e.preventDefault()
+    e.stopPropagation()
+    this.selectFromTag(e.currentTarget)
   }
 
   /**
