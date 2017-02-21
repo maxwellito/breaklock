@@ -179,7 +179,10 @@ class LockCtrl {
       return
 
     var newDots = this.pattern.addDot(dotIndex)
-    navigator.vibrate(20);
+
+    if (navigator.vibrate)
+      navigator.vibrate(20);
+      
     for (let i = 0; i < newDots.length; i++) {
       let dot  = newDots[i],
           dotX = PatternSVG.prototype.GRID_GUTTER * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,

@@ -50,7 +50,7 @@ class HistoryCtrl {
    */
   scrollToStart () {
     let pos = this.el.scrollLeft
-    this.el.scrollTo(pos - Math.max(pos / 4, 4), 0)
+    this.el.scrollLeft = (pos - Math.max(pos / 4, 4), 0)
 
     if (this.el.scrollLeft > 0) {
       window.requestAnimationFrame(this.scrollToStart.bind(this))

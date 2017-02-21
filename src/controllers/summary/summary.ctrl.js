@@ -33,7 +33,7 @@ class SummaryCtrl {
   setupTemplate () {
 
     // Action buttons
-    this.actionButtons = {}
+    this.actionButtons = []
     for (let action in config.GAME.ACTIONS) {
       let btn = dom.create('button', {
         class: 'summary-action-button',
@@ -42,7 +42,9 @@ class SummaryCtrl {
         dom.icon(action.toLowerCase()),
         dom.create('span', {}, action)
       ])
-      this.actionButtons[action] = btn
+      this.actionButtons.push(btn)
+      if (action === 'CONTINUE')
+        this.continueBtnEl = btn
     }
 
     // Social links
@@ -59,7 +61,7 @@ class SummaryCtrl {
 
     this.titleEl   = dom.create('h1',  'summary-title')
     this.detailsEl = dom.create('p',   'summary-details')
-    this.actionsEl = dom.create('div', 'summary-actions bloc', Object.values(this.actionButtons))
+    this.actionsEl = dom.create('div', 'summary-actions bloc', this.actionButtons)
     this.socialEl  = dom.create('div', 'summary-share bloc',   this.socialButtons)
 
     this.el = dom.create('div', 'summary view', [
@@ -74,9 +76,7 @@ class SummaryCtrl {
    * Set up listeners
    */
   init () {
-    for (let i in this.actionButtons) {
-      this.actionButtons[i].addEventListener('click', this.triggerAction.bind(this))
-    }
+    this.actionButtons.forEach(btn => btn.addEventListener('click', this.triggerAction.bind(this)))
   }
 
   /**
@@ -99,7 +99,7 @@ class SummaryCtrl {
     }
 
     this.detailsEl.textContent = msg
-    this.actionButtons.CONTINUE.style.display = canContinue ? 'inherit' : 'none';
+    this.continueBtnEl.style.display = canContinue ? 'inherit' : 'none';
 
     this.updateSocialLinks()
     this.toggle(true)

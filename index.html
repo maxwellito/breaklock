@@ -53,7 +53,13 @@
       </symbol>
     </svg>
 
-    <script src="app.js"></script>
+    <script>
+      window.onerror = function(e, a, b, c) {
+        alert(e)
+        alert(b + ' ' + c)
+      }
+    </script>
+    <script src="app.js?ddd=22"></script>
     <!-- <script src="scripts/pwa/setup.js"></script> -->
 
 
