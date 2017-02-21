@@ -53,7 +53,7 @@ var dom = {
 
   SVG_NAMESPACE: 'http://www.w3.org/2000/svg',
   XLINK_NAMESPACE: 'http://www.w3.org/1999/xlink',
-  SVG_ELEMENTS: ['svg', 'g', 'circle', 'line', 'path', 'use']
+  SVG_ELEMENTS: ['svg', 'g', 'circle', 'line', 'path', 'use', 'rect']
 }
 
 export default dom

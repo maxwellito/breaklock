@@ -25,7 +25,7 @@ Silly HTML5 game, clone of mastermind with the classic Android lock screen.
 [X] Make it responsive
 [ ] Build end of game screen
 [ ] Lock optimisation with next request frame?
-
+[ ] Make everything unselectable
 
 ## Fun stuff
 

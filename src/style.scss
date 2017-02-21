@@ -86,6 +86,12 @@ h1 {
   }
 }
 
+@media (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 @media (min-width: $mq-large-min) {
   html {
     font-size: 20px;

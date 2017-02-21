@@ -29,6 +29,7 @@ class LockCtrl {
    */
   setupTemplate () {
     let myPatternSVG = new PatternSVG()
+    myPatternSVG.addBackgroundLayer()
     myPatternSVG.addDots(2)
 
     this.el = myPatternSVG.getSVG()
@@ -182,7 +183,7 @@ class LockCtrl {
 
     if (navigator.vibrate)
       navigator.vibrate(20);
-      
+
     for (let i = 0; i < newDots.length; i++) {
       let dot  = newDots[i],
           dotX = PatternSVG.prototype.GRID_GUTTER * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,

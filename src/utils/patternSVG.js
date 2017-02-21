@@ -14,6 +14,22 @@ class PatternSVG {
   }
 
   /**
+   * Add an invisible rectangle as background.
+   * This is only to help Safari to catch touch events
+   * on the SVG lock.
+   */
+  addBackgroundLayer () {
+    let rect = dom.create('rect', {
+      'fill': '#fff',
+      'fill-opacity': '0',
+      'width': this.SVG_WIDTH,
+      'height': this.SVG_WIDTH
+    })
+    this.el.appendChild(rect)
+    return rect
+  }
+
+  /**
    * Add pattern to the instance
    * @param {Pattern}      pattern   Pattern instance to get the points from
    * @param {int}          size      Thickness of the line

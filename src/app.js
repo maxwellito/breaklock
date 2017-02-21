@@ -19,3 +19,6 @@ myMenu.init()
 document.body.appendChild(myMenu.el)
 
 myGame.el.style.display = 'none'
+
+
+window.scrollTo(0, 0)
