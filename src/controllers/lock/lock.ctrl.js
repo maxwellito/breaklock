@@ -186,8 +186,8 @@ class LockCtrl {
 
     for (let i = 0; i < newDots.length; i++) {
       let dot  = newDots[i],
-          dotX = PatternSVG.prototype.GRID_GUTTER * (dotIndex % 3) + PatternSVG.prototype.SVG_MARGIN,
-          dotY = PatternSVG.prototype.GRID_GUTTER * Math.floor(dotIndex / 3) + PatternSVG.prototype.SVG_MARGIN
+          dotX = PatternSVG.prototype.GRID_GUTTER * (dot % 3) + PatternSVG.prototype.SVG_MARGIN,
+          dotY = PatternSVG.prototype.GRID_GUTTER * Math.floor(dot / 3) + PatternSVG.prototype.SVG_MARGIN
 
       // Close current line
       this.updateLine(dotX, dotY)
@@ -196,8 +196,13 @@ class LockCtrl {
       this.bigDotsEl.childNodes[dot].classList.add('active')
 
       // Check if finished
-      if (this.pattern.isComplete())
-        return this.checkPattern() && true
+      if (this.pattern.isComplete()) {
+        let itsAmatch = this.checkPattern(),
+            patternColor = itsAmatch ? '#1af' : '#f00'
+        for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
+          this.patternEl.childNodes[i].setAttribute('stroke', patternColor)
+        return itsAmatch
+      }
 
       // Start new one
       this.currentLine = dom.create('line', {
@@ -221,11 +226,11 @@ class LockCtrl {
   }
 
   /**
-   * Procedure for new new patterns
+   * Procedure for new patterns
    */
   checkPattern() {
-    this.onNewPattern(this.pattern)
     setTimeout(this.reset.bind(this), 1000)
+    return this.onNewPattern(this.pattern)
   }
 }
 
