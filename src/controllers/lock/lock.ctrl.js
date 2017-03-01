@@ -48,9 +48,9 @@ class LockCtrl {
    */
   init () {
     // start listening for events (fingers)
-    this.el.addEventListener('touchstart', this.updateFinger.bind(this))
+    this.el.addEventListener('touchstart', this.startFinger.bind(this))
     this.el.addEventListener('touchmove',  this.updateFinger.bind(this))
-    this.el.addEventListener('touchend',   this.reset.bind(this))
+    this.el.addEventListener('touchend',   this.endFinger.bind(this))
 
     // start listening for mouse
     this.el.addEventListener('mousedown', this.startMouseTrack.bind(this))
@@ -77,6 +77,8 @@ class LockCtrl {
    * @param  {MouseEvent} t Mouse down event
    */
   startMouseTrack (t) {
+    this.reset()
+
     this.mouseMoveListener = this.updateCursor.bind(this)
     this.mouseUpListener   = this.stopMouseTrack.bind(this)
     this.el.addEventListener('mousemove', this.mouseMoveListener)
@@ -107,10 +109,21 @@ class LockCtrl {
    * @param  {MouseEvent} t Mouse event
    */
   stopMouseTrack (t) {
+    if (!this.isPendingReset)
+      this.reset()
     this.el.removeEventListener('mousemove', this.mouseMoveListener)
     window.removeEventListener('mouseout',  this.mouseUpListener)
     window.removeEventListener('mouseup',   this.mouseUpListener)
+  }
+
+  startFinger (t) {
     this.reset()
+    this.updateFinger(t)
+  }
+
+  endFinger () {
+    if (!this.isPendingReset)
+      this.reset()
   }
 
   /**
@@ -149,12 +162,24 @@ class LockCtrl {
     let isEndOfPattern
     if (iX !== undefined && iY != undefined) {
       let dotIndex = iY * 3 + iX
-      isEndOfPattern = this.addDot(dotIndex)
+      isEndOfPattern = this.triggerDot(dotIndex)
     }
     if (!isEndOfPattern)
       this.updateLine(x, y)
 
     return true
+  }
+
+  /**
+   * Drawn pattern
+   */
+
+  startLine (x, y) {
+    this.currentLine = dom.create('line', {
+      x1: x,
+      y1: y
+    })
+    this.patternEl.appendChild(this.currentLine)
   }
 
   /**
@@ -170,54 +195,57 @@ class LockCtrl {
     this.currentLine.setAttribute('y2', y)
   }
 
+  closeLine (x, y) {
+    this.updateLine(x, y)
+    this.currentLine = null
+  }
+
   /**
-   * Add a dot on the current pattern
-   * This will trigger the effect be
-   * @param {number} dotIndex [description]
+   * Add a dot on the current pattern and the
+   * intermediate ones if there's any.
+   * @param {number} dotIndex Dot triggered index
    */
-  addDot (dotIndex) {
+  triggerDot (dotIndex) {
+
+
     if (this.pattern.gotDot(dotIndex))
       return
 
     var newDots = this.pattern.addDot(dotIndex)
 
     if (navigator.vibrate)
-      navigator.vibrate(20);
+      navigator.vibrate(20)
 
-    for (let i = 0; i < newDots.length; i++) {
-      let dot  = newDots[i],
-          dotX = PatternSVG.prototype.GRID_GUTTER * (dot % 3) + PatternSVG.prototype.SVG_MARGIN,
+    newDots.forEach((dot, index) => {
+      let dotX = PatternSVG.prototype.GRID_GUTTER * (dot % 3) + PatternSVG.prototype.SVG_MARGIN,
           dotY = PatternSVG.prototype.GRID_GUTTER * Math.floor(dot / 3) + PatternSVG.prototype.SVG_MARGIN
 
       // Close current line
-      this.updateLine(dotX, dotY)
-      this.currentLine = null
-
+      this.closeLine(dotX, dotY)
       this.bigDotsEl.childNodes[dot].classList.add('active')
 
       // Check if finished
-      if (this.pattern.isComplete()) {
-        let itsAmatch = this.checkPattern(),
-            patternColor = itsAmatch ? '#1af' : '#f00'
-        for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
-          this.patternEl.childNodes[i].setAttribute('stroke', patternColor)
-        return itsAmatch
-      }
-
-      // Start new one
-      this.currentLine = dom.create('line', {
-        x1: dotX,
-        y1: dotY
-      })
-      this.patternEl.appendChild(this.currentLine)
-    }
+      if ((index + 1) === newDots.length && this.pattern.isComplete())
+        // The drawing here
+        return this.checkPattern()
+      else
+        // Start new one
+        this.startLine(dotX, dotY)
+    })
   }
 
   /**
    * Reset the lock
    */
   reset () {
+    // Clear timeout
+    clearTimeout(this.isPendingReset)
+    this.isPendingReset = null
+
+    // Reset pattern
     this.pattern.reset()
+
+    // Clear existing pattern
     this.currentLine = null
     for (let i = 0; i < 9; i++)
       this.bigDotsEl.childNodes[i].classList.remove('active')
@@ -229,8 +257,15 @@ class LockCtrl {
    * Procedure for new patterns
    */
   checkPattern() {
-    setTimeout(this.reset.bind(this), 1000)
-    return this.onNewPattern(this.pattern)
+    let itsAmatch = this.onNewPattern(this.pattern),
+        patternColor = itsAmatch ? '#1af' : '#f00'
+
+    this.isPendingReset = setTimeout(this.reset.bind(this), 1000)
+
+    for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
+      this.patternEl.childNodes[i].setAttribute('stroke', patternColor)
+
+    return itsAmatch
   }
 }
 
