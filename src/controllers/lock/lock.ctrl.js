@@ -36,7 +36,7 @@ class LockCtrl {
     this.el.setAttribute('class', 'lock')
     this.bigDotsEl = myPatternSVG.addDots(6, {class: 'lock-flashdots'})
     this.patternEl = myPatternSVG.addGroup({
-      'stroke-width': '1',
+      'stroke-width': '2',
       'stroke': '#fff',
       'stroke-linecap': 'round'
     })
@@ -48,12 +48,12 @@ class LockCtrl {
    */
   init () {
     // start listening for events (fingers)
-    this.el.addEventListener('touchstart', this.startFinger.bind(this))
-    this.el.addEventListener('touchmove',  this.updateFinger.bind(this))
-    this.el.addEventListener('touchend',   this.endFinger.bind(this))
+    this.el.addEventListener('touchstart', this.touchStart.bind(this))
+    this.el.addEventListener('touchmove',  this.touchUpdate.bind(this))
+    this.el.addEventListener('touchend',   this.touchEnd.bind(this))
 
     // start listening for mouse
-    this.el.addEventListener('mousedown', this.startMouseTrack.bind(this))
+    this.el.addEventListener('mousedown', this.mouseStart.bind(this))
   }
 
   /**
@@ -76,15 +76,15 @@ class LockCtrl {
    * It will start listening to mouse move and stop.
    * @param  {MouseEvent} t Mouse down event
    */
-  startMouseTrack (t) {
+  mouseStart (t) {
     this.reset()
 
-    this.mouseMoveListener = this.updateCursor.bind(this)
-    this.mouseUpListener   = this.stopMouseTrack.bind(this)
-    this.el.addEventListener('mousemove', this.mouseMoveListener)
-    window.addEventListener('mouseleave',  this.mouseUpListener)
-    window.addEventListener('mouseup',   this.mouseUpListener)
-    this.updateCursor(t)
+    this.mouseUpdateBind = this.mouseUpdate.bind(this)
+    this.mouseEndBind   = this.mouseEnd.bind(this)
+    this.el.addEventListener('mousemove', this.mouseUpdateBind)
+    window.addEventListener('mouseleave', this.mouseEndBind)
+    window.addEventListener('mouseup',    this.mouseEndBind)
+    this.mouseUpdate(t)
   }
 
   /**
@@ -92,7 +92,7 @@ class LockCtrl {
    * with the mouse.
    * @param  {MouseEvent} t Mouse move event
    */
-  updateCursor (t) {
+  mouseUpdate (t) {
     t.preventDefault()
     t.stopPropagation()
 
@@ -108,22 +108,26 @@ class LockCtrl {
    * the current pattern.
    * @param  {MouseEvent} t Mouse event
    */
-  stopMouseTrack (t) {
+  mouseEnd (t) {
     if (!this.isPendingReset)
       this.reset()
-    this.el.removeEventListener('mousemove', this.mouseMoveListener)
-    window.removeEventListener('mouseout',  this.mouseUpListener)
-    window.removeEventListener('mouseup',   this.mouseUpListener)
+    this.el.removeEventListener('mousemove', this.mouseUpdateBind)
+    window.removeEventListener('mouseout',   this.mouseEndBind)
+    window.removeEventListener('mouseup',    this.mouseEndBind)
   }
 
-  startFinger (t) {
+  /* Touch listeners *************************************/
+
+  /**
+   * Listener for startring drwaing a pattern
+   * with touch events.
+   * This will only reset the current pattern
+   * and start drawing the new one.
+   * @param  {Event} t Touch Start event
+   */
+  touchStart (t) {
     this.reset()
-    this.updateFinger(t)
-  }
-
-  endFinger () {
-    if (!this.isPendingReset)
-      this.reset()
+    this.touchUpdate(t)
   }
 
   /**
@@ -133,7 +137,7 @@ class LockCtrl {
    * current pattern.
    * @param  {Event} t Touch event
    */
-  updateFinger (t) {
+  touchUpdate (t) {
     t.preventDefault()
     t.stopPropagation()
 
@@ -142,6 +146,19 @@ class LockCtrl {
         y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.height * (t.targetTouches[0].pageY - e.top))))
     this.updatePoint(x, y)
   }
+
+  /**
+   * Listener for end of pattern drawing
+   * with touch events.
+   */
+  touchEnd () {
+    if (!this.isPendingReset)
+      this.reset()
+  }
+
+  /*
+   * Drawing logic
+   */
 
   /**
    * Update the current pattern by providing
@@ -171,46 +188,18 @@ class LockCtrl {
   }
 
   /**
-   * Drawn pattern
-   */
-
-  startLine (x, y) {
-    this.currentLine = dom.create('line', {
-      x1: x,
-      y1: y
-    })
-    this.patternEl.appendChild(this.currentLine)
-  }
-
-  /**
-   * Update the line of the current move
-   * @param  {int} x Position X on the finger on the SVG scale
-   * @param  {int} y Position Y on the finger on the SVG scale
-   */
-  updateLine (x, y) {
-    if (!this.currentLine)
-      return
-
-    this.currentLine.setAttribute('x2', x)
-    this.currentLine.setAttribute('y2', y)
-  }
-
-  closeLine (x, y) {
-    this.updateLine(x, y)
-    this.currentLine = null
-  }
-
-  /**
    * Add a dot on the current pattern and the
    * intermediate ones if there's any.
    * @param {number} dotIndex Dot triggered index
    */
   triggerDot (dotIndex) {
-
-
+    // Check if the current pattern got the dot
     if (this.pattern.gotDot(dotIndex))
       return
 
+    // Get the list new dots from the one triggered.
+    // This method return a list because adding a
+    // dot might add some intermediate others.
     var newDots = this.pattern.addDot(dotIndex)
 
     if (navigator.vibrate)
@@ -251,21 +240,64 @@ class LockCtrl {
       this.bigDotsEl.childNodes[i].classList.remove('active')
     for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
       this.patternEl.childNodes[i].remove()
+    this.patternEl.setAttribute('stroke', '#fff')
   }
 
   /**
    * Procedure for new patterns
+   * @return {Boolean} True if the pattern tested is correct
    */
-  checkPattern() {
-    let itsAmatch = this.onNewPattern(this.pattern),
-        patternColor = itsAmatch ? '#1af' : '#f00'
+  checkPattern () {
+    let itsAmatch = this.onNewPattern(this.pattern)
 
     this.isPendingReset = setTimeout(this.reset.bind(this), 1000)
 
-    for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
-      this.patternEl.childNodes[i].setAttribute('stroke', patternColor)
+    // for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
+    this.patternEl.setAttribute('stroke', itsAmatch ? '#1af' : '#f00')
 
     return itsAmatch
+  }
+
+  /*
+   * Drawn pattern
+   */
+
+  /**
+   * Start a new 'current line'.
+   * The current line is the one in progress of being
+   * manipulated.
+   * @param  {int} x Position X of the line starting point
+   * @param  {int} y Position Y of the line starting point
+   */
+  startLine (x, y) {
+    this.currentLine = dom.create('line', {
+      x1: x,
+      y1: y
+    })
+    this.patternEl.appendChild(this.currentLine)
+  }
+
+  /**
+   * Update the line of the current move
+   * @param  {int} x Position X on the finger on the SVG scale
+   * @param  {int} y Position Y on the finger on the SVG scale
+   */
+  updateLine (x, y) {
+    if (!this.currentLine)
+      return
+
+    this.currentLine.setAttribute('x2', x)
+    this.currentLine.setAttribute('y2', y)
+  }
+
+  /**
+   * Update and close the line of the current move
+   * @param  {int} x Position X of the line ending point
+   * @param  {int} y Position Y of the line ending point
+   */
+  closeLine (x, y) {
+    this.updateLine(x, y)
+    this.currentLine = null
   }
 }
 
