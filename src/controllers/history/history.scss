@@ -19,6 +19,21 @@ $patternRatio:  100/120;
 .history-container {
   display: table-cell;
   vertical-align: top;
+
+  &:empty {
+    display: block;
+    &:after {
+      content: 'Start drawin\'';
+      display: block;
+      line-height: 6;
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+.history-start-helper {
+  display: none;
 }
 
 .history svg {

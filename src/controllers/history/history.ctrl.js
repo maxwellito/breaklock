@@ -26,7 +26,7 @@ class HistoryCtrl {
    * @return {SVGDOMElement}
    */
   setupTemplate () {
-    this.containerEl = dom.create('div', 'history-container')
+    this.containerEl = dom.create('div', 'history-container', '')
     this.el = dom.create('div', 'history', [this.containerEl])
     return this.el
   }
