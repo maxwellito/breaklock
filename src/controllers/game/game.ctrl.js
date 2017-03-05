@@ -52,11 +52,11 @@ class GameCtrl {
     this.summary.toggle()
 
     this.el = dom.create('div', 'game-layout view', [
-      dom.create('div', 'view-bloc', [ //# CLEAN thats dirty
+      dom.create('div', 'view-bloc game-layout-dashboard', [ //# CLEAN thats dirty
         this.statusBar.el,
         dom.create('div', 'history-wrap', [this.history.el])
       ]),
-      dom.create('div', 'view-bloc', [this.lock.el]),
+      dom.create('div', 'view-bloc game-layout-lock', [this.lock.el]),
       this.summary.el
     ])
     return this.el
@@ -99,7 +99,7 @@ class GameCtrl {
     // Generate a SVG from the pattern provided
     let attemptSVG = new PatternSVG()
     attemptSVG.addDots(1)
-    attemptSVG.addPattern(pattern, 14, color.greydient('44',  'FF', pattern.dotLength - 3))
+    attemptSVG.addPattern(pattern, 14, color.greydient('66',  'FF', pattern.dotLength - 3))
 
     let match = this.pattern.compare(pattern)
     PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
@@ -109,7 +109,6 @@ class GameCtrl {
     if (match[0] === this.pattern.dotLength) {
       // Success case
       this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', false)
-
       return true
     }
     else {
@@ -117,12 +116,12 @@ class GameCtrl {
       this.history.stackPattern(attemptSVG.getSVG())
       switch (this.type) {
         case config.GAME.TYPE.PRACTICE:
-          return this.statusBar.incrementCounter()
+          this.statusBar.incrementCounter()
+          break
         case config.GAME.TYPE.CHALLENGE:
-          if (this.statusBar.decrementCounter() === 0) {
+          if (this.statusBar.decrementCounter() === 0)
             this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', true)
-          }
-          break;
+          break
       }
       return false
     }

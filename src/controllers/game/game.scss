@@ -12,3 +12,9 @@
     }
   }
 }
+
+@media (orientation: landscape), (min-width: $mq-xlarge-min) {
+  .game-layout-lock {
+    align-self: center;
+  }
+}

@@ -71,7 +71,6 @@ $patternRatio:  100/120;
     //display: block;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-content: flex-start;
   }
 
@@ -80,8 +79,11 @@ $patternRatio:  100/120;
     // margin: $patternMargin/2;
 
     flex-basis: 100px;
-    margin: 0;
+    margin: 0 $patternMargin 0 0;
     height: auto;
     // flex-grow: 1;
+    & + svg {
+      margin-left: 0;
+    }
   }
 }
