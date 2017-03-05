@@ -6,6 +6,7 @@ import Pattern       from '../../models/pattern'
 import PatternSVG    from '../../utils/patternSVG'
 import config        from '../../config'
 import dom           from '../../utils/dom'
+import color         from '../../utils/color'
 
 require('./game.scss');
 
@@ -98,7 +99,7 @@ class GameCtrl {
     // Generate a SVG from the pattern provided
     let attemptSVG = new PatternSVG()
     attemptSVG.addDots(1)
-    attemptSVG.addPattern(pattern, 14, ['#999','#ccc','#fff']) //# TO_DO: Need consts
+    attemptSVG.addPattern(pattern, 14, color.greydient('44',  'FF', pattern.dotLength - 3))
 
     let match = this.pattern.compare(pattern)
     PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
