@@ -10,6 +10,10 @@
   text-shadow: 0 0 6px $theme_bright, 0 0 16px $theme_bright;
 }
 
+.menu-form {
+  max-width: 480px;
+}
+
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
   .menu {
     align-items: center;

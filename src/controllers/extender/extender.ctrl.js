@@ -35,7 +35,7 @@ class ExtenderCtrl {
     this.buttonEl  = dom.create('button', 'extender-button',  this.title)
     this.contentEl = dom.create('div',    'extender-content', content)
 
-    this.el = dom.create('div', 'extender', [
+    this.el = dom.create('div', 'extender small-only', [
       this.buttonEl,
       this.contentEl
     ])

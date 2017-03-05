@@ -63,12 +63,12 @@ class MenuCtrl {
     ])
 
     this.el = dom.create('div', 'menu view', [
-      dom.create('div', 'view-bloc', [
+      dom.create('div', 'view-bloc menu-instructions', [
         title,
         intro,
         instructions.el
       ]),
-      dom.create('div', 'view-bloc', [
+      dom.create('div', 'view-bloc menu-form', [
         this.difficultyOption.el,
         this.typeSelector.el,
         this.typeHelpEl,

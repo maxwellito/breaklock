@@ -32,3 +32,14 @@
     display: inherit;
   }
 }
+
+@media (orientation: landscape), (min-width: $mq-xlarge-min) {
+  .extender.small-only {
+    .extender-button {
+      display: none;
+    }
+    .extender-content {
+      display: inherit;
+    }
+  }
+}
