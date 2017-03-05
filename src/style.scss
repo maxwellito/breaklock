@@ -42,6 +42,7 @@ h1 {
 .icon {
   width: 1em;
   height: 1em;
+  vertical-align: middle;
 
   * {
     fill: currentColor;
@@ -114,13 +115,9 @@ h1 {
   }
 }
 
-@media (min-width: $mq-large-min) {
-  html {
-    font-size: 20px;
-  }
-}
+
 @media (min-width: $mq-xlarge-min) {
   html {
-    font-size: 22px;
+    font-size: 20px;
   }
 }

@@ -34,7 +34,7 @@ class LockCtrl {
 
     this.el = myPatternSVG.getSVG()
     this.el.setAttribute('class', 'lock')
-    this.bigDotsEl = myPatternSVG.addDots(6, {class: 'lock-flashdots'})
+    this.bigDotsEl = myPatternSVG.addDots(9, {class: 'lock-flashdots'})
     this.patternEl = myPatternSVG.addGroup({
       'stroke-width': '2',
       'stroke': '#fff',

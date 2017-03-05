@@ -1,5 +1,7 @@
 @import "../../_variables.scss";
 
+$duration: .5s;
+
 .summary {
   position: fixed;
   top: 0;
@@ -8,6 +10,15 @@
   right: 0;
   background: $theme_dark;
   padding: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear .5s, opacity .5s;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity .5s;
+  }
 }
 
 .summary-title {

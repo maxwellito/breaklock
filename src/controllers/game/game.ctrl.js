@@ -108,6 +108,9 @@ class GameCtrl {
 
     if (match[0] === this.pattern.dotLength) {
       // Success case
+      if (this.type === config.GAME.TYPE.COUNTDOWN)
+        this.statusBar.stopCountdown()
+
       this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', false)
       return true
     }

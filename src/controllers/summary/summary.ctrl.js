@@ -89,20 +89,11 @@ class SummaryCtrl {
    * @param {Pattern} pattern        Winning pattern
    */
   setContent (isSuccess, msg, canContinue, pattern) {
-    if (isSuccess) {
-      this.titleEl.textContent = 'Success!'
-      this.titleEl.classList.add('success')
-    }
-    else {
-      this.titleEl.textContent = 'Fail!'
-      this.titleEl.classList.add('success')
-    }
-
+    this.titleEl.textContent = isSuccess ? 'Success!' : 'Fail!'
     this.detailsEl.textContent = msg
     this.continueBtnEl.style.display = canContinue ? 'inherit' : 'none';
 
     this.updateSocialLinks()
-    this.toggle(true)
   }
 
   /**
@@ -110,8 +101,8 @@ class SummaryCtrl {
    * @param  {Boolean} force Force to show or hide if provided
    */
   toggle (force) {
-    force = (force != undefined) ? force : this.el.style.display === 'none'
-    this.el.style.display = force ? 'inherit' : 'none'
+    force = (force != undefined) ? force : !this.el.classList.contains('active')
+    this.el.classList[force ? 'add' : 'remove']('active')
   }
 
   /**
