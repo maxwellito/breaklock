@@ -21,6 +21,11 @@ $mq-xxlarge-max: 5120px;
 
 
 // Mixins
+%button-feel {
+  @extend %unselectable;
+  cursor: pointer;
+}
+
 %unselectable {
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */

@@ -8,6 +8,7 @@
 }
 
 .selectbox-item {
+  @extend %button-feel;
   padding: .25rem;
   text-align: center;
   display: inline-block;
