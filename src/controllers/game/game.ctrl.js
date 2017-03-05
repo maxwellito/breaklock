@@ -49,8 +49,6 @@ class GameCtrl {
    * @return {SVGDOMElement}
    */
   setupTemplate () {
-    this.summary.toggle()
-
     this.el = dom.create('div', 'game-layout view', [
       dom.create('div', 'view-bloc game-layout-dashboard', [ //# CLEAN thats dirty
         this.statusBar.el,

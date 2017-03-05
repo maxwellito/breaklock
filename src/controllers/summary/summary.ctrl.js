@@ -94,6 +94,7 @@ class SummaryCtrl {
     this.continueBtnEl.style.display = canContinue ? 'inherit' : 'none';
 
     this.updateSocialLinks()
+    this.toggle(true)
   }
 
   /**
