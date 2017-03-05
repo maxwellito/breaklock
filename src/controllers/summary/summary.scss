@@ -8,9 +8,7 @@
   right: 0;
   background: $theme_dark;
   padding: 1rem;
-
 }
-
 
 .summary-title {
   margin: 0;
@@ -20,12 +18,12 @@
 
 }
 .summary-action-button > * {
-    vertical-align: middle;
-    margin-right: .5em;
+  vertical-align: middle;
+  margin-right: .5em;
 }
 .summary-action-button {
-    display: block;
-    font-size: 1.5rem;
+  display: block;
+  font-size: 1.5rem;
 }
 
 .summary-share {
@@ -34,5 +32,11 @@
   &-link {
     display: inline-block;
     margin-right: .125em;
+  }
+}
+
+@media (orientation: landscape), (min-width: $mq-xlarge-min) {
+  .summary {
+    align-items: center;
   }
 }

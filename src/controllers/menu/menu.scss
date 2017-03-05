@@ -11,7 +11,7 @@
 }
 
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
-  // .view-bloc:first-child {
-  //   text-align: right;
-  // }
+  .menu {
+    align-items: center;
+  }
 }

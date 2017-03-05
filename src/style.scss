@@ -25,6 +25,7 @@ a {
 }
 
 button {
+  @extend %unselectable;
   font-weight: 100;
   background: none;
   color: $theme_bright;
@@ -47,12 +48,33 @@ h1 {
   }
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-moz-scrollbar {
+    display: none;
+}
+
+*:focus {
+    outline: none;
+}
 
 .bloc {
   border-top: 1px dotted currentColor;
   padding: .5rem 0;
 }
 
+.action-btn {
+  display: block;
+  text-align: center;
+  margin: auto;
+  font-size: 1.25rem;
+  border: 1px solid $theme_bright;
+  padding: .25rem 1rem;
+  box-shadow: 0.25rem 0.25rem 0 0 $theme_bright;
+  border-radius: .4rem;
+}
 
 
 /* Layout *********/

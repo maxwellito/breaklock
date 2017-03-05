@@ -30,7 +30,7 @@ class MenuCtrl {
     let title = dom.create('h1', 'menu-title', 'BreakLock_'),
         intro = dom.create('p',  'menu-intro', 'A merge between Mastermind and the Android pattern lock. A game you gonna hate.')
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
-    this.btnStarlEl = dom.create('button', {}, 'GO_')
+    this.btnStarlEl = dom.create('button', 'action-btn', 'START_')
 
     let instructions = new ExtenderCtrl('INSTRUCTIONS', document.getElementById('instructions-template'))
     instructions.init()
