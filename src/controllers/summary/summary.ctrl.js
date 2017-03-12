@@ -89,6 +89,9 @@ class SummaryCtrl {
    * @param {Pattern} pattern        Winning pattern
    */
   setContent (isSuccess, msg, canContinue, pattern) {
+    this.el.classList.remove('fail')
+    this.el.classList.remove('success')
+    this.el.classList.add(isSuccess ? 'success' : 'fail')
     this.titleEl.textContent = isSuccess ? 'Success!' : 'Fail!'
     this.detailsEl.textContent = msg
     this.continueBtnEl.style.display = canContinue ? 'inherit' : 'none';

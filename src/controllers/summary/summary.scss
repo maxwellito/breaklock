@@ -5,19 +5,38 @@ $duration: .5s;
 .summary {
   position: fixed;
   top: 0;
-  bottom: 0;
+  bottom: auto;
   left: 0;
   right: 0;
+  height: 0;
+  overflow: hidden;
   background: $theme_dark;
-  padding: 1rem;
-  visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear .5s, opacity .5s;
+  visibility: hidden;
+  transition: visibility 0s linear $duration, height $duration, opacity $duration/2 linear $duration/4;
 
   &.active {
     visibility: visible;
+    height: 100%;
     opacity: 1;
-    transition: visibility 0s, opacity .5s;
+    transition: visibility 0s, height $duration, opacity $duration/2;
+  }
+
+  &.success {
+    background: #169;
+  }
+
+  &.fail {
+    background: #d00;
+  }
+
+  // Hacks :-/
+  &.view {
+    padding: 0;
+
+    .view-bloc {
+      padding: $gutter;
+    }
   }
 }
 
@@ -42,7 +61,7 @@ $duration: .5s;
 
   &-link {
     display: inline-block;
-    margin-right: .125em;
+    margin-right: .375em;
   }
 }
 
