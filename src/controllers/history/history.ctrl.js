@@ -59,13 +59,19 @@ class HistoryCtrl {
 
   /**
    * Clean the history
+   * 
+   * @param  {String} helperText Helper text displayed when the history is empty
+   * @return {[type]}
    */
-  clear () {
+  clear (helperText) {
     this.lastPattern = null
 
     // Clean the container
     this.containerEl.remove()
-    this.containerEl = dom.create('div', 'history-container')
+    this.containerEl = dom.create('div', {
+      class: 'history-container',
+      'data-helper': helperText
+    })
     this.el.appendChild(this.containerEl)
   }
 }

@@ -23,7 +23,7 @@ $patternRatio:  100/120;
   &:empty {
     display: block;
     &:after {
-      content: 'Start drawin\'';
+      content: attr(data-helper);
       display: block;
       line-height: 6;
       font-size: 1rem;

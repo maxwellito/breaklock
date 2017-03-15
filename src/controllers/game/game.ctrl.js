@@ -74,7 +74,7 @@ class GameCtrl {
     this.lock.setDotLength(difficulty)
     this.pattern = new Pattern(difficulty)
     this.pattern.fillRandomly()
-    this.history.clear()
+    this.history.clear('Connect ' + difficulty + ' dots')
     this.count = 0
 
     switch (type) {
