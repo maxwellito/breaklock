@@ -9,6 +9,13 @@
   max-width: 480px;
 }
 
+.introduction-demo {
+	display: block;
+	width: 100%;
+	max-width: 320px;
+	margin: auto;
+}
+
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
   .menu-layout {
     align-items: center;

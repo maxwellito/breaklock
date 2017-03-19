@@ -79,19 +79,19 @@
 
 	<!-- Fixed dots -->
 	<g fill="#fff">
-		<circle cx="165" cy="15" r="1"></circle>
-		<circle cx="200" cy="15" r="1"></circle>
-		<circle cx="235" cy="15" r="1"></circle>
-		<circle cx="165" cy="50" r="1"></circle>
-		<circle cx="200" cy="50" r="1"></circle>
-		<circle cx="235" cy="50" r="1"></circle>
-		<circle cx="165" cy="85" r="1"></circle>
-		<circle cx="200" cy="85" r="1"></circle>
-		<circle cx="235" cy="85" r="1"></circle>
+		<circle cx="165" cy="15" r="2"></circle>
+		<circle cx="200" cy="15" r="2"></circle>
+		<circle cx="235" cy="15" r="2"></circle>
+		<circle cx="165" cy="50" r="2"></circle>
+		<circle cx="200" cy="50" r="2"></circle>
+		<circle cx="235" cy="50" r="2"></circle>
+		<circle cx="165" cy="85" r="2"></circle>
+		<circle cx="200" cy="85" r="2"></circle>
+		<circle cx="235" cy="85" r="2"></circle>
 	</g>
 
 	<!-- The pattern model -->
-	<g stroke-width="8" stroke-linecap="round">
+	<g stroke-width="6" stroke-linecap="round">
 		<line class="model-1 line-4" x1="165" y1="15" x2="235" y2="50" stroke="#666666"></line>
 		<line class="model-2 line-4" x1="235" y1="50" x2="165" y2="85" stroke="#b3b3b3"></line>
 		<line class="model-3 line-4" x1="165" y1="85" x2="200" y2="15" stroke="#ffffff"></line>
