@@ -43,8 +43,6 @@ class SummaryCtrl {
         dom.create('span', {}, action)
       ])
       this.actionButtons.push(btn)
-      if (action === 'CONTINUE')
-        this.continueBtnEl = btn
     }
 
     // Social links
@@ -59,6 +57,14 @@ class SummaryCtrl {
       this.socialButtons.push(btn)
     }
 
+    // Feedback stuff
+    let feedbackEl = dom.create('div', 'summary-feedback bloc', [
+      dom.create('p', {}, [
+        dom.create('span', {}, 'Tweet me your feedback at '),
+        dom.create('a', {href: config.SOCIAL.PLATFORMS.TWITTER.URL('', '@mxwllt', ['breaklock'])}, '@mxwllt')
+      ])
+    ])
+
     this.titleEl   = dom.create('h1',  'summary-title')
     this.detailsEl = dom.create('p',   'summary-details')
     this.actionsEl = dom.create('div', 'summary-actions bloc', this.actionButtons)
@@ -66,7 +72,7 @@ class SummaryCtrl {
 
     this.el = dom.create('div', 'summary view', [
       dom.create('div', 'view-bloc', [this.titleEl, this.detailsEl]),
-      dom.create('div', 'view-bloc', [this.actionsEl, this.socialEl])
+      dom.create('div', 'view-bloc', [this.actionsEl, this.socialEl, feedbackEl])
     ])
 
     return this.el
@@ -85,16 +91,14 @@ class SummaryCtrl {
    * because an instance must be reused.
    * @param {Boolean} isSuccess      Was the game a success?
    * @param {String}  msg            Message to display
-   * @param {Boolean} canContinue    Check if the player can continue to play
    * @param {Pattern} pattern        Winning pattern
    */
-  setContent (isSuccess, msg, canContinue, pattern) {
+  setContent (isSuccess, msg, pattern) {
     this.el.classList.remove('fail')
     this.el.classList.remove('success')
     this.el.classList.add(isSuccess ? 'success' : 'fail')
     this.titleEl.textContent = isSuccess ? 'Success!' : 'Fail!'
     this.detailsEl.textContent = msg
-    this.continueBtnEl.style.display = canContinue ? 'inherit' : 'none';
 
     this.updateSocialLinks()
     this.toggle(true)

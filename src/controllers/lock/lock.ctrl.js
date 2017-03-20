@@ -30,16 +30,17 @@ class LockCtrl {
   setupTemplate () {
     let myPatternSVG = new PatternSVG()
     myPatternSVG.addBackgroundLayer()
-    myPatternSVG.addDots(2)
 
     this.el = myPatternSVG.getSVG()
     this.el.setAttribute('class', 'lock')
-    this.bigDotsEl = myPatternSVG.addDots(9, {class: 'lock-flashdots'})
     this.patternEl = myPatternSVG.addGroup({
       'stroke-width': '2',
       'stroke': '#fff',
       'stroke-linecap': 'round'
     })
+    this.bigDotsEl = myPatternSVG.addDots(9, {class: 'lock-flashdots'})
+    
+    myPatternSVG.addDots(2)
     return this.el
   }
 

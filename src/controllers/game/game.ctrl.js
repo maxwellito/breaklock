@@ -109,7 +109,7 @@ class GameCtrl {
       if (this.type === config.GAME.TYPE.COUNTDOWN)
         this.statusBar.stopCountdown()
 
-      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', false)
+      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', this.pattern)
       return true
     }
     else {
@@ -121,7 +121,7 @@ class GameCtrl {
           break
         case config.GAME.TYPE.CHALLENGE:
           if (this.statusBar.decrementCounter() === 0)
-            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', true)
+            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.pattern)
           break
       }
       return false
@@ -151,7 +151,7 @@ class GameCtrl {
    */
   action (actionId) {
     switch (actionId) {
-    case config.GAME.ACTIONS.TRY_AGAIN:
+    case config.GAME.ACTIONS.NEW_GAME:
       this.start(this.type, this.difficulty)
       break;
     case config.GAME.ACTIONS.BACK_HOME:

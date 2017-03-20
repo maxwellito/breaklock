@@ -11,9 +11,9 @@ const config = {
       COUNTDOWN: 3
     },
     ACTIONS: {
-      TRY_AGAIN: 1,
-      BACK_HOME: 2,
-      CONTINUE: 3
+      CONTINUE: 1,
+      NEW_GAME: 2,
+      BACK_HOME: 3
     }
   },
   SOCIAL: {
@@ -26,7 +26,13 @@ const config = {
       TWITTER: {
         NAME: 'Twitter',
         ICON: 'twitter',
-        URL: (url, msg, tags) => `http://twitter.com/share?text=${encodeURI(msg)}&url=${encodeURI(url)}&hashtags=${encodeURI(tags.join(','))}`
+        URL: (url, msg, tags) => {
+          return `http://twitter.com/` +
+            (url  ? `share?` : `intent/tweet?`) +
+            (msg  ? `text=${encodeURI(msg)}&` : '') +
+            (url  ? `url=${encodeURI(url)}&`  : '') +
+            (tags ? `hashtags=${encodeURI(tags.join(','))}` : '')
+        }
       }
     },
     MESSAGE: 'I wasted my time on BreakLock, it\'s pointless, don\'t try it.',
