@@ -22,14 +22,6 @@ $duration: .5s;
     transition: visibility 0s, height $duration, opacity $duration/2;
   }
 
-  &.success {
-    background: #169;
-  }
-
-  &.fail {
-    background: #d00;
-  }
-
   // Hacks :-/
   &.view {
     padding: 0;
@@ -42,6 +34,15 @@ $duration: .5s;
 
 .summary-title {
   margin: 0;
+
+  &.success {
+    color: $theme_bright;
+    background-color: #169;
+  }
+  &.fail {
+    color: $theme_bright;
+    background-color: #f00;
+  }
 }
 .summary-details
 .summary-actions {

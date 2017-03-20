@@ -2,13 +2,13 @@
 
 @font-face {
   font-family: "Roboto Mono";
-  font-weight: 100;
+  font-weight: $font_weight;
   src: url("/RobotoMono-Thin.ttf"); //# TO_DO: Remove dat font
 }
 
 * {
   font-family: 'Roboto Mono', Menlo, Consolas, 'Andale Mono', monospace;
-  font-weight: 100;
+  font-weight: $font_weight;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,8 +16,8 @@
 html, body {
   margin: 0;
   padding: 5%;
-  background: #14171b;
-  color: #fff;
+  background: $theme_dark;
+  color: $theme_bright;
 }
 
 a {
@@ -26,7 +26,7 @@ a {
 
 button {
   @extend %button-feel;
-  font-weight: 100;
+  font-weight: $font_weight;
   background: none;
   color: $theme_bright;
   line-height: inherit;
@@ -35,8 +35,8 @@ button {
   padding: 0;
 }
 
-h1 {
-  font-weight: 100;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font_weight;
 }
 
 .icon {
@@ -77,6 +77,16 @@ h1 {
   border-radius: .4rem;
 }
 
+.highlight {
+  display: inline-block;
+  padding: 0 .5rem;
+  color: $theme_dark;
+  background-color: $theme_bright;
+  &:after {
+    content:'_';
+    animation: blink 2s infinite;
+  }
+}
 
 /* Layout *********/
 
@@ -121,4 +131,12 @@ h1 {
   html {
     font-size: 20px;
   }
+}
+
+
+@keyframes blink {
+  0%     {opacity: 1;}
+  50%    {opacity: 1;}
+  50.01% {opacity: 0;}
+  100%   {opacity: 0;}
 }

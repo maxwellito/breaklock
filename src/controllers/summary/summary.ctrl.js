@@ -65,7 +65,7 @@ class SummaryCtrl {
       ])
     ])
 
-    this.titleEl   = dom.create('h1',  'summary-title')
+    this.titleEl   = dom.create('h1',  'summary-title highlight')
     this.detailsEl = dom.create('p',   'summary-details')
     this.actionsEl = dom.create('div', 'summary-actions bloc', this.actionButtons)
     this.socialEl  = dom.create('div', 'summary-share bloc',   this.socialButtons)
@@ -94,9 +94,9 @@ class SummaryCtrl {
    * @param {Pattern} pattern        Winning pattern
    */
   setContent (isSuccess, msg, pattern) {
-    this.el.classList.remove('fail')
-    this.el.classList.remove('success')
-    this.el.classList.add(isSuccess ? 'success' : 'fail')
+    this.titleEl.classList.remove('fail')
+    this.titleEl.classList.remove('success')
+    this.titleEl.classList.add(isSuccess ? 'success' : 'fail')
     this.titleEl.textContent = isSuccess ? 'Success!' : 'Fail!'
     this.detailsEl.textContent = msg
 
