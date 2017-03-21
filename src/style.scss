@@ -3,7 +3,9 @@
 @font-face {
   font-family: "Roboto Mono";
   font-weight: $font_weight;
-  src: url("/RobotoMono-Thin.ttf"); //# TO_DO: Remove dat font
+  src: url('/assets/fonts/robotomono-light-webfont.woff2') format('woff2'),
+       url('/assets/fonts/robotomono-light-webfont.woff') format('woff'),
+       url('/assets/fonts/robotomono-light-webfont.ttf') format('truetype');
 }
 
 * {
