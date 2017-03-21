@@ -95,10 +95,7 @@ class GameCtrl {
    */
   newAttempt (pattern) {
     // Generate a SVG from the pattern provided
-    let attemptSVG = new PatternSVG()
-    attemptSVG.addDots(1)
-    attemptSVG.addPattern(pattern, 14, color.greydient('66',  'FF', pattern.dotLength - 3))
-
+    let attemptSVG = this.generateSVGfromPattern(pattern)
     let match = this.pattern.compare(pattern)
     PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
 
@@ -109,7 +106,7 @@ class GameCtrl {
       if (this.type === config.GAME.TYPE.COUNTDOWN)
         this.statusBar.stopCountdown()
 
-      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', this.pattern)
+      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', this.generateSVGfromPattern(this.pattern).getSVG())
       return true
     }
     else {
@@ -121,7 +118,7 @@ class GameCtrl {
           break
         case config.GAME.TYPE.CHALLENGE:
           if (this.statusBar.decrementCounter() === 0)
-            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.pattern)
+            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.generateSVGfromPattern(this.pattern).getSVG())
           break
       }
       return false
@@ -135,7 +132,7 @@ class GameCtrl {
   abort (exitCode) {
     if (exitCode) {
       // Exit from countdown
-      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', true)
+      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.generateSVGfromPattern(this.pattern).getSVG())
     }
     else {
       // Abort from the user
@@ -162,6 +159,21 @@ class GameCtrl {
       break;
     }
     this.summary.toggle()
+  }
+
+  /**
+   * Generate the pattern SVG from a pattern object
+   * 
+   * @param  {Pattern} pattern Pattern object to use to generate the SVG
+   * @return {SVGDOMElement}
+   */
+  generateSVGfromPattern (pattern) {
+    // Generate a SVG from the pattern provided
+    let attemptSVG = new PatternSVG()
+    attemptSVG.addDots(1)
+    attemptSVG.addPattern(pattern, 14, color.greydient('66',  'FF', pattern.dotLength - 3))
+
+    return attemptSVG
   }
 }
 

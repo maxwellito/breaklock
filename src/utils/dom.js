@@ -51,6 +51,16 @@ var dom = {
     return dom.create('svg', {class: 'icon'}, [use])
   },
 
+  /**
+   * Clear the content of an element
+   * @param  {DOMElement} element Element to clear
+   */
+  clear: (element) => {
+    for (let i = element.childNodes.length - 1; i >= 0; i--) {
+      element.childNodes[i].remove()
+    }
+  },
+
   SVG_NAMESPACE: 'http://www.w3.org/2000/svg',
   XLINK_NAMESPACE: 'http://www.w3.org/1999/xlink',
   SVG_ELEMENTS: ['svg', 'g', 'circle', 'line', 'path', 'use', 'rect']

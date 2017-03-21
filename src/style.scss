@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: $theme_bright;
   &:after {
     content:'_';
-    animation: blink 2s infinite;
+    animation: blink 1.2s infinite;
   }
 }
 
