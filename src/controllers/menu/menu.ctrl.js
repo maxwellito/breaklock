@@ -28,7 +28,7 @@ class MenuCtrl {
    */
   setupTemplate () {
     let title = dom.create('h1', 'menu-title highlight', 'BreakLock'),
-        intro = dom.create('p',  'menu-intro', 'A merge between Mastermind and the Android pattern lock. A game you gonna hate.')
+        intro = dom.create('p',  'menu-intro', 'A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.')
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
     this.btnStarlEl = dom.create('button', 'action-btn', 'START_')
 

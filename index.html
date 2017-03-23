@@ -28,10 +28,10 @@
     <div style="display: none;">
       <div id="instructions-template">
         <object class="introduction-demo" data="assets/intro.svg" type="image/svg+xml"></object>
-        <p>Link the dots to find the pattern lock hidden. After every attempts the game will provide you indications.<p>
-        <p>&#9679; : correct dot in right order in the pattern</p>
-        <p>&#9675; : correct dot in the wrong order</p>
-        <p>The difficulty change the amount of dots to connect. Easy is 4 dots, medium is 5 dots and hard is 6 dots.</p>
+        <p>Link the dots to find the lock pattern. After every attempt the game will tell you how many dots you got right.<p>
+        <p>&#9679; : a dot occurs in the pattern and is in the correct order</p>
+        <p>&#9675; : a dot occurs in the pattern but in the wrong order</p>
+        <p>The difficulty setting changes the amount of dots to connect. Easy is 4 dots, medium is 5 dots and hard is 6 dots.</p>
         <p>Good luck!_</p>
         <p class="small">by <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / on <a href="https://github.com/maxwellito/breaklock"><a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a></p>
       </div>
@@ -64,10 +64,10 @@
 
     <!--[if lte IE 6]>
       <p>
-        If you read this it's probably because the world has rebooted and I don't know how but you arrived here. Im sorry you cannot enjoy this little game but you will be able to in a relative future, on smartphones. Browsers will become incredibly better. Just before the world turn into chaos due to Nutella production stop. Scientists will realise too late that Nutella was to humans what pollen is to bees. Don't believe the hype, the end didn't (or won't) happen because the 'left-pad' package on NPM. Good luck.
+        If you read this it's probably because the world has rebooted. I don't know how but you arrived here. I'm sorry you cannot enjoy this little game but you will be able to in the not too distant future. Browsers will become incredibly better. Just before the world turns into chaos due to Nutella production shortages. Scientists will realise too late that Nutella was to humans what pollen is to bees. Don't believe the hype, the end didn't (or won't) happen because the 'left-pad' package got removed from NPM. Good luck.
       </p>
       <p>
-        PS: Say to thejameskyle that I loved him. Only his cat can save the world.
+        PS: If the world has ended, please tell thejameskyle that I loved him. Only his cat can save the world. (Shut the door)
       </p>
     <![endif]-->
 
@@ -79,6 +79,14 @@
     </script>
     <script src="app.js"></script>
     <!-- <script src="scripts/pwa/setup.js"></script> -->
+
+    <script type="text/javascript">
+      // if ('serviceWorker' in navigator) {
+      //   navigator.serviceWorker
+      //     .register('service-worker.js', {scope: '.'})
+      //     .then(function() { console.log('Service Worker Registered'); });
+      // }
+    </script>
 
 
   </body>
