@@ -40,6 +40,7 @@ class PatternSVG {
     let lines = []
     color = color instanceof Array ? color : [color]
 
+    // Add all lines
     for (let i = 1; i < pattern.suite.length; i++) {
       lines.push(dom.create('line', {
         'x1':           (pattern.suite[i-1] % 3) * this.GRID_GUTTER + this.SVG_MARGIN,
@@ -50,6 +51,16 @@ class PatternSVG {
       }))
     }
 
+    // Add the dot reprenting the final dot
+    let lastDotIndex = pattern.suite[pattern.suite.length - 1]
+    lines.push(dom.create('circle', {
+      cx:    (lastDotIndex % 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+      cy:    Math.floor(lastDotIndex / 3) * this.GRID_GUTTER + this.SVG_MARGIN,
+      fill:  color[0],
+      r:     size / 4
+    }))
+
+    // Bundle everything in a group
     return this.addGroup({
       'stroke-width': size,
       'stroke-linecap': 'round'
