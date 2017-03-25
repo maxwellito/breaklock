@@ -170,6 +170,10 @@ class LockCtrl {
    * @param  {Number} y Position X of pointer/finger
    */
   updatePoint (x, y) {
+    // Cancel if the current pattern is finished
+    if (this.isPendingReset)
+      return
+
     let iX, iY
     for (let i = 0; i < 3; i++) {
       let rangeStart = PatternSVG.prototype.GRID_GUTTER * i + PatternSVG.prototype.SVG_MARGIN - PatternSVG.prototype.DOT_MAGNET,
