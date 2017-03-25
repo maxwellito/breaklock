@@ -35,6 +35,7 @@ class GameCtrl {
     this.summary   = new SummaryCtrl(this.action.bind(this))
     this.pattern   = null
     this.type      = null
+    this.isEnded   = false
     this.onEnd     = onEnd
 
     //# QUESTION: Does it really make sense?
@@ -76,6 +77,7 @@ class GameCtrl {
     this.pattern.fillRandomly()
     this.history.clear('Connect ' + difficulty + ' dots')
     this.count = 0
+    this.isEnded = false
 
     switch (type) {
       case config.GAME.TYPE.PRACTICE:
@@ -95,39 +97,39 @@ class GameCtrl {
    */
   newAttempt (pattern) {
     // Generate a SVG from the pattern provided
-    let patternBuild = this.buildPattern(pattern)
-    let match = this.pattern.compare(pattern)
-    PatternSVG.prototype.addCombinaison.apply(patternBuild, match)
-    let svgPattern = patternBuild.getSVG()
+    let match      = this.pattern.compare(pattern),
+        svgPattern = this.buildPatternSVG(pattern, match),
+        isUnlocked = (match[0] === this.pattern.dotLength)
 
     this.count++
 
-    if (match[0] === this.pattern.dotLength) {
+    if (this.isEnded) {
+      this.statusBar.incrementCounter()
+    }
+    else if (isUnlocked) {
       // Success case
-      svgPattern.classList.add('success')
-      this.history.stackPattern(svgPattern)
-      
       if (this.type === config.GAME.TYPE.COUNTDOWN)
         this.statusBar.stopCountdown()
 
-      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', this.buildPattern(this.pattern).getSVG())
-      return true
+      this.isEnded = svgPattern
+      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.')
     }
     else {
       // Fail case
-      this.history.stackPattern(svgPattern)
-
       switch (this.type) {
         case config.GAME.TYPE.PRACTICE:
           this.statusBar.incrementCounter()
           break
         case config.GAME.TYPE.CHALLENGE:
-          if (this.statusBar.decrementCounter() === 0)
-            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.buildPattern(this.pattern).getSVG())
+          if (this.statusBar.decrementCounter() === 0) {
+            this.isEnded = true
+            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.')
+          }
           break
       }
-      return false
     }
+    this.history.stackPattern(svgPattern)
+    return isUnlocked
   }
 
   /**
@@ -137,7 +139,9 @@ class GameCtrl {
   abort (exitCode) {
     if (exitCode) {
       // Exit from countdown
-      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.buildPattern(this.pattern).getSVG())
+      this.isEnded = true
+      this.statusBar.stopCountdown()
+      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.')
     }
     else {
       // Abort from the user
@@ -161,6 +165,13 @@ class GameCtrl {
       break;
     case config.GAME.ACTIONS.CONTINUE:
       // Nothing for now
+      debugger
+      if (this.isEnded === true) {
+        let match      = this.pattern.compare(this.pattern)
+        let svgPattern = this.buildPatternSVG(this.pattern, match)
+        this.history.stackPattern(svgPattern)
+      }
+      this.statusBar.setCounter(this.count)
       break;
     }
     this.summary.toggle()
@@ -170,9 +181,10 @@ class GameCtrl {
    * Generate the pattern SVG from a pattern object
    * 
    * @param  {Pattern} pattern Pattern object to use to generate the SVG
+   * @param  {Array}   match   Pattern match array
    * @return {SVGDOMElement}
    */
-  buildPattern (pattern) {
+  buildPatternSVG (pattern, match) {
     // Generate a SVG from the pattern provided
     let attemptSVG = new PatternSVG()
     attemptSVG.addDots(1)
@@ -182,7 +194,17 @@ class GameCtrl {
       pattern.dotLength - 3
     ))
 
-    return attemptSVG
+    // Add the feedback on the SVG
+    if (match)
+      PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
+
+    let svgPattern = attemptSVG.getSVG()
+
+    // Add the success class to the SVG
+    if ((match[0] === pattern.dotLength))
+      svgPattern.classList.add('success')
+
+    return svgPattern
   }
 }
 

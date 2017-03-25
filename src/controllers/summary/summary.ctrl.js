@@ -67,7 +67,7 @@ class SummaryCtrl {
 
     this.titleEl   = dom.create('h1',  'summary-title highlight')
     this.detailsEl = dom.create('p',   'summary-details')
-    this.revealEl  = dom.create('div', 'summary-reveal bloc')
+    this.revealEl  = dom.create('p',   'summary-reveal', 'Continue to see the solution.')
     this.actionsEl = dom.create('div', 'summary-actions bloc', this.actionButtons)
     this.socialEl  = dom.create('div', 'summary-share bloc',   this.socialButtons)
 
@@ -84,7 +84,6 @@ class SummaryCtrl {
    */
   init () {
     this.actionButtons.forEach(btn => btn.addEventListener('click', this.triggerAction.bind(this)))
-    this.revealEl.addEventListener('click', e => this.revealEl.classList.add('active'))
   }
 
   /**
@@ -93,18 +92,14 @@ class SummaryCtrl {
    * because an instance must be reused.
    * @param {Boolean}       isSuccess      Was the game a success?
    * @param {String}        msg            Message to display
-   * @param {SVGDOMElement} pattern        SVG of the pattern to find during the game
    */
-  setContent (isSuccess, msg, pattern) {
+  setContent (isSuccess, msg) {
     this.titleEl.classList.remove('fail')
     this.titleEl.classList.remove('success')
     this.titleEl.classList.add(isSuccess ? 'success' : 'fail')
     this.titleEl.textContent = isSuccess ? 'Success!' : 'Fail!'
     this.detailsEl.textContent = msg
-
-    this.revealEl.classList.remove('active')
-    dom.clear(this.revealEl)
-    this.revealEl.appendChild(pattern)
+    this.revealEl.classList[isSuccess ? 'add' : 'remove']('hide')
 
     this.updateSocialLinks()
     this.toggle(true)

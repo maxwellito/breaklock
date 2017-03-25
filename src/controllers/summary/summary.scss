@@ -44,26 +44,6 @@ $summary_transition_delay:    .5s;
   }
 }
 
-.summary-reveal {
-  &:before {
-    content: 'Tap to reveal'
-  }
-  & > svg {
-    display: none;
-    height: 5rem;
-    margin: auto;
-  }
-
-  &.active {
-    &:before {
-      display: none;
-    }
-    & > svg {
-      display: inherit;
-    }
-  }
-}
-
 .summary-action-button > * {
   vertical-align: middle;
   margin-right: .5em;

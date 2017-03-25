@@ -50,7 +50,8 @@ $patternRatio:  100/120;
     border: #{$patternMargin/8} solid currentColor;
     border-radius: #{$patternMargin/4};
     padding: #{$patternMargin/8*3} #{$patternMargin/4};
-    margin: #{$patternMargin/2} 0;
+    margin-top: #{$patternMargin/2};
+    margin-bottom: #{$patternMargin/2};
   }
 
   & + svg {
