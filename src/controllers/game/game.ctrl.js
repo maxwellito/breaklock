@@ -95,30 +95,35 @@ class GameCtrl {
    */
   newAttempt (pattern) {
     // Generate a SVG from the pattern provided
-    let attemptSVG = this.generateSVGfromPattern(pattern)
+    let patternBuild = this.buildPattern(pattern)
     let match = this.pattern.compare(pattern)
-    PatternSVG.prototype.addCombinaison.apply(attemptSVG, match)
+    PatternSVG.prototype.addCombinaison.apply(patternBuild, match)
+    let svgPattern = patternBuild.getSVG()
 
     this.count++
 
     if (match[0] === this.pattern.dotLength) {
       // Success case
+      svgPattern.classList.add('success')
+      this.history.stackPattern(svgPattern)
+      
       if (this.type === config.GAME.TYPE.COUNTDOWN)
         this.statusBar.stopCountdown()
 
-      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', this.generateSVGfromPattern(this.pattern).getSVG())
+      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.', this.buildPattern(this.pattern).getSVG())
       return true
     }
     else {
       // Fail case
-      this.history.stackPattern(attemptSVG.getSVG())
+      this.history.stackPattern(svgPattern)
+
       switch (this.type) {
         case config.GAME.TYPE.PRACTICE:
           this.statusBar.incrementCounter()
           break
         case config.GAME.TYPE.CHALLENGE:
           if (this.statusBar.decrementCounter() === 0)
-            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.generateSVGfromPattern(this.pattern).getSVG())
+            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.buildPattern(this.pattern).getSVG())
           break
       }
       return false
@@ -132,7 +137,7 @@ class GameCtrl {
   abort (exitCode) {
     if (exitCode) {
       // Exit from countdown
-      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.generateSVGfromPattern(this.pattern).getSVG())
+      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.', this.buildPattern(this.pattern).getSVG())
     }
     else {
       // Abort from the user
@@ -167,7 +172,7 @@ class GameCtrl {
    * @param  {Pattern} pattern Pattern object to use to generate the SVG
    * @return {SVGDOMElement}
    */
-  generateSVGfromPattern (pattern) {
+  buildPattern (pattern) {
     // Generate a SVG from the pattern provided
     let attemptSVG = new PatternSVG()
     attemptSVG.addDots(1)

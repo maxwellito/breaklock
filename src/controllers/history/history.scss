@@ -46,6 +46,13 @@ $patternRatio:  100/120;
   -webkit-transform: translateZ(0);
   -webkit-animation: expand .25s, fadein .5s linear;
 
+  &.success {
+    border: #{$patternMargin/8} solid currentColor;
+    border-radius: #{$patternMargin/4};
+    padding: #{$patternMargin/8*3} #{$patternMargin/4};
+    margin: #{$patternMargin/2} 0;
+  }
+
   & + svg {
     margin-left: $patternMargin;
   }
@@ -64,11 +71,11 @@ $patternRatio:  100/120;
 }
 
 @keyframes expand {
-    0%   {width: 0;}
+    0%   {width: 0; padding: 0;}
 }
 
 @-webkit-keyframes expand {
-    0%   {width: 0;}
+    0%   {width: 0; padding: 0;}
 }
 
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
