@@ -42,7 +42,7 @@ const config = {
   COLORS: {
     BRIGHT:  '#ffffff',
     DARK:    '#14171b',
-    SUCCESS: '#11aaff',
+    SUCCESS: '#116699',
     ERROR:   '#ff0000'
   },
   PATTERN: {
