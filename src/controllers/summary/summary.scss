@@ -37,11 +37,11 @@ $duration: .5s;
 
   &.success {
     color: $theme_bright;
-    background-color: #169;
+    background-color: $theme_success;
   }
   &.fail {
     color: $theme_bright;
-    background-color: #f00;
+    background-color: $theme_error;
   }
 }
 

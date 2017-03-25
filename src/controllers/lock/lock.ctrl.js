@@ -1,6 +1,7 @@
 import Pattern from '../../models/pattern'
 import PatternSVG from '../../utils/patternSVG'
 import dom from '../../utils/dom'
+import config from '../../config'
 
 require('./lock.scss');
 
@@ -35,11 +36,11 @@ class LockCtrl {
     this.el.setAttribute('class', 'lock')
     this.patternEl = myPatternSVG.addGroup({
       'stroke-width': '2',
-      'stroke': '#fff',
+      'stroke': config.COLORS.BRIGHT,
       'stroke-linecap': 'round'
     })
     this.bigDotsEl = myPatternSVG.addDots(9, {class: 'lock-flashdots'})
-    
+
     myPatternSVG.addDots(2)
     return this.el
   }
@@ -241,7 +242,7 @@ class LockCtrl {
       this.bigDotsEl.childNodes[i].classList.remove('active')
     for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
       this.patternEl.childNodes[i].remove()
-    this.patternEl.setAttribute('stroke', '#fff')
+    this.patternEl.setAttribute('stroke', config.COLORS.BRIGHT)
   }
 
   /**
@@ -254,7 +255,7 @@ class LockCtrl {
     this.isPendingReset = setTimeout(this.reset.bind(this), 1000)
 
     // for (let i = this.patternEl.childNodes.length - 1; i >= 0; i--)
-    this.patternEl.setAttribute('stroke', itsAmatch ? '#1af' : '#f00')
+    this.patternEl.setAttribute('stroke', itsAmatch ? config.COLORS.SUCCESS : config.COLORS.ERROR)
 
     return itsAmatch
   }

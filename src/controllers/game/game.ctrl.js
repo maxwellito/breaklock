@@ -171,7 +171,11 @@ class GameCtrl {
     // Generate a SVG from the pattern provided
     let attemptSVG = new PatternSVG()
     attemptSVG.addDots(1)
-    attemptSVG.addPattern(pattern, 14, color.greydient('66',  'FF', pattern.dotLength - 3))
+    attemptSVG.addPattern(pattern, 14, color.greydient(
+      config.PATTERN.HEX_COLOR_START,
+      config.PATTERN.HEX_COLOR_END,
+      pattern.dotLength - 3
+    ))
 
     return attemptSVG
   }
