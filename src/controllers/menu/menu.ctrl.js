@@ -3,6 +3,7 @@ import OptionCtrl from '../option/option.ctrl'
 import SelectorCtrl from '../selector/selector.ctrl'
 import config from '../../config'
 import dom from '../../utils/dom'
+import airportText from '../../utils/airportText'
 
 require('./menu.scss');
 
@@ -31,6 +32,8 @@ class MenuCtrl {
         intro = dom.create('p',  'menu-intro', 'A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.')
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
     this.btnStarlEl = dom.create('button', 'action-btn', 'START_')
+
+    airportText(title, 'BreakLock')
 
     let instructions = new ExtenderCtrl('INSTRUCTIONS', document.getElementById('instructions-template'))
     instructions.init()

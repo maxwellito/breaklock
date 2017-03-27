@@ -2,6 +2,7 @@ import config from '../../config'
 import Pattern from '../../models/pattern'
 import PatternSVG from '../../utils/patternSVG'
 import dom from '../../utils/dom'
+import airportText from '../../utils/airportText'
 
 require('./summary.scss');
 
@@ -97,9 +98,10 @@ class SummaryCtrl {
     this.titleEl.classList.remove('fail')
     this.titleEl.classList.remove('success')
     this.titleEl.classList.add(isSuccess ? 'success' : 'fail')
-    this.titleEl.textContent = isSuccess ? 'Success!' : 'Fail!'
     this.detailsEl.textContent = msg
     this.revealEl.classList[isSuccess ? 'add' : 'remove']('hide')
+
+    airportText(this.titleEl, isSuccess ? 'Success!' : 'Fail!')
 
     this.updateSocialLinks()
     this.toggle(true)
