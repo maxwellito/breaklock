@@ -142,6 +142,16 @@ class PatternSVG {
       line.setAttribute('stroke', color[Math.min(color.length, i) - 1])
       lineGroup.appendChild(line)
     }
+
+    // Add the dot reprenting the final dot
+    let lastDotIndex = pattern.suite[pattern.suite.length - 1]
+    let lastDot = document.createElementNS(this.SVG_NAMESPACE, 'circle')
+    lastDot.setAttribute('cx', (x * 3 * this.GRID_GUTTER) + (lastDotIndex % 3) * this.GRID_GUTTER)
+    lastDot.setAttribute('cy', (y * 3 * this.GRID_GUTTER) + Math.floor(lastDotIndex / 3) * this.GRID_GUTTER)
+    lastDot.setAttribute('fill', color[0])
+    lastDot.setAttribute('r', size / 4)
+    lineGroup.appendChild(lastDot)
+
     return lineGroup
   }
 
@@ -175,7 +185,7 @@ class PatternSVG {
   addBackground () {
     let rect = document.createElementNS(this.SVG_NAMESPACE, 'rect')
     rect.setAttribute('width', width * 3 * this.GRID_GUTTER)
-    rect.setAttribute('height', width * 3 * this.GRID_GUTTER)
+    rect.setAttribute('height', height * 3 * this.GRID_GUTTER)
     rect.setAttribute('fill', '#14171b')
     this.el.appendChild(rect)
     return rect
