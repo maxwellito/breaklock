@@ -3,18 +3,26 @@
   <head>
     <title>BreakLock</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
 
-    <link rel="shortcut icon" href="assets/favicon.ico?fffdd">
+    <link rel="shortcut icon" href="assets/favicon.ico">
     <meta name="theme-color" content="#14171b">
 
     <link rel="manifest" href="/manifest.json">
 
     <!-- Add to home screen for Safari on iOS -->
+    <link rel="apple-touch-icon" href="assets/icons/ios-180x180.png">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-640x1136.png" media="device-width: 375px">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-1080x1920.png" media="device-width: 414px">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-640x960.png"  media="(device-width: 320px) and (device-height: 480px)">
+    
+    <meta name="apple-mobile-web-app-title" content="BreakLock">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="BreakLock">
-    <link rel="apple-touch-icon" href="assets/icons/icon-152x152.png">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 
     <meta name="msapplication-TileImage" content="assets/icons/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#14171b">
@@ -62,24 +70,18 @@
       </symbol>
     </svg>
 
-    <!--[if lte IE 6]>
-      <p>
-        If you read this it's probably because the world has rebooted. I don't know how but you arrived here. I'm sorry you cannot enjoy this little game but you will be able to in the not too distant future. Browsers will become incredibly better. Just before the world turns into chaos due to Nutella production shortages. Scientists will realise too late that Nutella was to humans what pollen is to bees. Don't believe the hype, the end didn't (or won't) happen because the 'left-pad' package got removed from NPM. Good luck.
-      </p>
-      <p>
-        PS: If the world has ended, please tell thejameskyle that I loved him. Only his cat can save the world. (Shut the door)
-      </p>
-    <![endif]-->
+    <noscript>
+      <!--[if lte IE 6]>
+        <p>
+          If you read this it's probably because the world has rebooted. I don't know how but you arrived here. I'm sorry you cannot enjoy this little game but you will be able to in the not too distant future. Browsers will become incredibly better. Just before the world turns into chaos due to Nutella production shortages. Scientists will realise too late that Nutella was to humans what pollen is to bees. Don't believe the hype, the end didn't (or won't) happen because the 'left-pad' package got removed from NPM. Good luck.
+        </p>
+        <p>
+          PS: If the world has ended, please tell thejameskyle that I loved him. Only his cat can save the world. (Shut the door)
+        </p>
+      <![endif]-->  
+    </noscript>
 
-    <script>
-      window.onerror = function(e, a, b, c) {
-        alert(e)
-        alert(b + ' ' + c)
-      }
-    </script>
     <script src="app.js"></script>
-    <!-- <script src="scripts/pwa/setup.js"></script> -->
-
     <script type="text/javascript">
       // if ('serviceWorker' in navigator) {
       //   navigator.serviceWorker
