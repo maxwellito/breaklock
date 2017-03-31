@@ -49,7 +49,6 @@ function popAnim (element) {
  */
 function setNextFrame (anim) {
 	anim.nextFrame = requestFakeNextFrame(function () {
-		console.count('Frame')
 		updateDisplay(anim)
 	})
 }
