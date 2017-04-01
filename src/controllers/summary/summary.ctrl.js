@@ -1,3 +1,4 @@
+import summaryFeedback from './summaryFeedback'
 import config from '../../config'
 import Pattern from '../../models/pattern'
 import PatternSVG from '../../utils/patternSVG'
@@ -92,16 +93,16 @@ class SummaryCtrl {
    * This is independent from the constructor,
    * because an instance must be reused.
    * @param {Boolean}       isSuccess      Was the game a success?
-   * @param {String}        msg            Message to display
+   * @param {Number}        attemptsCount  Message to display
    */
-  setContent (isSuccess, msg) {
+  setContent (isSuccess, attemptsCount) {
     this.titleEl.classList.remove('fail')
     this.titleEl.classList.remove('success')
     this.titleEl.classList.add(isSuccess ? 'success' : 'fail')
-    this.detailsEl.textContent = msg
-    this.revealEl.classList[isSuccess ? 'add' : 'remove']('hide')
-
     airportText(this.titleEl, isSuccess ? 'Success!' : 'Fail!')
+
+    this.detailsEl.textContent = summaryFeedback(isSuccess, attemptsCount)
+    this.revealEl.classList[isSuccess ? 'add' : 'remove']('hide')
 
     this.updateSocialLinks()
     this.toggle(true)

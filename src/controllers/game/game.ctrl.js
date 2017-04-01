@@ -112,7 +112,7 @@ class GameCtrl {
         this.statusBar.stopCountdown()
 
       this.isEnded = svgPattern
-      this.summary.setContent(true, 'Lock found in ' + this.count + ' attemps. Well done.')
+      this.summary.setContent(true, this.count)
     }
     else {
       // Fail case
@@ -123,7 +123,7 @@ class GameCtrl {
         case config.GAME.TYPE.CHALLENGE:
           if (this.statusBar.decrementCounter() === 0) {
             this.isEnded = true
-            this.summary.setContent(false, 'Sorry, you didn\'t make it this time.')
+            this.summary.setContent(false, this.count)
           }
           break
       }
@@ -141,7 +141,7 @@ class GameCtrl {
       // Exit from countdown
       this.isEnded = true
       this.statusBar.stopCountdown()
-      this.summary.setContent(false, 'Sorry, you didn\'t make it this time.')
+      this.summary.setContent(false, this.count)
     }
     else {
       // Abort from the user
