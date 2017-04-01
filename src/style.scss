@@ -77,11 +77,11 @@ h1, h2, h3, h4, h5, h6 {
 .action-btn {
   display: block;
   text-align: center;
-  margin: auto;
+  margin: 0 auto .25rem;
   font-size: 1.25rem;
   border: 1px solid $theme_bright;
   padding: .25rem 1rem;
-  box-shadow: 0.25rem 0.25rem 0 0 $theme_bright;
+  box-shadow: .25rem .25rem 0 0 $theme_bright;
   border-radius: .4rem;
 }
 
@@ -125,6 +125,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   .view-bloc {
     flex-basis: 50%;
+    max-height: 100%;
+    overflow-y: scroll;
     & + & {
       margin-left: $gutter/2;
     }

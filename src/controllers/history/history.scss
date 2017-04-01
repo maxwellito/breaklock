@@ -86,20 +86,13 @@ $patternRatio:  100/120;
   }
 
   .history-container {
-    //display: block;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
+    display: block;
   }
 
   .history svg {
-    // float: right;
-    // margin: $patternMargin/2;
+    float: left;
+    margin-right: $patternMargin;
 
-    flex-basis: 100px;
-    margin: 0 $patternMargin 0 0;
-    height: auto;
-    // flex-grow: 1;
     & + svg {
       margin-left: 0;
     }
