@@ -3,7 +3,7 @@ import MenuCtrl from './controllers/menu/menu.ctrl'
 
 require('./style.scss');
 
-var container = document.getElementById('container')
+var container = document.body
 
 var myGame = new GameCtrl(() => {
   myMenu.el.style.display = ''
