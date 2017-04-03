@@ -1,69 +1,80 @@
-var cacheName = 'masterlock-dev-010';
+var CACHE_NAME = 'breaklock_001';
 var filesToCache = [
-  '/',
-  '/style.css',
-  '/scripts/config.js',
-  '/scripts/utils/patternSVG.js',
-  '/scripts/models/pattern.js',
-  '/scripts/controllers/game.ctrl.js',
-  '/scripts/controllers/menu.ctrl.js',
-  '/scripts/controllers/option.ctrl.js',
-  '/scripts/controllers/selector.ctrl.js',
-  '/scripts/controllers/lock.ctrl.js',
-  '/scripts/controllers/history.ctrl.js',
-  '/scripts/controllers/statusBar.ctrl.js',
-  '/scripts/controllers/countdown.ctrl.js',
-  '/scripts/app.js'
+  './',
+  './app.css',
+  './app.js',
+  './assets/intro.svg',
+  './assets/fonts/robotomono-light-webfont.woff2',
+  './assets/fonts/robotomono-light-webfont.woff',
+  './assets/fonts/robotomono-light-webfont.ttf'
 ];
 
-self.addEventListener('install', function(e) {
-  console.log('[ServiceWorker] Install');
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache);
-    }).then(function() {
-        // `skipWaiting()` forces the waiting ServiceWorker to become the
-        // active ServiceWorker, triggering the `onactivate` event.
-        // Together with `Clients.claim()` this allows a worker to take effect
-        // immediately in the client(s).
-        return self.skipWaiting();
+// Service worker from Google Documentation
+
+self.addEventListener('install', function(event) {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(filesToCache);
       })
   );
 });
 
-self.addEventListener('activate', function(e) {
-  console.log('[ServiceWorker] Activate');
-  e.waitUntil(
-    caches.keys().then(function(keyList) {
-      return Promise.all(keyList.map(function(key) {
-        if (key !== cacheName) {
-          console.log('[ServiceWorker] Removing old cache', key);
-          return caches.delete(key);
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        
+        // IMPORTANT: Clone the request. A request is a stream and
+        // can only be consumed once. Since we are consuming this
+        // once by cache and once by the browser for fetch, we need
+        // to clone the response.
+        var fetchRequest = event.request.clone();
+
+        var fetcher = fetch(fetchRequest).then(
+          function(response) {
+            // Check if we received a valid response
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            // IMPORTANT: Clone the response. A response is a stream
+            // and because we want the browser to consume the response
+            // as well as the cache consuming the response, we need
+            // to clone it so we have two streams.
+            var responseToCache = response.clone();
+
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              });
+
+            return response;
+          }
+        );
+
+        // Cache hit - return response
+        if (response) {
+          return response;
         }
-      }));
-    })
-  );
-  return self.clients.claim();
+        else {
+          return fetcher;
+        }
+      })
+    );
 });
 
-
-self.addEventListener('fetch', function(e) {
-  console.log('[ServiceWorker] Fetch', e.request.url);
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
-      // Go to the network to ask for that resource
-      return fetch(e.request).then(function(networkResponse) {
-        // Add a copy of the response to the cache (updating the old version)
-        cache.put(e.request, networkResponse.clone());
-        // Respond with it
-        return networkResponse;
-      }).catch(function() {
-        // If there is no internet connection, try to match the request
-        // to some of our cached resources
-        return cache.match(e.request);
-      })
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (CACHE_NAME !== cacheName) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
     })
   );
 });
