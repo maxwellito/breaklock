@@ -14,3 +14,13 @@ If you like this game, you must convince 3 people to like it, who will have to c
 ## Contribute
 
 Contributions are welcome, especially pull-requests. There are a lot of ideas to implement, but less people when it come to code. This is why **issues are for bugs only**.
+
+## Build
+
+```bash
+# Install packages
+npm install
+
+# Build it
+npm run build
+```
