@@ -29,11 +29,11 @@ module.exports = {
         test: /\.scss$/,
         loader: extractSass.extract({
           loader: [{
-            loader: "css-loader"
+            loader: "css-loader",
+            options: { url: false }
           }, {
             loader: "sass-loader"
           }],
-          // use style-loader in development
           fallbackLoader: "style-loader"
         })
       }

@@ -11,22 +11,20 @@
     "url": "https://github.com/maxwellito/breaklock.git"
   },
   "author": "maxwellito",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/maxwellito/breaklock/issues"
   },
   "homepage": "https://github.com/maxwellito/breaklock",
   "devDependencies": {
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.22.0",
-    "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "node-sass": "^4.5.0",
-    "null-loader": "^0.1.1",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.2",
     "raw-loader": "^0.5.1",
-    "sass-loader": "^5.0.1",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.2.1"
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3"
   }
 }
