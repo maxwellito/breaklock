@@ -7,11 +7,10 @@ BreakLock is a hybrid of Mastermind and the Android pattern lock. A game you gon
 
 Hopefully this game (codebase included) will drive you mad.
 
-The goal of this project was the discover progressive Web apps with service workers, and play with Webpack. Also because the tube is quite boring, especially the Central line on peak time.
+The goal of this project was the discover progressive Web apps with service workers, and play with Webpack. Also to entertain because the tube is quite boring, especially the Central line on peak time.
 
-If you like this game, you must convince 3 people to like to, who will have to convince 3 other people...  and this project will turn into the first OSS sect. Also, if you hate it, you must convince 3 people to hate too, who will have to convince 3 other people...
+If you like this game, you must convince 3 people to like it, who will have to convince 3 other people...  and this project will turn into the first OSS sect. Also, if you hate it, you must convince 3 people to hate it, who will have to convince 3 other people...
 
 ## Contribute
 
 Contributions are welcome, especially pull-requests. There are a lot of ideas to implement, but less people when it come to code. This is why **issues are for bugs only**.
-
