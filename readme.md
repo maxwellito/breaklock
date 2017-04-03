@@ -1,38 +1,17 @@
-# Masterlock
+![BreakLock](assets/banner.png)
 
-Silly HTML5 game, clone of mastermind with the classic Android lock screen.
+Bring me to the [game](https://maxwellito.githun.io/breaklock)!
 
-## Focus points
+Silly HTML5 game, mobile first.
+BreakLock is a hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.
 
-[ ] Use vibrator
-[ ] Work smoothly on iOS Safari and Android Chrome
-[ ] Optimise layers with 'will[ ]change' or 'transformZ'
-[ ] Service workers to make it offline
+Hopefully this game (codebase included) will drive you mad.
 
-## TO_DO list
+The goal of this project was the discover progressive Web apps with service workers, and play with Webpack. Also because the tube is quite boring, especially the Central line on peak time.
 
-[ ] Fix finger drop
-[X] Uniform comments
-[X] Icons: try again, home, continue, fb, twitter
-[ ] Uniform 'init' call
-[ ] Setup airport text
-[X] Start to listen to mouse events
-[ ] Work on smoothness
-[ ] Make the offline stuff
-[ ] Think about iconography and shite
-[ ] SMMOOOOOTHNESS EVERYWHEEEEEERE!!
-[ ] Webpack uglify
-[X] Make it responsive
-[ ] Build end of game screen
-[ ] Lock optimisation with next request frame?
-[ ] Make everything unselectable
+If you like this game, you must convince 3 people to like to, who will have to convince 3 other people...  and this project will turn into the first OSS sect. Also, if you hate it, you must convince 3 people to hate too, who will have to convince 3 other people...
 
-## Fun stuff
+## Contribute
 
-[ ] Add triangle building while making a pattern (with filters and colors)
+Contributions are welcome, especially pull-requests. There are a lot of ideas to implement, but less people when it come to code. This is why **issues are for bugs only**.
 
-
-## Com shite
-
-[ ] Build a 15s teaser
-[ ] Good favicon and stuff
