@@ -13,7 +13,8 @@
 
 .alert {
   color: red;
-  animation: countdown-alert 1s infinite;
+  animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
 }
 
 .countdown-content {
@@ -22,11 +23,4 @@
   width: 0;
   color: inherit;
   background-color: currentColor;
-}
-
-@keyframes countdown-alert {
-    0%     {visibility: visible;}
-    50%    {visibility: visible;}
-    50.01% {visibility: hidden;}
-    100%   {visibility: hidden;}
 }

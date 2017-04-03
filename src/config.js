@@ -1,9 +1,9 @@
 const config = {
   GAME: {
     DIFFICULTY: {
-      EASY: 3,
-      MEDIUM: 4,
-      HARD: 5
+      EASY: 4,
+      MEDIUM: 5,
+      HARD: 6
     },
     TYPE: {
       PRACTICE: 1,

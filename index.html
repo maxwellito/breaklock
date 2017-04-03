@@ -26,6 +26,8 @@
 
     <meta name="msapplication-TileImage" content="assets/icons/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#14171b">
+
+    <link rel="stylesheet" type="text/css" href="app.css">
   </head>
 
   <body>
@@ -36,11 +38,19 @@
       <div id="instructions-template">
         <object class="introduction-demo" data="assets/intro.svg" type="image/svg+xml"></object>
         <p>Link the dots to find the lock pattern. After every attempt the game will tell you how many dots you got right.<p>
-        <p>&#9679; : a dot occurs in the pattern and is in the correct order</p>
-        <p>&#9675; : a dot occurs in the pattern but in the wrong order</p>
+        <table>
+          <tr>
+            <td style="width:1.5em;">&#9679;</td>
+            <td>a dot occurs in the pattern and is in the correct order</td>
+          </tr>
+          <tr>
+            <td>&#9675;</td>
+            <td>a dot occurs in the pattern but in the wrong order</td>
+          </tr>
+        </table>
         <p>The difficulty setting changes the amount of dots to connect. Easy is 4 dots, medium is 5 dots and hard is 6 dots.</p>
         <p>Good luck!_</p>
-        <p class="small">by <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / on <a href="https://github.com/maxwellito/breaklock"><a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a></p>
+        <p class="small">by <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / on <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a></p>
       </div>
     </div>
 

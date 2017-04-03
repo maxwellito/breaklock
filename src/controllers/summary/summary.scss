@@ -14,11 +14,13 @@ $summary_transition_delay:    .5s;
   background: $theme_dark;
   visibility: hidden;
   transition: visibility 0s linear $summary_transition_duration, height $summary_transition_duration ease;
+  -webkit-transition: visibility 0s linear $summary_transition_duration, height $summary_transition_duration ease;
 
   &.active {
     visibility: visible;
     height: 100%;
     transition: visibility 0s, height $summary_transition_duration ease $summary_transition_delay;
+    -webkit-transition: visibility 0s, height $summary_transition_duration ease $summary_transition_delay;
   }
 
   // Hacks :-/

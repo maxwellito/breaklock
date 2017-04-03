@@ -31,14 +31,13 @@ class GameCtrl {
     // just init the shite to help V8
     this.statusBar = new StatusBarCtrl(this.abort.bind(this))
     this.history   = new HistoryCtrl()
-    this.lock      = new LockCtrl(this.newAttempt.bind(this)); //# TO_DO move the dot length to dynamic
+    this.lock      = new LockCtrl(this.newAttempt.bind(this))
     this.summary   = new SummaryCtrl(this.action.bind(this))
     this.pattern   = null
     this.type      = null
     this.isEnded   = false
     this.onEnd     = onEnd
 
-    //# QUESTION: Does it really make sense?
     this.statusBar.init()
     this.lock.init()
 
@@ -51,7 +50,7 @@ class GameCtrl {
    */
   setupTemplate () {
     this.el = dom.create('div', 'game-layout view', [
-      dom.create('div', 'view-bloc game-layout-dashboard', [ //# CLEAN thats dirty
+      dom.create('div', 'view-bloc game-layout-dashboard', [
         this.statusBar.el,
         dom.create('div', 'history-wrap', [this.history.el])
       ]),

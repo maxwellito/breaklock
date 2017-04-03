@@ -39,24 +39,23 @@ class MenuCtrl {
     instructions.init()
 
     // Options
-    //# TO_DO: Move the option to config
     this.difficultyOption = new OptionCtrl([
-      { value: 4, label: 'Easy'},
-      { value: 5, label: 'Medium', default: true},
-      { value: 6, label: 'Hard'}
+      { value: config.GAME.DIFFICULTY.EASY,   label: 'Easy', default: true},
+      { value: config.GAME.DIFFICULTY.MEDIUM, label: 'Medium'},
+      { value: config.GAME.DIFFICULTY.HARD,   label: 'Hard'}
     ])
 
     this.typeSelector = new SelectorCtrl([
       {
         value: config.GAME.TYPE.PRACTICE,
         label: 'Practice',
-        description: 'No pressure, just discover and practice your game'
+        description: 'No pressure, just discover and practice your game',
+        default: true
       },
       {
         value: config.GAME.TYPE.CHALLENGE,
         label: 'Challenge',
-        description: 'Challenge mode give you 10 attempts only to win',
-        default: true
+        description: 'Challenge mode give you 10 attempts only to win'
       },
       {
         value: config.GAME.TYPE.COUNTDOWN,

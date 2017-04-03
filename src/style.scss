@@ -47,6 +47,20 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $font_weight;
 }
 
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: middle;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 .icon {
   width: 1em;
   height: 1em;
@@ -93,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   &:after {
     content:'_';
     animation: blink 1.2s infinite;
+    -webkit-animation: blink 1.2s infinite;
   }
 }
 
@@ -148,6 +163,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 @keyframes blink {
+  0%     {opacity: 1;}
+  50%    {opacity: 1;}
+  50.01% {opacity: 0;}
+  100%   {opacity: 0;}
+}
+
+@-webkit-keyframes blink {
   0%     {opacity: 1;}
   50%    {opacity: 1;}
   50.01% {opacity: 0;}

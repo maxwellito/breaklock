@@ -130,7 +130,6 @@ class SummaryCtrl {
    * Update social links from the current content set
    */
   updateSocialLinks () {
-    //# provide a custom message
     this.socialButtons.forEach(item => {
       let socialId = item.getAttribute('platform'),
           socialObj = config.SOCIAL.PLATFORMS[socialId]
