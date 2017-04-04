@@ -38,7 +38,7 @@ const config = {
     MESSAGE: 'I wasted my time on BreakLock, it\'s pointless, don\'t try it.',
     TAGS: ['breaklock']
   },
-  URL: 'https://maxwellito.github.io/breaklock',
+  URL: 'https://maxwellito.github.io/breaklock/',
   COLORS: {
     BRIGHT:  '#ffffff',
     DARK:    '#14171b',

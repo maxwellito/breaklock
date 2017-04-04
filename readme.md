@@ -1,6 +1,6 @@
 ![BreakLock](assets/banner.png)
 
-Bring me to the [game](https://maxwellito.githun.io/breaklock)!
+Bring me to the [game](https://maxwellito.githun.io/breaklock/)!
 
 Silly HTML5 game, mobile first.
 BreakLock is a hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.
