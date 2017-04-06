@@ -99,8 +99,9 @@ class LockCtrl {
     t.stopPropagation()
 
     let e = t.currentTarget.getBoundingClientRect(),
-        x = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(t.offsetX * PatternSVG.prototype.SVG_WIDTH / e.width ))),
-        y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(t.offsetY * PatternSVG.prototype.SVG_WIDTH / e.height)))
+        x = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.width  * (t.pageX - e.left)))),
+        y = Math.max(0, Math.min(PatternSVG.prototype.SVG_WIDTH, Math.round(PatternSVG.prototype.SVG_WIDTH / e.height * (t.pageY - e.top ))))
+    
     this.updatePoint(x, y)
   }
 

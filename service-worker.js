@@ -1,4 +1,4 @@
-var CACHE_NAME = 'breaklock_002';
+var CACHE_NAME = 'breaklock_003';
 var filesToCache = [
   './',
   './app.css',
