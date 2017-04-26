@@ -40,7 +40,7 @@ const FAIL_QUOTES_LIST = [
 function getQuote (wasSuccess, attemptsCount) {
 	let feedback, matches
 	if (wasSuccess) {
-		feedback = `Lock found in ${attemptsCount} attemps. `
+		feedback = `Lock found in ${attemptsCount} attempts. `
 		matches = SUCCESS_QUOTES_LIST
 	              .filter(quote => (quote.min <= attemptsCount && quote.max >= attemptsCount))
 	              .map(quote => quote.text)
