@@ -13,6 +13,8 @@ If you like this game, you must convince 3 people to like it, who will have to c
 
 As long as GitHub provide these sweet gh-pages, this project will be under MIT, without ads, free. 
 
+If you're curious about pattern combinations, run `./lab/bruteCalc.js`.
+
 ## Contribute
 
 Contributions are welcome, especially pull-requests. There are a lot of ideas to implement, but less people when it come to code. This is why **issues are for bugs only**.
