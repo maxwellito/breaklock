@@ -22,7 +22,7 @@
       "sizes": "256x256",
       "type": "image/png"
     }],
-  "start_url": "./?utm_source=homescreen",
+  "start_url": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#14171b",

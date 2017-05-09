@@ -1,6 +1,7 @@
 var CACHE_NAME = 'breaklock_005';
 var filesToCache = [
   './',
+  './?utm_source=homescreen',
   './app.css',
   './app.js',
   './assets/intro.svg',
