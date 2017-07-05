@@ -13,6 +13,11 @@
   &-cancel {
     height: 100%;
     font-size: 1rem;
+
+    &:before {
+      content: '«';
+      margin-right: .25em;
+    }
   }
 
   &-info {

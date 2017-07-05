@@ -3,6 +3,11 @@ import MenuCtrl from './controllers/menu/menu.ctrl'
 
 require('./style.scss');
 
+var introDom = document.getElementById('app-intro')
+if (introDom) {
+	introDom.remove()
+}
+
 var container = document.body
 
 var myGame = new GameCtrl(() => {
