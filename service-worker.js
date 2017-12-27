@@ -1,4 +1,4 @@
-var CACHE_NAME = 'breaklock_006';
+var CACHE_NAME = 'breaklock_007';
 var filesToCache = [
   './',
   './?utm_source=homescreen',
