@@ -107,6 +107,13 @@
         navigator.serviceWorker
           .register('service-worker.js', {scope: '.'});
       }
+
+      // Easter Egg to get it full black
+      // Awesome for OLED screens
+      if (location.hash === '#deepblack' || localStorage.getItem('isDeepBlack')) {
+        localStorage.setItem('isDeepBlack', 1)
+        document.body.classList.add('deepblack')
+      }
     </script>
   </body>
 </html>
