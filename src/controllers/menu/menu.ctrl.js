@@ -28,7 +28,7 @@ class MenuCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    let title = dom.create('h1', 'menu-title highlight', 'BreakLock'),
+    let title = dom.create('h1', 'menu-title highlight unselectable', 'BreakLock'),
         intro = dom.create('p',  'menu-intro', 'A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.')
     this.title = title;
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
@@ -88,7 +88,7 @@ class MenuCtrl {
     this.typeSelector.init()
     this.typeSelector.onSelect(this.typeChange.bind(this))
     this.btnStarlEl.addEventListener('click', this.start.bind(this))
-    this.title.addEventListener('click', this.triggerEasterEgg.bind(this))
+    this.title.addEventListener('dblclick', this.triggerEasterEgg.bind(this))
   }
 
   /**
@@ -113,11 +113,11 @@ class MenuCtrl {
    */
   triggerEasterEgg () {
     if (localStorage.getItem('isDeepBlack')) {
-      localStorage.setItem('isDeepBlack', 0)
+      localStorage.setItem('isDeepBlack', '')
       document.body.classList.remove('deepblack')
     }
     else {
-      localStorage.setItem('isDeepBlack', 1)
+      localStorage.setItem('isDeepBlack', 'on')
       document.body.classList.add('deepblack')
     }
   }
