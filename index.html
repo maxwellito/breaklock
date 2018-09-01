@@ -110,8 +110,7 @@
 
       // Easter Egg to get it full black
       // Awesome for OLED screens
-      if (location.hash === '#deepblack' || localStorage.getItem('isDeepBlack')) {
-        localStorage.setItem('isDeepBlack', 1)
+      if (localStorage.getItem('isDeepBlack')) {
         document.body.classList.add('deepblack')
       }
     </script>

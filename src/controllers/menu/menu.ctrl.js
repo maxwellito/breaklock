@@ -30,6 +30,7 @@ class MenuCtrl {
   setupTemplate () {
     let title = dom.create('h1', 'menu-title highlight', 'BreakLock'),
         intro = dom.create('p',  'menu-intro', 'A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.')
+    this.title = title;
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge')
     this.btnStarlEl = dom.create('button', 'action-btn', 'START_')
 
@@ -87,6 +88,7 @@ class MenuCtrl {
     this.typeSelector.init()
     this.typeSelector.onSelect(this.typeChange.bind(this))
     this.btnStarlEl.addEventListener('click', this.start.bind(this))
+    this.title.addEventListener('dblclick', this.triggerEasterEgg.bind(this))
   }
 
   /**
@@ -103,6 +105,21 @@ class MenuCtrl {
    */
   typeChange (type) {
     this.typeHelpEl.textContent = type.description
+  }
+
+  /**
+   * Double click listener to trigger the OLED
+   * screen mode for a deep black design.
+   */
+  triggerEasterEgg () {
+    if (localStorage.getItem('isDeepBlack')) {
+      localStorage.setItem('isDeepBlack', 0)
+      document.body.classList.remove('deepblack')
+    }
+    else {
+      localStorage.setItem('isDeepBlack', 1)
+      document.body.classList.add('deepblack')
+    }
   }
 }
 
