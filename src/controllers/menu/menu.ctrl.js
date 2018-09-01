@@ -88,7 +88,7 @@ class MenuCtrl {
     this.typeSelector.init()
     this.typeSelector.onSelect(this.typeChange.bind(this))
     this.btnStarlEl.addEventListener('click', this.start.bind(this))
-    this.title.addEventListener('dblclick', this.triggerEasterEgg.bind(this))
+    this.title.addEventListener('click', this.triggerEasterEgg.bind(this))
   }
 
   /**

@@ -1,5 +1,5 @@
 var APP_NAME = 'breaklock',
-    APP_VERSION = 10,
+    APP_VERSION = 11,
     CACHE_NAME = APP_NAME + '_' + APP_VERSION;
 var filesToCache = [
   './',
