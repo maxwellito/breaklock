@@ -1,11 +1,11 @@
-@import "./_variables.scss";
+@import './_variables.scss';
 
 @font-face {
-  font-family: "Roboto Mono";
+  font-family: 'Roboto Mono';
   font-weight: $font_weight;
   src: url('assets/fonts/robotomono-light-webfont.woff2') format('woff2'),
-       url('assets/fonts/robotomono-light-webfont.woff') format('woff'),
-       url('assets/fonts/robotomono-light-webfont.ttf') format('truetype');
+    url('assets/fonts/robotomono-light-webfont.woff') format('woff'),
+    url('assets/fonts/robotomono-light-webfont.ttf') format('truetype');
 }
 
 * {
@@ -15,7 +15,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 body {
@@ -47,11 +48,23 @@ button {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: $font_weight;
 }
 
-table, caption, tbody, tfoot, thead, tr, th, td {
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
   margin: 0;
   padding: 0;
   border: 0;
@@ -85,27 +98,27 @@ table {
 
 .bloc {
   border-top: 1px dotted currentColor;
-  padding: .75rem 0;
+  padding: 0.75rem 0;
 }
 
 .action-btn {
   display: block;
   text-align: center;
-  margin: 0 auto .25rem;
+  margin: 0 auto 0.25rem;
   font-size: 1.25rem;
   border: 1px solid $theme_bright;
-  padding: .25rem 1rem;
-  box-shadow: .25rem .25rem 0 0 $theme_bright;
-  border-radius: .4rem;
+  padding: 0.25rem 1rem;
+  box-shadow: 0.25rem 0.25rem 0 0 $theme_bright;
+  border-radius: 0.4rem;
 }
 
 .highlight {
   display: inline-block;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   color: $theme_dark;
   background-color: $theme_bright;
   &:after {
-    content:'_';
+    content: '_';
     animation: blink 1.2s infinite;
     -webkit-animation: blink 1.2s infinite;
   }
@@ -125,7 +138,7 @@ table {
 }
 
 /* Layout *********/
-.view  {
+.view {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -142,6 +155,15 @@ table {
   flex-grow: 1;
 }
 
+.view,
+.view-bloc,
+.scrollbarlesque {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
   .view {
@@ -163,24 +185,38 @@ table {
   }
 }
 
-
 @media (min-width: $mq-xlarge-min) {
   html {
     font-size: 20px;
   }
 }
 
-
 @keyframes blink {
-  0%     {opacity: 1;}
-  50%    {opacity: 1;}
-  50.01% {opacity: 0;}
-  100%   {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  50.01% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-webkit-keyframes blink {
-  0%     {opacity: 1;}
-  50%    {opacity: 1;}
-  50.01% {opacity: 0;}
-  100%   {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  50.01% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
