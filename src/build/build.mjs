@@ -24,7 +24,6 @@ const build = async () => {
   });
   await Promise.all([
     cp(join(rootFolder, 'index.html'), join(buildFolder, 'index.html')),
-    cp(join(rootFolder, 'app.js'), join(buildFolder, 'app.js')),
   ]);
   const l10n = await getL10nData();
   const baseDict = l10n.find((x)=>x.code==='en').data;
