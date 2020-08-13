@@ -20,7 +20,7 @@ export const getL10nData = async () => {
 
 export const applyI18n = async (from, to, dict) => {
   const input = (await readFile(from)).toString();
-  const output = input.replace(/#@[a-z_]+/g, (t) => {
+  const output = input.replace(/#@[a-z_0-9]+/g, (t) => {
     return dict[t.slice(2)];
   });
   await writeFile(to, output);
