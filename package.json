@@ -30,6 +30,7 @@
     "webpack": "^4.44.1"
   },
   "dependencies": {
+    "fs-extra": "^9.0.1",
     "yaml": "^1.10.0"
   }
 }
