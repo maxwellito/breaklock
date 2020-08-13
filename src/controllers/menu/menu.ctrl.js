@@ -30,48 +30,48 @@ class MenuCtrl {
     let title = dom.create(
         'h1',
         'menu-title highlight unselectable',
-        'BreakLock'
+        '#@name_app'
       ),
       intro = dom.create(
         'p',
         'menu-intro',
-        'A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.'
+        '#@description'
       );
     this.title = title;
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge');
-    this.btnStarlEl = dom.create('button', 'action-btn', 'START_');
+    this.btnStarlEl = dom.create('button', 'action-btn', '#@button_start');
 
-    airportText(title, 'BreakLock');
+    airportText(title, '#@name_app');
 
     let instructions = new ExtenderCtrl(
-      'INSTRUCTIONS',
+      '#@button_instructions',
       document.getElementById('instructions-template')
     );
     instructions.init();
 
     // Options
     this.difficultyOption = new OptionCtrl([
-      { value: config.GAME.DIFFICULTY.EASY, label: 'Easy', default: true },
-      { value: config.GAME.DIFFICULTY.MEDIUM, label: 'Medium' },
-      { value: config.GAME.DIFFICULTY.HARD, label: 'Hard' }
+      { value: config.GAME.DIFFICULTY.EASY, label: '#@button_easy', default: true },
+      { value: config.GAME.DIFFICULTY.MEDIUM, label: '#@button_medium' },
+      { value: config.GAME.DIFFICULTY.HARD, label: '#@button_hard' }
     ]);
 
     this.typeSelector = new SelectorCtrl([
       {
         value: config.GAME.TYPE.PRACTICE,
-        label: 'Practice',
-        description: 'No pressure, just discover and practice your game',
+        label: '#@mode_practice',
+        description: '#@mode_practice_description',
         default: true
       },
       {
         value: config.GAME.TYPE.CHALLENGE,
-        label: 'Challenge',
-        description: 'Challenge mode give you 10 attempts only to win'
+        label: '#@mode_challenge',
+        description: '#@mode_challenge_description'
       },
       {
         value: config.GAME.TYPE.COUNTDOWN,
-        label: 'Countdown',
-        description: 'Solve the game in one minute, without limit of attempts'
+        label: '#@mode_countdown',
+        description: '#@mode_countdown_description'
       }
     ]);
 

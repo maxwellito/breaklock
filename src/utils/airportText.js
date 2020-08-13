@@ -87,7 +87,7 @@ function updateDisplay (anim) {
  */
 function getRandomWord (pLength) {
 	var toReturn = '';
-	var charList = 'abcdefghijklmnopqrstuvwxyz0123456789 _*%!?/\\|#@';
+	var charList = '#@airport_charlist';
 
 	// Param tests
 	if (pLength <= 0) {
