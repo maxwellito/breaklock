@@ -17,7 +17,10 @@ const handleRelativeCopy = async (from, to) => {
   const text = (await readFile(from)).toString();
   await writeFile(
     to,
-    text.replace(/\.\.\/assets/g, './assets').replace(/\.\.\/service/g, './service'),
+    text.replace(/\.\.\/assets/g, './assets')
+      .replace(/\.\.\/service/g, './service')
+      .replace(/\.\.\/fa/g, './fa')
+      .replace(/\.\.\/en/g, './en'),
   );
 };
 

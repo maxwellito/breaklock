@@ -74,10 +74,24 @@ class MenuCtrl {
         description: '#@mode_countdown_description'
       }
     ]);
-
+    const lang = (()=>{
+      const x = window.location.pathname.split('/');
+      while (true) {
+        const y = x.pop();
+        if (y === undefined) return 'EN';
+        if (y.length === 2) return y.toUpperCase();
+      }
+    })();
+    const langButton = dom.create('button', 'lang-button', lang);
+    langButton.onclick = () => {
+      document.getElementById('lang-selector').classList.toggle('disabled');
+    };
     this.el = dom.create('div', 'menu-layout view', [
       dom.create('div', 'view-bloc menu-layout-instructions', [
-        title,
+        dom.create('div', '', [
+          title,
+          langButton,
+        ]),
         intro,
         instructions.el
       ]),

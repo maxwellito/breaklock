@@ -19,6 +19,17 @@
 	margin: 1rem auto;
 }
 
+.lang-button {
+  float: inline-end;
+  display:block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: white;
+  color: black;
+}
+
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
   .menu-layout {
     align-items: center;

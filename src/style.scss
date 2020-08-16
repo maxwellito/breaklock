@@ -174,7 +174,7 @@ table {
     max-height: 100%;
     overflow-y: scroll;
     & + & {
-      margin-left: $gutter/2;
+      margin-inline-start: $gutter/2;
     }
   }
 }
