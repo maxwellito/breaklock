@@ -19,6 +19,7 @@ feedback_fail: متاسفم. شما شکست خوردید.
 label_success: پیروزی!
 label_fail: شکست!
 label_goodluck: موفق باشید!_
+lang_code: fa
 mode_challenge: چالش
 mode_challenge_description: توی چالش شما ده بار می تونید برای پیدا کردن الگو تلاش کنید
 mode_countdown: شمارش معکوس

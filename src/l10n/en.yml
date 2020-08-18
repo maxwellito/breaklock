@@ -19,6 +19,7 @@ feedback_fail: Sorry, you didn\'t make it this time.
 label_success: Success!
 label_fail: Fail!
 label_goodluck: Good luck!_
+lang_code: en
 mode_challenge: Challenge
 mode_challenge_description: Challenge mode give you 10 attempts only to win
 mode_countdown: Countdown

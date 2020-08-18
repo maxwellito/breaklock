@@ -1,6 +1,7 @@
 {
   "name": "#@name_app",
   "short_name": "#@name_app",
+  "lang": "#@lang_code",
   "icons": [{
       "src": "../assets/icons/icon-128x128.png",
       "sizes": "128x128",
