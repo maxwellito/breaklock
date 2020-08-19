@@ -1,6 +1,7 @@
 import ExtenderCtrl from '../extender/extender.ctrl';
 import OptionCtrl from '../option/option.ctrl';
 import SelectorCtrl from '../selector/selector.ctrl';
+import LangSelectorCtrl from '../langselector/langselector.ctrl';
 import config from '../../config';
 import dom from '../../utils/dom';
 import airportText from '../../utils/airportText';
@@ -83,8 +84,9 @@ class MenuCtrl {
       }
     })();
     const langButton = dom.create('button', 'lang-button', lang);
+    const langSelector = new LangSelectorCtrl();
     langButton.onclick = () => {
-      document.getElementById('lang-selector').classList.toggle('disabled');
+      langSelector.el.classList.toggle('disabled');
     };
     this.el = dom.create('div', 'menu-layout view', [
       dom.create('div', 'view-bloc menu-layout-instructions', [
@@ -93,6 +95,7 @@ class MenuCtrl {
           langButton,
         ]),
         intro,
+        langSelector.el,
         instructions.el
       ]),
       dom.create('div', 'view-bloc menu-layout-form', [
