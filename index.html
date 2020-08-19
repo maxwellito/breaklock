@@ -32,6 +32,26 @@
   </head>
 
   <body>
+    <script type="text/javascript">
+      const isRoot = (()=>{
+        const x = window.location.pathname.split('/');
+        while (true) {
+          const y = x.pop();
+          if (y === undefined) return true;
+          if (y.length === 2) return false;
+        }
+      })();
+
+      if (isRoot) {
+        const supported = { 'fa': true, 'en': true };
+        for (const l of navigator.languages) {
+          if (l === 'en') break;
+          if (supported[l]) {
+            window.location = l;
+          }
+        }
+      }
+    </script>
     <!-- Intro -->
     <p id="app-intro" style="font-family: monospace; color: #fff;">
       $ ./breaklock start<br>
