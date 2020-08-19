@@ -19,6 +19,15 @@ If you're curious about pattern combinations, run `./lab/bruteCalc.js`.
 
 Contributions are welcome, especially pull-requests. There are a lot of ideas to implement, but less people when it come to code. This is why **issues are for bugs only**.
 
+### Translation
+- Copy `src/l10n/en.yml` and paste it as `yl.yml` (yl stand for your locale).
+- Translate content
+- Add your locale in this files:
+  - `index.html`
+  - `src/controller/langselector/langselector.ctrl.js`
+- Open a pull request.
+
+
 ## Build
 
 ```bash
