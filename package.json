@@ -28,9 +28,7 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
-    "webpack": "^4.44.1"
-  },
-  "dependencies": {
+    "webpack": "^4.44.1",
     "fs-extra": "^9.0.1",
     "yaml": "^1.10.0"
   }
