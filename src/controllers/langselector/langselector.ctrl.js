@@ -30,7 +30,7 @@ class LangSelector {
     let div = dom.create('div');
     choiceList.forEach((choice) => {
       let option = dom.create('a', {
-        href: `../${choice.value}`,
+        href: choice.value,
       }, choice.label);
       div.appendChild(option);
       div.appendChild(dom.create('br'));

@@ -2,19 +2,20 @@
 <html lang="#@lang_code">
   <head>
     <title>#@name_app</title>
+    <base href="../">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="shortcut icon" href="../assets/favicon.ico">
+    <link rel="shortcut icon" href="assets/favicon.ico">
     <meta name="theme-color" content="#14171b">
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="#@lang_code/manifest.json">
 
     <!-- Add to home screen for Safari on iOS -->
-    <link rel="apple-touch-icon" href="../assets/icons/ios-180x180.png">
-    <link rel="apple-touch-startup-image" href="../assets/ios-startup/startup-640x1136.png" media="device-width: 375px">
-    <link rel="apple-touch-startup-image" href="../assets/ios-startup/startup-1080x1920.png" media="device-width: 414px">
-    <link rel="apple-touch-startup-image" href="../assets/ios-startup/startup-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
-    <link rel="apple-touch-startup-image" href="../assets/ios-startup/startup-640x960.png"  media="(device-width: 320px) and (device-height: 480px)">
+    <link rel="apple-touch-icon" href="assets/icons/ios-180x180.png">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-640x1136.png" media="device-width: 375px">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-1080x1920.png" media="device-width: 414px">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
+    <link rel="apple-touch-startup-image" href="assets/ios-startup/startup-640x960.png"  media="(device-width: 320px) and (device-height: 480px)">
     
     <meta name="apple-mobile-web-app-title" content="BreakLock">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -24,10 +25,10 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 
-    <meta name="msapplication-TileImage" content="../assets/icons/icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/icons/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#14171b">
 
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="#@lang_code/app.css">
     #@special_css
   </head>
 
@@ -66,7 +67,7 @@
     <!-- Static content -->
     <div style="display: none;">
       <div id="instructions-template">
-        <object class="introduction-demo" data="../assets/intro.svg" type="image/svg+xml"></object>
+        <object class="introduction-demo" data="assets/intro.svg" type="image/svg+xml"></object>
         <p>#@description_game<p>
         <table>
           <tr>
@@ -119,13 +120,13 @@
       <![endif]-->  
     </noscript>
 
-    <script src="app.js"></script>
+    <script src="#@lang_code/app.js"></script>
     <script type="text/javascript">
 
       // Set up service worker
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('../service-worker.js');
+          .register('service-worker.js');
       }
 
       // Easter Egg to get it full black
