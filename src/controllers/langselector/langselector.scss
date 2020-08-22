@@ -1,3 +1,5 @@
+@import '../../_variables.scss';
+
 .lang-selector.disabled {
   visibility: hidden;
   opacity: 0;
@@ -5,10 +7,11 @@
 }
 .lang-selector {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background: black;
+  background: $theme_dark;
   opacity: 0.8;
   transition: opacity 0.5s linear;
   z-index: 1;
@@ -16,6 +19,6 @@
 .lang-selector > div {
   position: relative;
   top: 50%;
-  transform: translate(0,-50%);
+  transform: translate(0, -50%);
   text-align: center;
 }
