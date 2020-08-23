@@ -1,11 +1,11 @@
-@import "../../_variables.scss";
+@import '../../_variables.scss';
 
 .menu-title {
   margin: 0;
 }
 
 .menu-layout-instructions {
-	-webkit-flex:1 0 auto;
+  -webkit-flex: 1 0 auto;
 }
 
 .menu-layout-form {
@@ -13,21 +13,18 @@
 }
 
 .introduction-demo {
-	display: block;
-	width: 100%;
-	max-width: 320px;
-	margin: 1rem auto;
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 1rem auto;
 }
 
 .lang-button {
   float: inline-end;
-  display:block;
-  height: 40px;
+  display: block;
   width: 40px;
-  border-radius: 50%;
-  border: 1px solid white;
-  background: white;
-  color: black;
+  border-radius: 0.4rem;
+  border: 1px solid currentColor;
 }
 
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {
