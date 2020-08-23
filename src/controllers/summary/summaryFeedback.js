@@ -1,33 +1,33 @@
 const SUCCESS_QUOTES_LIST = [
-	{ min:   1, max:   3, text: 'That was pure luck, nothing else. Stop dreamin.'},
-	{ min:   2, max:   4, text: 'You got lucky, without staying up all night.'},
-	{ min:   1, max:   2, text: 'No merit. Absolutely none.'},
-	{ min:   2, max:   5, text: 'That was given on a golden plate.'},
-	{ min:   1, max:   4, text: 'Absolutely no synapse got used during that game.'},
-	{ min:   2, max:   5, text: 'Don\'t even dare to tweet your score.'},
-	{ min:   8, max:  10, text: 'Saperlipopette!! That was close.'},
-	{ min:   4, max:   8, text: 'Seems legit, with a bit of luck.'},
-	{ min:   7, max:  10, text: 'Pretty good!'},
-	{ min:   9, max:  10, text: 'But you made it!'},
-	{ min:  11, max:  50, text: 'Trying random patterns is not a strategy...'},
-	{ min:  11, max:  50, text: 'That was looooooooong.'},
-	{ min:  11, max:  50, text: 'At least you made it.'},
-	{ min:  11, max:  50, text: 'You must hate this game by now.'},
-	{ min:  11, max:  50, text: 'I hope you didn\'t cheat.'},
-	{ min:  41, max: 403, text: 'Your dedication is impressive.'},
-	{ min: 404, max: 404, text: 'Logic not found.'},
-	{ min: 405, max: 999, text: 'No comment.'}
+	{ min:   1, max:   3, text: '#@quote_success00' },
+	{ min:   2, max:   4, text: '#@quote_success01' },
+	{ min:   1, max:   2, text: '#@quote_success02' },
+	{ min:   2, max:   5, text: '#@quote_success03' },
+	{ min:   1, max:   4, text: '#@quote_success04' },
+	{ min:   2, max:   5, text: '#@quote_success05' },
+	{ min:   8, max:  10, text: '#@quote_success06' },
+	{ min:   4, max:   8, text: '#@quote_success07' },
+	{ min:   7, max:  10, text: '#@quote_success08' },
+	{ min:   9, max:  10, text: '#@quote_success09' },
+	{ min:  11, max:  50, text: '#@quote_success10' },
+	{ min:  11, max:  50, text: '#@quote_success11' },
+	{ min:  11, max:  50, text: '#@quote_success12' },
+	{ min:  11, max:  50, text: '#@quote_success13' },
+	{ min:  11, max:  50, text: '#@quote_success14' },
+	{ min:  41, max: 403, text: '#@quote_success15' },
+	{ min: 404, max: 404, text: '#@quote_success16' },
+	{ min: 405, max: 999, text: '#@quote_success17' },
 ]
 
 const FAIL_QUOTES_LIST = [
-	'I believe there\'s some work to do.',
-	'Do you understand the game? Don\'t take it personnaly, I struggle to explain it.',
-	'One day you will make it...',
-	'It\'s not funny for you, but it is for me ;)',
-	'Don\'t stress, you will make it.',
-	'If you want to avoid battles, stay out of the grassy areas!',
-	'Even if you loose in battle, if you surpass what you\'ve done before, you have bested yourself.',
-	'TILT! Insert coin and try again!'
+	'#@quote_fail00',
+	'#@quote_fail01',
+	'#@quote_fail02',
+	'#@quote_fail03',
+	'#@quote_fail04',
+	'#@quote_fail05',
+	'#@quote_fail06',
+	'#@quote_fail07',
 ]
 
 /**
@@ -40,13 +40,13 @@ const FAIL_QUOTES_LIST = [
 function getQuote (wasSuccess, attemptsCount) {
 	let feedback, matches
 	if (wasSuccess) {
-		feedback = `Lock found in ${attemptsCount} attempts. `
+		feedback = `#@feedback_success_first ${attemptsCount} #@feedback_success_second `
 		matches = SUCCESS_QUOTES_LIST
 	              .filter(quote => (quote.min <= attemptsCount && quote.max >= attemptsCount))
 	              .map(quote => quote.text)
 	}
 	else {
-		feedback = 'Sorry, you didn\'t make it this time. '
+		feedback = '#@feedback_fail '
 		matches = FAIL_QUOTES_LIST
 	}
 

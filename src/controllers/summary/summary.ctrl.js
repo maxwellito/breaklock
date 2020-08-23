@@ -62,14 +62,14 @@ class SummaryCtrl {
     // Feedback stuff
     let feedbackEl = dom.create('div', 'summary-feedback bloc', [
       dom.create('p', {}, [
-        dom.create('span', {}, 'Tweet me your feedback at '),
+        dom.create('span', {}, '#@tweet_feedback '),
         dom.create('a', {href: config.SOCIAL.PLATFORMS.TWITTER.URL('', '@mxwllt', ['breaklock'])}, '@mxwllt')
       ])
     ])
 
     this.titleEl   = dom.create('h1',  'summary-title highlight')
     this.detailsEl = dom.create('p',   'summary-details')
-    this.revealEl  = dom.create('p',   'summary-reveal', 'Continue to see the solution.')
+    this.revealEl  = dom.create('p',   'summary-reveal', '#@summary_see')
     this.actionsEl = dom.create('div', 'summary-actions bloc', this.actionButtons)
     this.socialEl  = dom.create('div', 'summary-share bloc',   this.socialButtons)
 
@@ -99,7 +99,7 @@ class SummaryCtrl {
     this.titleEl.classList.remove('fail')
     this.titleEl.classList.remove('success')
     this.titleEl.classList.add(isSuccess ? 'success' : 'fail')
-    airportText(this.titleEl, isSuccess ? 'Success!' : 'Fail!')
+    airportText(this.titleEl, isSuccess ? '#@label_success' : '#@label_fail')
 
     this.detailsEl.textContent = summaryFeedback(isSuccess, attemptsCount)
     this.revealEl.classList[isSuccess ? 'add' : 'remove']('hide')

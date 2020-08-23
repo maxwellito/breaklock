@@ -1,0 +1,58 @@
+airport_charlist: ابپتثجچحخدذرضسشصضطظعغفقکلمنوهی
+attribution: توسط <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / روی <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a><br>ترجمه توسط <a href="https://hkalbasi.github.io/">حمیدرضا کلباسی</a>
+button_abort: خروج
+button_easy: آسان
+button_hard: سخت
+button_instructions: آموزش
+button_medium: متوسط
+button_start: شروع_
+connect_first: ""
+connect_second: نقطه را وصل کنید
+description: ترکیبی از فکربکر و قفل الگوی اندرویدی. بازی ای که دوست دارید ازش متنفر بشید.
+description_black: یه نقطه توی الگو هست ولی جاش غلطه
+description_difficulty: تغییر سختی تعداد نقطه های الگو رو تغییر می ده. آسان ۴ نقطه داره، متوسط ۵ نقطه و سخت ۶ نقطه.
+description_game: نقطه ها رو به هم وصل کنید تا الگو رو پیدا کنید. بعد هر تلاش بازی به شما تعداد نقطه های درست رو می گه.
+description_white: یه نقطه توی الگو هست و در جای درستی قرار گرفته
+feedback_success_first: قفل در
+feedback_success_second: تلاش پیدا شد.
+feedback_fail: متاسفم. شما شکست خوردید.
+label_success: پیروزی!
+label_fail: شکست!
+label_goodluck: موفق باشید!_
+lang_code: fa
+mode_challenge: چالش
+mode_challenge_description: توی چالش شما ده بار می تونید برای پیدا کردن الگو تلاش کنید
+mode_countdown: شمارش معکوس
+mode_countdown_description: توی یک دقیقه زمان، بدون محدودیت تعداد تلاش، قفل رو پیدا کن
+mode_practice: تمرین
+mode_practice_description: بدون فشار، می تونی تمرین کنی و بازی رو یاد بگیری
+name_app: قفل شکن
+quote_success00: شانس خالص بود. نه هیچ چیز دیگه.
+quote_success01: خوش شانس بودی.
+quote_success02: لیاقتشو نداشتی. اصلا نداشتی.
+quote_success03: کاپ طلایی تقدیم به شما.
+quote_success04: قطعا هیچ سیناپسی در این بازی استفاده نشد.
+quote_success05: امتیازتو توییت کن.
+quote_success06: نزدیک بود.
+quote_success07: منطقی به نظر می رسه، با کمی شانس.
+quote_success08: احسنت!
+quote_success09: ولی تونستی!
+quote_success10: امتحان کردن الگو های تصادفی استراتژی خوبی نیست...
+quote_success11: خییییییییییییلی طول کشید
+quote_success12: حداقل تونستی
+quote_success13: باید تا الان از این بازی متنفر شده باشی.
+quote_success14: امیدوارم تقلب نکرده باشی
+quote_success15: اراده شما ستودنیه.
+quote_success16: منطق شما پیدا نشد.
+quote_success17: نظری ندارم
+quote_fail00: من مطمئنم که دفعه بعدی می تونی.
+quote_fail01: بازی رو فهمیدی؟ به خودت نگیر. من بد توضیح دادم.
+quote_fail02: یه روزی بالاخره می تونی.
+quote_fail03: برای تو جالب نبود، ولی برای من هست :)
+quote_fail04: استرس نگیر. بالاخره می تونی.
+quote_fail05: اگه می خوای شکست نخوری می تونی بازی نکنی :)
+quote_fail06: شکست مقدمه پیروزیست.
+quote_fail07: تلیت! یه سکه دیگه بنداز و دوباره بازی کن.
+special_css: <style>body{direction:rtl}</style>
+summary_see: ادامه بده تا نتیجه رو ببینی
+tweet_feedback: بازخوردت رو توییت کن برای

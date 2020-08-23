@@ -1,0 +1,58 @@
+airport_charlist: abcdefghijklmnopqrstuvwxyz0123456789 _*%!?#/\\|@
+attribution: by <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / on <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a>
+button_abort: ABORT
+button_easy: Easy
+button_hard: Hard
+button_instructions: INSTRUCTIONS
+button_medium: Medium
+button_start: START_
+connect_first: Connect
+connect_second: dots
+description: A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.
+description_black: a dot occurs in the pattern but in the wrong order
+description_difficulty: The difficulty setting changes the amount of dots to connect. Easy is 4 dots, medium is 5 dots and hard is 6 dots.
+description_game: Link the dots to find the lock pattern. After every attempt the game will tell you how many dots you got right.
+description_white: a dot occurs in the pattern and is in the correct order
+feedback_success_first: Lock found in
+feedback_success_second: attempts.
+feedback_fail: Sorry, you didn\'t make it this time.
+label_success: Success!
+label_fail: Fail!
+label_goodluck: Good luck!_
+lang_code: en
+mode_challenge: Challenge
+mode_challenge_description: Challenge mode give you 10 attempts only to win
+mode_countdown: Countdown
+mode_countdown_description: Solve the game in one minute, without limit of attempts
+mode_practice: Practice
+mode_practice_description: No pressure, just discover and practice your game
+name_app: BreakLock
+quote_success00: That was pure luck, nothing else. Stop dreamin.
+quote_success01: You got lucky, without staying up all night.
+quote_success02: No merit. Absolutely none.
+quote_success03: That was given on a golden plate.
+quote_success04: Absolutely no synapse got used during that game.
+quote_success05: Don\'t even dare to tweet your score.
+quote_success06: Saperlipopette!! That was close.
+quote_success07: Seems legit, with a bit of luck.
+quote_success08: Pretty good!
+quote_success09: But you made it!
+quote_success10: Trying random patterns is not a strategy...
+quote_success11: That was looooooooong.
+quote_success12: At least you made it.
+quote_success13: You must hate this game by now.
+quote_success14: I hope you didn\'t cheat.
+quote_success15: Your dedication is impressive.
+quote_success16: Logic not found.
+quote_success17: No comment
+quote_fail00: I believe there\'s some work to do.
+quote_fail01: Do you understand the game? Don\'t take it personnaly, I struggle to explain it.
+quote_fail02: One day you will make it...
+quote_fail03: It\'s not funny for you, but it is for me ;)
+quote_fail04: Don\'t stress, you will make it.
+quote_fail05: If you want to avoid battles, stay out of the grassy areas!
+quote_fail06: Even if you loose in battle, if you surpass what you\'ve done before, you have bested yourself.
+quote_fail07: TILT! Insert coin and try again
+special_css: <style></style>
+summary_see: Continue to see the solution.
+tweet_feedback: Tweet me your feedback at

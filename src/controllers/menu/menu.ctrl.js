@@ -1,6 +1,7 @@
 import ExtenderCtrl from '../extender/extender.ctrl';
 import OptionCtrl from '../option/option.ctrl';
 import SelectorCtrl from '../selector/selector.ctrl';
+import LangSelectorCtrl from '../langselector/langselector.ctrl';
 import config from '../../config';
 import dom from '../../utils/dom';
 import airportText from '../../utils/airportText';
@@ -30,55 +31,71 @@ class MenuCtrl {
     let title = dom.create(
         'h1',
         'menu-title highlight unselectable',
-        'BreakLock'
+        '#@name_app'
       ),
       intro = dom.create(
         'p',
         'menu-intro',
-        'A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate.'
+        '#@description'
       );
     this.title = title;
     this.typeHelpEl = dom.create('p', {}, 'Future info about the challenge');
-    this.btnStarlEl = dom.create('button', 'action-btn', 'START_');
+    this.btnStarlEl = dom.create('button', 'action-btn', '#@button_start');
 
-    airportText(title, 'BreakLock');
+    airportText(title, '#@name_app');
 
     let instructions = new ExtenderCtrl(
-      'INSTRUCTIONS',
+      '#@button_instructions',
       document.getElementById('instructions-template')
     );
     instructions.init();
 
     // Options
     this.difficultyOption = new OptionCtrl([
-      { value: config.GAME.DIFFICULTY.EASY, label: 'Easy', default: true },
-      { value: config.GAME.DIFFICULTY.MEDIUM, label: 'Medium' },
-      { value: config.GAME.DIFFICULTY.HARD, label: 'Hard' }
+      { value: config.GAME.DIFFICULTY.EASY, label: '#@button_easy', default: true },
+      { value: config.GAME.DIFFICULTY.MEDIUM, label: '#@button_medium' },
+      { value: config.GAME.DIFFICULTY.HARD, label: '#@button_hard' }
     ]);
 
     this.typeSelector = new SelectorCtrl([
       {
         value: config.GAME.TYPE.PRACTICE,
-        label: 'Practice',
-        description: 'No pressure, just discover and practice your game',
+        label: '#@mode_practice',
+        description: '#@mode_practice_description',
         default: true
       },
       {
         value: config.GAME.TYPE.CHALLENGE,
-        label: 'Challenge',
-        description: 'Challenge mode give you 10 attempts only to win'
+        label: '#@mode_challenge',
+        description: '#@mode_challenge_description'
       },
       {
         value: config.GAME.TYPE.COUNTDOWN,
-        label: 'Countdown',
-        description: 'Solve the game in one minute, without limit of attempts'
+        label: '#@mode_countdown',
+        description: '#@mode_countdown_description'
       }
     ]);
-
+    const lang = (()=>{
+      const x = window.location.pathname.split('/');
+      while (true) {
+        const y = x.pop();
+        if (y === undefined) return 'EN';
+        if (y.length === 2) return y.toUpperCase();
+      }
+    })();
+    const langButton = dom.create('button', 'lang-button', lang);
+    const langSelector = new LangSelectorCtrl();
+    langButton.onclick = () => {
+      langSelector.el.classList.toggle('disabled');
+    };
     this.el = dom.create('div', 'menu-layout view', [
       dom.create('div', 'view-bloc menu-layout-instructions', [
-        title,
+        dom.create('div', '', [
+          title,
+          langButton,
+        ]),
         intro,
+        langSelector.el,
         instructions.el
       ]),
       dom.create('div', 'view-bloc menu-layout-form', [

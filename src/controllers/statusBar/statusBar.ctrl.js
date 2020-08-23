@@ -35,7 +35,7 @@ class StatusBarCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.cancelBtnEl = dom.create('button', 'status-bar-cancel', 'ABORT')
+    this.cancelBtnEl = dom.create('button', 'status-bar-cancel', '#@button_abort')
     this.counterEl = dom.create('span', 'status-bar-info')
 
     this.countdown = new CountdownCtrl()
