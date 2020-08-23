@@ -1,7 +1,7 @@
 {
-  "name": "BreakLock",
-  "short_name": "BreakLock",
-  "lang": "en",
+  "name": "قفل شکن",
+  "short_name": "قفل شکن",
+  "lang": "fa",
   "icons": [{
       "src": "../assets/icons/icon-128x128.png",
       "sizes": "128x128",
