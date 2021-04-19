@@ -3,7 +3,7 @@
   <head>
     <title>قفل شکن</title>
     <meta name="description" content="ترکیبی از فکربکر و قفل الگوی اندرویدی. بازی ای که دوست دارید ازش متنفر بشید." />
-    <base href="../" />
+    <base href="/breaklock/" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <link rel="shortcut icon" href="assets/favicon.ico" />
@@ -67,7 +67,6 @@
       })();
 
       if (isRoot) {
-        document.querySelector('base').remove();
         const supported = { fa: true, en: true };
         for (const l of navigator.languages) {
           if (l === 'en') break;
