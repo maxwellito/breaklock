@@ -1,5 +1,5 @@
 var APP_NAME = 'breaklock',
-  APP_VERSION = 14,
+  APP_VERSION = 15,
   CACHE_NAME = APP_NAME + '_' + APP_VERSION;
 var filesToCache = [
   './',
@@ -9,25 +9,25 @@ var filesToCache = [
   './assets/intro.svg',
   './assets/fonts/robotomono-light-webfont.woff2',
   './assets/fonts/robotomono-light-webfont.woff',
-  './assets/fonts/robotomono-light-webfont.ttf'
+  './assets/fonts/robotomono-light-webfont.ttf',
 ];
 
 // Service worker from Google Documentation
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', function (event) {
   // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
+    caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll(filesToCache);
     })
   );
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
+    caches.keys().then(function (cacheNames) {
       return Promise.all(
-        cacheNames.map(function(cacheName) {
+        cacheNames.map(function (cacheName) {
           if (cacheName.indexOf(APP_NAME) === 0 && CACHE_NAME !== cacheName) {
             return caches.delete(cacheName);
           }
@@ -37,9 +37,9 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
+    caches.match(event.request).then(function (response) {
       // Cache hit - return response
       if (response) {
         return response;
@@ -51,7 +51,7 @@ self.addEventListener('fetch', function(event) {
       // to clone the response.
       var fetchRequest = event.request.clone();
 
-      return fetch(fetchRequest).then(function(response) {
+      return fetch(fetchRequest).then(function (response) {
         // Check if we received a valid response
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
@@ -63,7 +63,7 @@ self.addEventListener('fetch', function(event) {
         // to clone it so we have two streams.
         var responseToCache = response.clone();
 
-        caches.open(CACHE_NAME).then(function(cache) {
+        caches.open(CACHE_NAME).then(function (cache) {
           cache.put(event.request, responseToCache);
         });
 
