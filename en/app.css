@@ -32,7 +32,7 @@
     height: 100%;
     font-size: 1rem; }
     .status-bar-cancel:before {
-      content: '\AB';
+      content: '«';
       margin-right: .25em; }
   .status-bar-info {
     float: inline-end; }
@@ -203,10 +203,10 @@
   background: rgba(255, 255, 255, 0.125);
   border-bottom: 1px dotted #ffffff; }
   .extender-button:after {
-    content: '\25BD';
+    content: '▽';
     margin-left: .5em; }
   .extender.active .extender-button:after {
-    content: '\25B3'; }
+    content: '△'; }
 
 .extender-content {
   display: none; }

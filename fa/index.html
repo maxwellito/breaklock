@@ -67,6 +67,7 @@
       })();
 
       if (isRoot) {
+        document.querySelector('base').remove();
         const supported = { fa: true, en: true };
         for (const l of navigator.languages) {
           if (l === 'en') break;
