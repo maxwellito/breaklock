@@ -14,13 +14,15 @@ jobs:
       run: |
         npm install
         npm run build
+    - uses: actions/checkout@v2
+      with:
+        ref: gh-pages
     - name: Update gh-pages branch
       run: |
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
-        git checkout gh-pages
         cp -rf public/* .
         rm -rf public package-lock.json node_modules
         git add -A
         git commit -m 'Autobuild'
-        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git
+        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git gh-pages
