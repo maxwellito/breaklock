@@ -23,4 +23,4 @@ jobs:
         rm -rf public package-lock.json node_modules
         git add -A
         git commit -m 'Autobuild'
-        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git gh-pages
+        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git
