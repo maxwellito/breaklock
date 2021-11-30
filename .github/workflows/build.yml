@@ -1,0 +1,17 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      shell: bash
+      run: |
+        npm install
+        npm run build
+    - name: Upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: breaklock.zip
+        path: public
