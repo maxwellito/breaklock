@@ -22,7 +22,7 @@ const handleRelativeCopy = async (from, to) => {
 };
 
 const build = async () => {
-  await rmdir(buildFolder, { recursive: true });
+  await rmdir(buildFolder, { recursive: true , force: true});
   await mkdir(buildFolder);
   console.log('Webpacking...');
   await new Promise((res)=> {
