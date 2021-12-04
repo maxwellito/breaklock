@@ -30,7 +30,7 @@ class MenuCtrl {
   setupTemplate() {
     let title = dom.create(
         'h1',
-        'menu-title highlight unselectable',
+        '-wrap highlight unselectable',
         '#@name_app'
       ),
       intro = dom.create(
@@ -90,7 +90,7 @@ class MenuCtrl {
     };
     this.el = dom.create('div', 'menu-layout view', [
       dom.create('div', 'view-bloc menu-layout-instructions', [
-        dom.create('div', '', [
+        dom.create('div', 'ui-row', [
           title,
           langButton,
         ]),

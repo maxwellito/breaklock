@@ -53,6 +53,6 @@ quote_fail04: استرس نگیر. بالاخره می تونی.
 quote_fail05: اگه می خوای شکست نخوری می تونی بازی نکنی :)
 quote_fail06: شکست مقدمه پیروزیست.
 quote_fail07: تلیت! یه سکه دیگه بنداز و دوباره بازی کن.
-special_css: <style>body{direction:rtl}</style>
+special_css: <style>body{direction:rtl}.ui-row{flex-direction:row-reverse;}</style>
 summary_see: ادامه بده تا نتیجه رو ببینی
 tweet_feedback: بازخوردت رو توییت کن برای

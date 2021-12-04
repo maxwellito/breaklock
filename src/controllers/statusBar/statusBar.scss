@@ -5,11 +5,6 @@
   padding-bottom: .25rem;
   border-bottom: 1px dotted $theme_bright;
 
-  &:after {
-    content: '';
-    clear: both;
-  }
-
   &-cancel {
     height: 100%;
     font-size: 1rem;
@@ -18,9 +13,5 @@
       content: '«';
       margin-right: .25em;
     }
-  }
-
-  &-info {
-    float: inline-end;
   }
 }

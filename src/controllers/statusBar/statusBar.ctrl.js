@@ -42,7 +42,7 @@ class StatusBarCtrl {
     this.countdownEl = this.countdown.el
     this.countdownEl.setAttribute('class', 'status-bar-info')
 
-    this.el = dom.create('div', 'status-bar', [
+    this.el = dom.create('div', 'status-bar ui-row', [
       this.cancelBtnEl,
       this.counterEl,
       this.countdownEl

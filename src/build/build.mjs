@@ -8,7 +8,7 @@ import { productionCompiler } from "./webpackCompiler.mjs";
 import fsExtra from "fs-extra";
 
 const mkdir = promisify(fs.mkdir);
-const rmdir = promisify(fs.rmdir);
+const rmdir = promisify(fs.rm);
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 const cp    = fsExtra.copy;
