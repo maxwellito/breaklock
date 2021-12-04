@@ -1,0 +1,29 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        cache: 'npm'
+    - name: Build
+      shell: bash
+      run: |
+        npm install
+        npm run build
+    - uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        path: www
+    - name: Update gh-pages branch
+      run: |
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        cp -rf public/* www
+        cd www
+        git add -A
+        git commit -m 'Autobuild'
+        git push
