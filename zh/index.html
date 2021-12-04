@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <title>BreakLock</title>
-    <meta name="description" content="A hybrid of Mastermind and the Android pattern lock. A game you gonna love to hate." />
+    <meta name="description" content="一款结合头脑风暴和安卓图案锁的游戏，一款让你爱恨交加的游戏。" />
     <base href="/breaklock/" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <link rel="shortcut icon" href="assets/favicon.ico" />
     <meta name="theme-color" content="#14171b" />
 
-    <link rel="manifest" href="en/manifest.json" />
+    <link rel="manifest" href="zh/manifest.json" />
 
     <!-- Add to home screen for Safari on iOS -->
     <link rel="apple-touch-icon" href="assets/icons/ios-180x180.png" />
@@ -51,7 +51,7 @@
     />
     <meta name="msapplication-TileColor" content="#14171b" />
 
-    <link rel="stylesheet" type="text/css" href="en/app.css" />
+    <link rel="stylesheet" type="text/css" href="zh/app.css" />
     <style></style>
   </head>
 
@@ -95,21 +95,21 @@
           data="assets/intro.svg"
           type="image/svg+xml"
         ></object>
-        <p>Link the dots to find the lock pattern. After every attempt the game will tell you how many dots you got right.</p>
+        <p>把这些点连起来，找到解锁图案。每次尝试之后，游戏都会告诉你有多少点是正确的。</p>
         <p></p>
         <table>
           <tr>
             <td style="width: 1.5em">&#9679;</td>
-            <td>a dot occurs in the pattern and is in the correct order</td>
+            <td>位置正确但顺序错误</td>
           </tr>
           <tr>
             <td>&#9675;</td>
-            <td>a dot occurs in the pattern but in the wrong order</td>
+            <td>位置和顺序都正确</td>
           </tr>
         </table>
-        <p>The difficulty setting changes the amount of dots to connect. Easy is 4 dots, medium is 5 dots and hard is 6 dots.</p>
-        <p>Good luck!_</p>
-        <p class="small">by <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / on <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a></p>
+        <p>不同难度要连接点的数量不同。简单4个，中等5个，困难6个。</p>
+        <p>祝好运！</p>
+        <p class="small">作者 <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / Github仓库 <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a></p>
       </div>
     </div>
     <!-- SVG Icon definitions -->
@@ -170,7 +170,7 @@
       <![endif]-->
     </noscript>
 
-    <script src="en/app.js"></script>
+    <script src="zh/app.js"></script>
     <script type="text/javascript">
       // Set up service worker
       if ('serviceWorker' in navigator) {
