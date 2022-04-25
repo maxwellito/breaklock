@@ -20,10 +20,13 @@
 }
 
 .lang-button {
-  display: block;
-  width: 40px;
-  border-radius: 0.4rem;
+  display: flex;
+  border-radius: 50%;
   border: 1px solid currentColor;
+  width: 2em;
+  height: 2em;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (orientation: landscape), (min-width: $mq-xlarge-min) {

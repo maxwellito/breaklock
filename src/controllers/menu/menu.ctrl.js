@@ -83,7 +83,7 @@ class MenuCtrl {
         if (y.length === 2) return y.toUpperCase();
       }
     })();
-    const langButton = dom.create('button', 'lang-button', lang);
+    const langButton = dom.create('button', 'lang-button', [dom.icon('lang')]);
     const langSelector = new LangSelectorCtrl();
     langButton.onclick = () => {
       langSelector.el.classList.toggle('disabled');
