@@ -9,10 +9,10 @@ button_start: 开始_
 connect_first: 连接
 connect_second: 个点
 description: 一款结合头脑风暴和安卓图案锁的游戏，一款让你爱恨交加的游戏。
-description_black: 位置和顺序都正确
+description_black: 位置正确但顺序错误
 description_difficulty: 不同难度要连接点的数量不同。简单4个，中等5个，困难6个。
 description_game: 把这些点连起来，找到解锁图案。每次尝试之后，游戏都会告诉你有多少点是正确的。
-description_white: 位置正确但顺序错误
+description_white: 位置和顺序都正确
 feedback_success_first: 成功解锁！
 feedback_success_second: 次尝试。
 feedback_fail: 很遗憾，你失败了。
