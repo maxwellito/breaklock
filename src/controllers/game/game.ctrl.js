@@ -162,7 +162,7 @@ class GameCtrl {
     case config.GAME.ACTIONS.BACK_HOME:
       this.abort()
       break;
-    case config.GAME.ACTIONS.CONTINUE:
+    case config.GAME.ACTIONS.SOLUTION:
       // Nothing for now
       debugger
       if (this.isEnded === true) {

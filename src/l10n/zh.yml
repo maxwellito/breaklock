@@ -54,5 +54,8 @@ quote_fail05: 如果你想避免战斗，那就远离草地吧！
 quote_fail06: 即使你在战斗中失败了，如果你超越了从前，你也战胜了自己。
 quote_fail07: 投币重试
 special_css: <style></style>
-summary_see: 点击右侧 CONTINUE 继续尝试
+summary_see: 请选择一个选项。
+summary_action_solution: 解决方案
+summary_action_new_game: 新游戏
+summary_action_back_home: 返回
 tweet_feedback: 反馈

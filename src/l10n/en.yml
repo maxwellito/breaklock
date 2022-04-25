@@ -54,5 +54,8 @@ quote_fail05: If you want to avoid battles, stay out of the grassy areas!
 quote_fail06: Even if you loose in battle, if you surpass what you\'ve done before, you have bested yourself.
 quote_fail07: TILT! Insert coin and try again
 special_css: <style></style>
-summary_see: Continue to see the solution.
+summary_see: Please select an option.
+summary_action_solution: SOLUTION
+summary_action_new_game: NEW_GAME
+summary_action_back_home: BACK_HOME
 tweet_feedback: Tweet me your feedback at

@@ -16,6 +16,12 @@ require('./summary.scss');
  */
 class SummaryCtrl {
 
+  actionLabels = {
+    NEW_GAME: '#@summary_action_new_game',
+    SOLUTION: '#@summary_action_solution',
+    BACK_HOME: '#@summary_action_back_home',
+  }
+
   /**
    * Set up the template and init event.
    * The constructor take one parameter, the callback
@@ -42,7 +48,7 @@ class SummaryCtrl {
         rel: config.GAME.ACTIONS[action]
       }, [
         dom.icon(action.toLowerCase()),
-        dom.create('span', {}, action)
+        dom.create('span', {}, this.actionLabels[action])
       ])
       this.actionButtons.push(btn)
     }

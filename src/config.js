@@ -11,7 +11,7 @@ const config = {
       COUNTDOWN: 3
     },
     ACTIONS: {
-      CONTINUE: 1,
+      SOLUTION: 1,
       NEW_GAME: 2,
       BACK_HOME: 3
     }

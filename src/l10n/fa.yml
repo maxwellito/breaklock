@@ -54,5 +54,8 @@ quote_fail05: اگه می خوای شکست نخوری می تونی بازی ن
 quote_fail06: شکست مقدمه پیروزیست.
 quote_fail07: تلیت! یه سکه دیگه بنداز و دوباره بازی کن.
 special_css: <style>body{direction:rtl}</style>
-summary_see: ادامه بده تا نتیجه رو ببینی
+summary_see: لطفا یک گزینه را انتخاب کنید.
+summary_action_solution: راه حل
+summary_action_new_game: بازی جدید
+summary_action_back_home: بازگشت به خانه
 tweet_feedback: بازخوردت رو توییت کن برای
