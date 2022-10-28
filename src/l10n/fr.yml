@@ -3,19 +3,19 @@ attribution: par <a href="https://twitter.com/mxwllt"><svg class="icon"><use xml
 button_abort: ABANDONNER
 button_easy: Facile
 button_hard: Difficile
-button_instructions: INSTRUCTIONS
-button_medium: Intermédiaire
+button_instructions: COMMENT JOUER ?
+button_medium: Moyen
 button_start: DÉMARRER_
-connect_first: Connecter
+connect_first: Reliez
 connect_second: points
-description: Un hybride de Mastermind et du verrouillage Android par motif. Un jeu que vous allez adorer détester.
+description: Le Mastermind du verrouillage Android. Un jeu que vous allez adorer détester.
 description_black: un point est présent dans le motif, mais dans le mauvais ordre.
 description_difficulty: Le paramètre de difficulté modifie le nombre de points à relier. Facile correspond à 4 points, moyen à 5 points et difficile à 6 points.
 description_game: Reliez les points pour trouver le motif de verrouillage. Après chaque tentative, le jeu vous dira combien de points vous avez correctement reliés.
 description_white: un point apparaît dans le motif et est dans le bon ordre
-feedback_success_first: Verrouillage trouvé en
+feedback_success_first: Motif de verrouillage trouvé en
 feedback_success_second: essais.
-feedback_fail: Désolé, vous n'avez pas réussi cette fois.
+feedback_fail: Désolé, vous n\'avez pas réussi cette fois.
 label_success: Félicitations !
 label_fail: Échec.
 label_goodluck: Bonne chance !_
@@ -23,36 +23,36 @@ lang_code: fr
 mode_challenge: Challenge
 mode_challenge_description: Le mode Challenge vous donne seulement  10 essais
 mode_countdown: Compte à rebours
-mode_countdown_description: Terminez le jeu en une minute, sans limite d'essais.
+mode_countdown_description: Terminez le jeu en une minute, sans limite d\'essais.
 mode_practice: Entraînement
 mode_practice_description: Pas de pression, découvrez et entraînez vous
 name_app: BreakLock
-quote_success00: C'était de la pure chance, rien d'autre.
+quote_success00: C\'était de la pure chance, rien d\'autre.
 quote_success01: Vous avez eu de la chance.
 quote_success02: Aucun mérite. Absolument aucun.
 quote_success03: Trop facile !
-quote_success04: Absolument aucun neurone n'a été utilisé pendant ce match.
+quote_success04: Absolument aucun neurone n\'a été utilisé pendant ce match.
 quote_success05: Ne vous avisez pas de twitter votre score.
-quote_success06: Saperlipopette ! C'était moins une.
+quote_success06: Saperlipopette ! C\'était moins une.
 quote_success07: Ça semble honnête, avec un peu de chance.
 quote_success08: Plutôt bien !
-quote_success09: Vous l'avez fait !
-quote_success10: Essayer des figures aléatoires n'est pas une stratégie.
-quote_success11: C'était looooooooong.
-quote_success12: Au moins, vous l'avez trouvé.
+quote_success09: Vous l\'avez fait !
+quote_success10: Essayer des figures aléatoires n\'est pas une stratégie.
+quote_success11: C\'était looooooooong.
+quote_success12: Au moins, vous l\'avez trouvé.
 quote_success13: Vous détestez ce jeu maintenant, non ?
-quote_success14: J'espère que vous n'avez pas triché.
+quote_success14: J\'espère que vous n\'avez pas triché.
 quote_success15: Votre persévérance est impressionnante.
 quote_success16: 404 Logique introuvable.
 quote_success17: Aucun commentaire
-quote_fail00: Je crois qu'il y a encore du travail.
-quote_fail01: Comprenez-vous le jeu ? Ne le prenez pas personnellement, j'ai du mal à l'expliquer.
+quote_fail00: Je crois qu\'il y a encore du travail.
+quote_fail01: Comprenez-vous le jeu ? Ne le prenez pas personnellement, j\'ai du mal à l\'expliquer.
 quote_fail02: Un jour, vous y arriverez...
-quote_fail03: Ce n'est pas drôle pour vous, mais ça l'est pour moi ;)
+quote_fail03: Ce n\'est pas drôle pour vous, mais ça l\'est pour moi ;)
 quote_fail04: Pas de stress, vous allez y arriver.
-quote_fail05: Heureusement que votre vie n'était pas en jeu.
-quote_fail06: Le point positif est qu'il vous reste une marge de progression.
-quote_fail07: TILT ! Insérez une pièce et essayez encore
+quote_fail05: Heureusement que votre vie n\'était pas en jeu.
+quote_fail06: Le point positif est qu\'il vous reste une marge de progression.
+quote_fail07: GAME OVER ! Insérez une pièce et essayez encore
 special_css: <style></style>
 summary_see: Veuillez sélectionner une option.
 summary_action_solution: SOLUTION_
