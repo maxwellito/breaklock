@@ -29,7 +29,7 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^12.3.0",
     "style-loader": "^0.16.1",
-    "webpack": "^5.64.4",
+    "webpack": "^5.76.0",
     "yaml": "^1.10.0"
   }
 }
