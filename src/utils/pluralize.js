@@ -1,5 +1,5 @@
 const getLang = () => {
-    return document.documentElement.lang;;
+    return document.documentElement.lang;
 }
 
 const customRussianRule = (choice, choicesLength) => {
