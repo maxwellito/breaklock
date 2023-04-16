@@ -1,0 +1,61 @@
+airport_charlist: abcdefghijklmnopqrstuvwxyz0123456789 _*%!?#/\\|@
+attribution: от <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / на <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a>
+button_abort: ОТМЕНА
+button_easy: ЛЕГКИЙ
+button_hard: СЛОЖНЫЙ
+button_instructions: ИНСТРУКЦИИ
+button_medium: СРЕДНИЙ
+button_start: СТАРТ_
+connect_first: Соедините
+connect_second: _ | точка | точки | точек
+description: Гибрид игр-головоломок и блокировочного экрана Android. Игра, которую Вы будете любить и ненавидеть одновременно.
+description_black: точка находится в шаблоне, но в неправильном порядке
+description_difficulty: Настройка сложности изменяет количество точек для соединения. Легкий уровень - 4 точки, средний - 5 точек, сложный - 6 точек.
+description_game: Соединяйте точки, чтобы найти правильный шаблон блокировки. После каждой попытки игра сообщит, сколько точек вы соединили правильно.
+description_white: точка находится в шаблоне и находится в правильном порядке
+feedback_success_first: Шаблон найден за
+feedback_success_second: попытку | попытки | попыток.
+feedback_fail: Извините, на этот раз Вы не справились.
+label_success: Успех!
+label_fail: Неудача!
+label_goodluck: Удачи!_
+lang_code: ru
+mode_challenge: Испытание
+mode_challenge_description: Режим испытания дает вам только 10 попыток, чтобы выиграть
+mode_countdown: Отсчет времени
+mode_countdown_description: Решите игру за одну минуту, без ограничения попыток
+mode_practice: Практика
+mode_practice_description: Никакого давления, просто исследуйте игру и практикуйтесь.
+name_app: BreakLock
+quote_success00: Это было чистое везение, ничего более. Прекратите мечтать.
+quote_success01: Вам повезло, не пришлось не спать всю ночь.
+quote_success02: Нет заслуги. Совершенно никакой.
+quote_success03: Это было дано на золотой тарелке.
+quote_success04: Во время этой игры не было задействовано ни одной синаптической связи.
+quote_success05: Не смейте даже твитнуть свой результат.
+quote_success06: Саперлипопет! Было очень близко.
+quote_success07: Кажется, это честный результат, но с небольшой долей удачи.
+quote_success08: Очень хорошо!
+quote_success09: Но Вы справились!
+quote_success10: Пробовать случайные комбинации - это не стратегия...
+quote_success11: Это было доооолго.
+quote_success12: По крайней мере, Вы справились!
+quote_success13: Вы, вероятно, уже ненавидите эту игру.
+quote_success14: Надеюсь, Вы не жульничали.
+quote_success15: Ваше упорство впечатляет!
+quote_success16: Логику не найти.
+quote_success17: Без комментариев.
+quote_fail00: Мне кажется, вам нужно немного поработать над этим.
+quote_fail01: Вы понимаете правила игры? Не обижайтесь, мне трудно их объяснить.
+quote_fail02: Когда-нибудь Вы это сделаете...
+quote_fail03: Это не смешно для Вас, но забавно для меня ;)
+quote_fail04: Не переживайте, Вы справитесь.
+quote_fail05: Если Вы хотите избежать драки, держитесь подальше от травянистых участков!
+quote_fail06: Даже если Вы проиграете в битве, если Вы превзойдете то, что делали раньше, Вы превзойдете себя!
+quote_fail07: ТИЛЬТ! Вставьте монету и повторите.
+special_css: <style></style>
+summary_see: Пожалуйста, выберите опцию.
+summary_action_solution: РЕШЕНИЕ
+summary_action_new_game: НОВАЯ_ИГРА
+summary_action_back_home: НАЗАД_НА_ГЛАВНУЮ
+tweet_feedback: Твитните мне свой отзыв по игре.

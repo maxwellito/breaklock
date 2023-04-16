@@ -1,3 +1,5 @@
+import {pluralize} from '../../utils/pluralize';
+
 const SUCCESS_QUOTES_LIST = [
 	{ min:   1, max:   3, text: '#@quote_success00' },
 	{ min:   2, max:   4, text: '#@quote_success01' },
@@ -40,7 +42,7 @@ const FAIL_QUOTES_LIST = [
 function getQuote (wasSuccess, attemptsCount) {
 	let feedback, matches
 	if (wasSuccess) {
-		feedback = `#@feedback_success_first ${attemptsCount} #@feedback_success_second `
+		feedback = `#@feedback_success_first ${attemptsCount} ${pluralize('#@feedback_success_second', attemptsCount)}`
 		matches = SUCCESS_QUOTES_LIST
 	              .filter(quote => (quote.min <= attemptsCount && quote.max >= attemptsCount))
 	              .map(quote => quote.text)

@@ -7,6 +7,7 @@ import PatternSVG    from '../../utils/patternSVG'
 import config        from '../../config'
 import dom           from '../../utils/dom'
 import color         from '../../utils/color'
+import {pluralize}   from '../../utils/pluralize'
 
 require('./game.scss');
 
@@ -74,7 +75,7 @@ class GameCtrl {
     this.lock.setDotLength(difficulty)
     this.pattern = new Pattern(difficulty)
     this.pattern.fillRandomly()
-    this.history.clear('#@connect_first ' + difficulty + ' #@connect_second')
+    this.history.clear('#@connect_first ' + difficulty + ' ' + pluralize('#@connect_second', difficulty))
     this.count = 0
     this.isEnded = false
 
