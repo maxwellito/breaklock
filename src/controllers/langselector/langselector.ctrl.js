@@ -12,6 +12,7 @@ class LangSelector {
     this.setupTemplate()
     this.setChoices([
       { value: 'en', label: 'English' },
+      { value: 'fr', label: 'Français' },
       { value: 'fa', label: 'فارسی' },
       { value: 'zh', label: '简体中文' },
     ])
