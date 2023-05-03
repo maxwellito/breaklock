@@ -1,6 +1,6 @@
 airport_charlist: abcdefghijklmnopqrstuvwxyz0123456789 _*%!?#/\\|@
 attribution: par <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / sur <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a>
-button_abort: ANNULE
+button_abort: RETOUR
 button_easy: Facile
 button_hard: Difficile
 button_instructions: INSTRUCTIONS
