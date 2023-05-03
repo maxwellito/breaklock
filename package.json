@@ -25,9 +25,9 @@
     "fs-extra": "^9.0.1",
     "gh-pages": "^3.1.0",
     "mini-css-extract-plugin": "^0.10.0",
-    "node-sass": "^7.0.0",
+    "node-sass": "^8.0.0",
     "raw-loader": "^0.5.1",
-    "sass-loader": "^12.3.0",
+    "sass-loader": "^13.2.2",
     "style-loader": "^0.16.1",
     "webpack": "^5.76.0",
     "yaml": "^1.10.0"

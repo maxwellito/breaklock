@@ -115,7 +115,6 @@ class MenuCtrl {
     this.typeSelector.init();
     this.typeSelector.onSelect(this.typeChange.bind(this));
     this.btnStarlEl.addEventListener('click', this.start.bind(this));
-    this.title.addEventListener('dblclick', this.triggerEasterEgg.bind(this));
   }
 
   /**
@@ -135,20 +134,6 @@ class MenuCtrl {
    */
   typeChange(type) {
     this.typeHelpEl.textContent = type.description;
-  }
-
-  /**
-   * Double click listener to trigger the OLED
-   * screen mode for a deep black design.
-   */
-  triggerEasterEgg() {
-    if (localStorage.getItem('isDeepBlack')) {
-      localStorage.setItem('isDeepBlack', '');
-      document.body.classList.remove('deepblack');
-    } else {
-      localStorage.setItem('isDeepBlack', 'on');
-      document.body.classList.add('deepblack');
-    }
   }
 }
 

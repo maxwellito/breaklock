@@ -16,10 +16,6 @@ $summary_transition_delay:    .5s;
   transition: visibility 0s linear $summary_transition_duration, height $summary_transition_duration ease;
   -webkit-transition: visibility 0s linear $summary_transition_duration, height $summary_transition_duration ease;
 
-  body.deepblack & {
-    background-color: #000;
-  }
-
   &.active {
     visibility: visible;
     height: 100%;

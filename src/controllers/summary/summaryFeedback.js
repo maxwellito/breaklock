@@ -48,11 +48,11 @@ function getQuote (wasSuccess, attemptsCount) {
 	              .map(quote => quote.text)
 	}
 	else {
-		feedback = '#@feedback_fail '
+		feedback = '#@feedback_fail'
 		matches = FAIL_QUOTES_LIST
 	}
 
-	return feedback + matches[Math.floor(matches.length * Math.random())]
+	return feedback + ' ' + matches[Math.floor(matches.length * Math.random())]
 }
 
 export default getQuote

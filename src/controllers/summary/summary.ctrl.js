@@ -1,9 +1,8 @@
 import summaryFeedback from './summaryFeedback'
 import config from '../../config'
-import Pattern from '../../models/pattern'
-import PatternSVG from '../../utils/patternSVG'
 import dom from '../../utils/dom'
 import airportText from '../../utils/airportText'
+import share from '../../utils/share'
 
 require('./summary.scss');
 
@@ -54,16 +53,11 @@ class SummaryCtrl {
     }
 
     // Social links
-    this.socialButtons = []
-    for (let platform in config.SOCIAL.PLATFORMS) {
-      let btn = dom.create('a', {
-        class: 'summary-share-link',
-        rel: 'noopener noreferrer',
-        target: '_blank',
-        platform
-      }, [dom.icon(config.SOCIAL.PLATFORMS[platform].ICON)])
-      this.socialButtons.push(btn)
-    }
+    this.shareBtn = dom.create('button', {
+      class: 'summary-action-button'
+    }, [
+      dom.create('p', {}, '#@share')
+    ])
 
     // Feedback stuff
     let feedbackEl = dom.create('div', 'summary-feedback bloc', [
@@ -77,7 +71,7 @@ class SummaryCtrl {
     this.detailsEl = dom.create('p',   'summary-details')
     this.revealEl  = dom.create('p',   'summary-reveal', '#@summary_see')
     this.actionsEl = dom.create('div', 'summary-actions bloc', this.actionButtons)
-    this.socialEl  = dom.create('div', 'summary-share bloc',   this.socialButtons)
+    this.socialEl  = dom.create('div', 'summary-share bloc',   [this.shareBtn])
 
     this.el = dom.create('div', 'summary view', [
       dom.create('div', 'view-bloc', [this.titleEl, this.detailsEl, this.revealEl]),
@@ -91,7 +85,8 @@ class SummaryCtrl {
    * Set up listeners
    */
   init () {
-    this.actionButtons.forEach(btn => btn.addEventListener('click', this.triggerAction.bind(this)))
+    this.actionButtons.forEach(btn => btn.addEventListener('click', this.triggerAction.bind(this)));
+    this.shareBtn.addEventListener('click', () => share(config.SOCIAL.MESSAGE, config.URL));
   }
 
   /**
@@ -110,7 +105,6 @@ class SummaryCtrl {
     this.detailsEl.textContent = summaryFeedback(isSuccess, attemptsCount)
     this.revealEl.classList[isSuccess ? 'add' : 'remove']('hide')
 
-    this.updateSocialLinks()
     this.toggle(true)
   }
 
@@ -130,18 +124,6 @@ class SummaryCtrl {
   triggerAction (event) {
     let actionId = parseInt(event.currentTarget.getAttribute('rel') || 0, 10)
     this.onAction(actionId)
-  }
-
-  /**
-   * Update social links from the current content set
-   */
-  updateSocialLinks () {
-    this.socialButtons.forEach(item => {
-      let socialId = item.getAttribute('platform'),
-          socialObj = config.SOCIAL.PLATFORMS[socialId]
-
-      item.setAttribute('href', socialObj.URL(config.URL, config.SOCIAL.MESSAGE, config.SOCIAL.TAGS))
-    })
   }
 }
 

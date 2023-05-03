@@ -42,4 +42,15 @@ npm install
 
 # Build it
 npm run build
+
+# Test it locally
+# 1. Create a symlink called 'breaklock' pointing to 'public'
+ln -s public breaklock
+
+# 2. Run a local server
+python3 -m http.server .     # For python3
+python -m SimpleHTTPServer . # For python2
+http-server -p 8000 .        # For NPM pkg http-server
+
+# 3. Go to http://127.0.0.1:8000/breaklock/
 ```
