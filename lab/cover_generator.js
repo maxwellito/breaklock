@@ -186,7 +186,7 @@ class PatternSVG {
     let rect = document.createElementNS(this.SVG_NAMESPACE, 'rect')
     rect.setAttribute('width', width * 3 * this.GRID_GUTTER)
     rect.setAttribute('height', height * 3 * this.GRID_GUTTER)
-    rect.setAttribute('fill', '#14171b')
+    rect.setAttribute('fill', '#000000')
     this.el.appendChild(rect)
     return rect
   }

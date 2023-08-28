@@ -41,7 +41,7 @@ const config = {
   URL: 'https://maxwellito.github.io/breaklock/',
   COLORS: {
     BRIGHT:  '#ffffff',
-    DARK:    '#14171b',
+    DARK:    '#000000',
     SUCCESS: '#116699',
     ERROR:   '#ff0000'
   },
