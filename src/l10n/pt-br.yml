@@ -1,0 +1,62 @@
+airport_charlist: abcdefghijklmnopqrstuvwxyz0123456789 _*%!?#/\\|@
+attribution: por <a href="https://twitter.com/mxwllt"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-maxwellito"></use></svg></a> / on <a href="https://github.com/maxwellito/breaklock"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use></svg></a>
+button_abort: CANCELAR
+button_easy: Fácil
+button_hard: Difícil
+button_instructions: INSTRUÇÕES
+button_medium: Médio
+button_start: INICIAR
+connect_first: Conectar
+connect_second: pontos
+description: Um híbrido de Mastermind e o padrão de bloqueio do Android. Um jogo que você vai amar odiar.
+description_black: um ponto ocorre no padrão, mas na ordem errada
+description_difficulty: A configuração de dificuldade altera a quantidade de pontos a conectar. Fácil são 4 pontos, médio são 5 pontos e difícil são 6 pontos.
+description_game: Ligue os pontos para encontrar o padrão de bloqueio. Após cada tentativa, o jogo dirá quantos pontos você acertou.
+description_white: um ponto ocorre no padrão e está na ordem correta
+feedback_success_first: Bloqueio encontrado em
+feedback_success_second: tentativas.
+feedback_fail: Desculpe, você não conseguiu desta vez.
+label_success: Sucesso!
+label_fail: Falhou!
+label_goodluck: Boa sorte!
+lang_code: pt-br
+mode_challenge: Desafio
+mode_challenge_description: O modo desafio lhe dá apenas 10 tentativas para vencer
+mode_countdown: Contagem regressiva
+mode_countdown_description: Resolva o jogo em um minuto, sem limite de tentativas
+mode_practice: Praticar
+mode_practice_description: Sem pressão, apenas descubra e pratique seu jogo
+name_app: BreakLock
+quote_success00: Foi pura sorte, nada mais. Pare de sonhar.
+quote_success01: Você teve sorte, sem ficar acordado a noite toda.
+quote_success02: Sem mérito. Absolutamente nenhum.
+quote_success03: Isso foi de graça.
+quote_success04: Nem gastou cérebro nessa.
+quote_success05: Nem pense em twittar sua pontuação.
+quote_success06: Catapimbas!! Essa foi perto.
+quote_success07: Trabalho honesto, com um pouco de sorte.
+quote_success08: Muito bom!
+quote_success09: Finalmente você conseguiu!
+quote_success10: Tentar padrões aleatórios não é uma estratégia...
+quote_success11: Isso foi loooooongo.
+quote_success12: Pelo menos você conseguiu.
+quote_success13: Você deve odiar este jogo agora.
+quote_success14: Espero que você não tenha trapaceado.
+quote_success15: Sua dedicação é impressionante.
+quote_success16: Lógica não encontrada.
+quote_success17: Sem comentários.
+quote_fail00: Eu acredito que há algum trabalho a ser feito.
+quote_fail01: Você entende o jogo? Não leve para o lado pessoal, eu tenho dificuldade em explicá-lo.
+quote_fail02: Um dia você vai conseguir...
+quote_fail03: Não é engraçado para você, mas é para mim ;)
+quote_fail04: Não se estresse, você vai conseguir.
+quote_fail05: Se não aguenta, não desce pro play!
+quote_fail06: Mesmo que você perca na batalha, se superar o que fez antes, você se superou.
+quote_fail07: PIFOU! Insira uma moeda e tente novamente.
+special_css: <style></style>
+summary_see: Por favor, selecione uma opção.
+summary_action_solution: SOLUÇÃO
+summary_action_new_game: NOVO JOGO
+summary_action_back_home: VOLTAR AO INÍCIO
+tweet_feedback: Tweet-me seu feedback em
+share: Compartilhar
