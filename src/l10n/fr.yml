@@ -8,22 +8,22 @@ button_medium: Moyen
 button_start: START_
 connect_first: Connecte
 connect_second: points
-description: Un melange de Mastermind et l’écran de verrouillage d’Android. Un jeu vous allez adorer detester.
+description: Un mélange entre Mastermind et l’écran de verrouillage d’Android. Un jeu que vous allez adorer détester.
 description_black: un point est dans la combinaison mais pas dans le bon ordre
 description_difficulty: Le paramètre de difficulté fait varier le nombre de points dans la combinaison à trouver. Facile est en 4 points, moyen est en 5 points et difficile est en 6 points.
-description_game: Reliez les points pour trouver la combinaison secrete. Après chaque essai le jeu vous informera du nombre de points correctement placé.
-description_white: un point de la combinaison est au bon endroit et dans le bon ordre
+description_game: Reliez les points pour trouver la combinaison secrète. Après chaque essai le jeu vous informera du nombre de points correctement placés.
+description_white: un point est dans la combinaison et est dans le bon ordre
 feedback_success_first: Combinaison trouvée en
 feedback_success_second: essais.
-feedback_fail: Désolé, ca n'a pas marché.
-label_success: Trouvé!
-label_fail: Echec!
-label_goodluck: Bonne chance!_
+feedback_fail: Désolé, ça n'a pas marché.
+label_success: Trouvé !
+label_fail: Echec !
+label_goodluck: Bonne chance !_
 lang_code: fr
 mode_challenge: Challenge
-mode_challenge_description: Le mode challenge vous donne droit a 10 essais (et pas un de plus) mais sans limite de temps
+mode_challenge_description: Le mode challenge vous donne droit à 10 essais (et pas un de plus) pour gagner
 mode_countdown: Minuteur
-mode_countdown_description: Trouve la combinaison secrete en moins d’une minute, mais le nombre d’essais est illimité
+mode_countdown_description: Trouve la combinaison secrète en moins d’une minute, mais le nombre d’essais est illimité
 mode_practice: Entraînement
 mode_practice_description: Pas de pression, prenez le temps de découvrir le jeu et d’affiner votre technique
 name_app: BreakLock
@@ -32,26 +32,26 @@ quote_success01: Vous avez êtes chanceux.
 quote_success02: Aucun mérite. Absolument aucun.
 quote_success03: C’était offert sur un plateau d’argent.
 quote_success04: Absolument aucune synapse n'a été utilisé durant cette partie.
-quote_success05: N’osez meme pas tweeter votre score.
-quote_success06: Damn son!! C’était limite.
+quote_success05: N’osez même pas tweeter votre score.
+quote_success06: Damn son !! C’était limite.
 quote_success07: Semble légitime, avec un peu de chance.
-quote_success08: Pas mal!
-quote_success09: Dur! Mais vous l’avez réussi!
+quote_success08: Pas mal !
+quote_success09: Dur ! Mais vous l’avez réussi !
 quote_success10: Essayer des combinaisons aléatoire ne constitue pas une bonne stratégie...
 quote_success11: C’était loooooonnnnnnng...
 quote_success12: Au moins vous avez réussi.
 quote_success13: Je parie que vous détestez ce jeu dès à présent.
-quote_success14: J’espère que vous avez pas triché.
+quote_success14: J’espère que vous n'avez pas triché.
 quote_success15: Votre dévouement est impressionnant.
 quote_success16: Logique absente.
 quote_success17: Sans commentaires.
-quote_fail00: Ya du travail...
-quote_fail01: Vous avez compris le jeu? Ne le prenez pas personnellement, mais vous me faites douter.
+quote_fail00: Y'a du travail...
+quote_fail01: Vous avez compris le jeu ? Ne le prenez pas personnellement, mais vous me faites douter.
 quote_fail02: Vous y arriverez un jour...
-quote_fail03: C’est pas marrant pour vous, mais ca l’est énormément pour moi ;)
+quote_fail03: C’est pas marrant pour vous, mais ça l’est énormément pour moi ;)
 quote_fail04: Pas de stress, vous allez y arriver.
-quote_fail05: C’est laborieux tout ca.
-quote_fail06: Il faudrait considérer utiliser ses neurones! C’est pas Candy Crush ici!
+quote_fail05: C’est laborieux tout ça.
+quote_fail06: Il faudrait penser à utiliser ses neurones ! C’est pas Candy Crush ici !
 quote_fail07: Belle démonstration d’une partie de Kamoulox.
 special_css: <style></style>
 summary_see: Sélectionnez une option
