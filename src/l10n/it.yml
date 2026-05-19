@@ -7,38 +7,38 @@ button_instructions: ISTRUZIONI
 button_medium: Media
 button_start: INIZIA_
 connect_first: Connetti
-connect_second: i punti
+connect_second: punti
 description: Un ibrido tra Mastermind e il codice sequenza di Android. Un gioco che amerai odiare.
 description_black: un punto è presente nella combinazione, ma non si trova nella posizione corretta
-description_difficulty: L\'impostazione della difficoltà cambia il numero di punti da connettere. Facile ha 4 punti, media ha 5 punti e difficile ha 6 punti.
+description_difficulty: L'impostazione della difficoltà cambia il numero di punti da connettere. Facile ha 4 punti, media ha 5 punti e difficile ha 6 punti.
 description_game: Unisci i punti per trovare la combinazione. Dopo ogni tentativo, il gioco ti dirà quanti punti hai collegato correttamente.
 description_white: un punto è presente nella combinazione e si trova nella posizione corretta
 feedback_success_first: Combinazione trovata in
 feedback_success_second: tentativi.
 feedback_fail: Mi dispiace, non ce l\'hai fatta questa volta.
-label_success: Successo!
-label_fail: Fallimento!
+label_success: Congratulazioni!
+label_fail: Che peccato!
 label_goodluck: Buona fortuna!_
 lang_code: it
 mode_challenge: Sfida
 mode_challenge_description: La modalità sfida da\' solo 10 tentativi per vincere
 mode_countdown: A tempo
-mode_countdown_description: Trova la combinazione in 10 secondi, con tentativi illimitati
+mode_countdown_description: Trova la combinazione in 1 minuto, con tentativi illimitati
 mode_practice: Allenamento
 mode_practice_description: Niente pressione, fai pratica e allenati nel gioco
 name_app: BreakLock
 quote_success00: Quella era pura fortuna, nient\'altro. Smetti di sognare.
 quote_success01: Sei stato fortunato, senza stare sveglio tutta la notte.
 quote_success02: Nessun merito. Assolutamente nessuno.
-quote_success03: Quello ti è stato dato su un piatto di argento.
+quote_success03: Ti è stata data su un piatto di argento.
 quote_success04: Assolutamente nessuna sinapsi è stata usata durante questa partita.
 quote_success05: Non permetterti nemmeno di postare il tuo punteggio.
-quote_success06: Perdirindina!! Ti sei salvato all'ultimo.
+quote_success06: Perdirindina!! Ti sei salvato all\'ultimo.
 quote_success07: Sembra plausibile, con un po\' di fortuna.
 quote_success08: Molto bene!
 quote_success09: Ce l\'hai fatta!
-quote_success10: Provare combinazioni casuali non è una strategia...
-quote_success11: Quello è stato luuuuuuuuungo.
+quote_success10: Usare combinazioni casuali non è una strategia...
+quote_success11: Ci hai messo mooooooooolto.
 quote_success12: Almeno ce l\'hai fatta.
 quote_success13: Dovresti odiare questo gioco ora.
 quote_success14: Spero che tu non abbia barato.
@@ -46,17 +46,17 @@ quote_success15: La tua dedizione è incredibile.
 quote_success16: Logica non trovata.
 # Avrei voluto aggiungere `404:` alla frase qui sopra, ma non riesco a farlo senza sminchiare il codice. Se lo farai tu, o viaggiatore, buona fortuna!
 quote_success17: No comment.
-quote_fail00: Credo che ci sia un po\' di lavoro da fare.
+quote_fail00: Credo che tu debba allenarti un po'.
 quote_fail01: Riesci a capire il gioco? Non prenderla sul personale, faccio fatica a spiegarlo.
 quote_fail02: Un giorno ce la farai...
 quote_fail03: Non è divertente per te, ma lo è per me ;)
 quote_fail04: Non preoccuparti, ce la farai.
 quote_fail05: Se vuoi evitare la lotta, evita l'erba alta!
 quote_fail06: Anche se perdi in battaglia, se superi ciò che hai fatto prima, superi te stesso.
-quote_fail07: TILT! Inserisci un gettone e prova di nuovo.
+quote_fail07: TILT! Inserisci un\'altra moneta e prova di nuovo.
 special_css: <style></style>
 summary_see: Scegli un\'opzione.
-summary_action_solution: RISOLUZIONE
+summary_action_solution: MOSTRA_RISOLUZIONE
 summary_action_new_game: NUOVA_PARTITA
 summary_action_back_home: TORNA_INDIETRO
 tweet_feedback: Inviami il tuo feedback a
