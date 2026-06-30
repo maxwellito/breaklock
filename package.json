@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/maxwellito/breaklock",
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.5",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
     "babel-loader": "^10.1.1",
     "css-loader": "^7.1.4",
     "fs-extra": "^11.3.5",
